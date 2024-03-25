@@ -20,7 +20,7 @@ function dataCalc(data) {
 
 function giveCountryAColor(year, countryWithCount, themeColor) {
     paths.forEach((path) => {
-        path.setAttribute("style", `fill: #ECECEC`);
+        path.setAttribute("style", `rgb(124, 124, 124)`);
     });
     let highestNumber = 1;
     for (const [country, count] of Object.entries(countryWithCount)) {
