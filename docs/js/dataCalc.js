@@ -19,6 +19,7 @@ function dataCalc(data) {
 }
 
 function giveCountryAColor(year, countryWithCount, themeColor) {
+    const descOfSvg = document.getElementById("my-desc");
     paths.forEach((path) => {
         path.setAttribute("style", `rgb(124, 124, 124)`);
     });
@@ -28,6 +29,7 @@ function giveCountryAColor(year, countryWithCount, themeColor) {
             highestNumber = count;
         }
     }
+    const visitedCountries = [];
     for (const [country, count] of Object.entries(countryWithCount)) {
         // console.log(`country: ${country}, count: ${count}`);
         paths.forEach((path) => {
@@ -62,12 +64,17 @@ function giveCountryAColor(year, countryWithCount, themeColor) {
                 }
             }
         });
+        visitedCountries.push(`${country} with ${count} visitors`);
     }
     countryCodes.forEach((code) => {
         if (!alreadyGotCountryCodes.includes(code) && code !== "SG") {
             console.error("missing:", code);
         }
     });
+    const visitedCountriesString = visitedCountries.join(", ");
+    descOfSvg.textContent = `The world map shows with the theme color where all the visitors come from. 
+    The team color is currently: purple. 
+    The colored countries are: ${visitedCountriesString}.`;
 }
 
 function hexToRgb(hex) {
