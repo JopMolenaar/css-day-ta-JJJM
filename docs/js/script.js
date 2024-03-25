@@ -8,11 +8,10 @@ Promise.all([yearsData, speakersData, talksData])
     .then(([data1, data2, data3]) => {
         allData.push(data1, data2, data3);
         logData(allData);
+        dataCalc(data1);
     })
     .catch((error) => {
         console.error(error);
     });
 
-function logData(data) {
-    console.log(data);
-}
+function logData(data) {}
