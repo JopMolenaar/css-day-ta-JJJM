@@ -1,0 +1,15 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "cSpell.ignorePaths": [".vscode", "LICENSE"],
+  "cSpell.enabled": true,
+  "cSpell.language": "en,nl",
+  "liveServer.settings.root": "/docs",
+  "liveServer.settings.mount": [["/css-day-ta-jjj/", "./docs"]],
+  "cSpell.ignoreWords": [],
+  "cSpell.words": []
+}
