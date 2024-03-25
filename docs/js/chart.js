@@ -1,59 +1,86 @@
 initChart()
 
-function initChart() {
-  const ctx = document.getElementById('timeline-chart')
+async function initChart() {
+  try {
+    const ctx = document.getElementById('timeline-chart')
 
-  const data = getData()
+    const data = await getData()
 
-  new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: data.labels,
-      datasets: [
-        {
-          label: 'Attendees',
-          data: data.nrOfAttendees,
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: data.labels,
+        datasets: [
+          {
+            label: 'Attendees',
+            data: data.nrOfAttendees,
+          },
+          {
+            label: 'Price',
+            data: data.prices,
+          },
+          {
+            label: 'Views',
+            data: data.views,
+            yAxisID: 'y1',
+          },
+        ],
+      },
+      options: {
+        aspectRatio: 4,
+        plugins: {
+          tooltip: {
+            interset: true,
+          },
         },
-        {
-          label: 'Price',
-          data: data.prices,
+        scales: {
+          x: {
+            display: false,
+          },
+          y: {
+            display: false,
+          },
+          y1: {
+            type: 'linear',
+            display: false,
+            position: 'right',
+          },
         },
-        {
-          label: 'Views (x 100)',
-          data: data.views,
-        },
-      ],
-    },
-    options: {
-      aspectRatio: 4,
-    },
-  })
+      },
+    })
 
-  setFallback(ctx, data)
+    setFallback(ctx, data)
+  } catch (e) {
+    console.error(e)
+  }
 }
 
 /**
  * Gets data for the chart
- * @returns {{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}} The data
+ * @returns {Promise<{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}>} The data
  */
-function getData() {
-  const yearStart = 2013
-  const nrOfYears = 10
+async function getData() {
+  try {
+    const result = await fetch('https://cssday.nl/data.json')
 
-  const labels = Array.from({ length: nrOfYears }, (_, i) => `${yearStart + i}`)
-  const nrOfAttendees = Array.from({ length: nrOfYears }, () =>
-    Math.floor(Math.random() * 434)
-  )
+    /**
+     * @type {Record<string, {price: number; attendees: {count: number}; talks: {video: {views: number}}[]}>}
+     */
+    const data = await result.json()
 
-  const prices = Array.from({ length: nrOfYears }, () =>
-    Math.floor(Math.random() * 675)
-  )
+    const labels = Object.keys(data)
+    const nrOfAttendees = labels.map((label) => data[label].attendees.count)
+    const prices = labels.map((label) => data[label].price)
+    const views = labels.map((label) =>
+      data[label].talks.reduce((acc, talk) => acc + (talk.video?.views ?? 0), 0)
+    )
 
-  const views = Array.from({ length: nrOfYears }, () =>
-    Math.floor(Math.random() * 200)
-  )
+    return { labels, nrOfAttendees, prices, views }
+  } catch (e) {
+    console.error(e)
+  }
 
-  return { labels, nrOfAttendees, prices, views }
+  return { labels: [], nrOfAttendees: [], prices: [], views: [] }
 }
 
 /**
