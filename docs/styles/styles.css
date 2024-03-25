@@ -58,36 +58,6 @@ body {
   }
 }
 
-@media screen and (width > 540px) {
-
-  @media screen and (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: scroll()) {
-      .timeline_graph-cover {
-        display: block;
-        background-color: white;
-        position: absolute;
-        width: 100%;
-        right: 0;
-        animation-name: timeline-scroll;
-        animation-timeline: scroll();
-        animation-timing-function: linear;
-        transform-origin: right;
-      }
-    }
-  }
-
-  @keyframes timeline-scroll {
-    0% {
-      width: calc(100% - 8px);
-    }
-
-    100% {
-      width: 0%;
-    }
-  }
-
-}
-
 .timeline_nav {
   width: calc(100% + 2.5rem + 0.25rem);
   margin-left: -0.25rem;
@@ -133,4 +103,48 @@ body {
   color: black;
   padding: 0.5em;
   transform: rotate(30deg);
+}
+
+@media screen and (width > 540px) {
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      .timeline_graph-cover {
+        display: block;
+        background-color: white;
+        position: absolute;
+        width: 100%;
+        right: 0;
+        animation-name: timeline-scroll;
+        animation-timeline: scroll();
+        animation-timing-function: linear;
+        transform-origin: right;
+      }
+    }
+  }
+
+  .timeline_nav,
+  .timeline_graph {
+    transform: translateX(0);
+    animation: none;
+  }
+
+  .timeline_graph-cover {
+    width: calc(100% - 8px);
+    position: absolute;
+    top: 2em;
+    background-color: white;
+    height: calc(100% - 2em);
+  }
+
+  @keyframes timeline-scroll {
+    0% {
+      width: calc(100% - 8px);
+    }
+
+    100% {
+      width: 0%;
+    }
+  }
+
 }
