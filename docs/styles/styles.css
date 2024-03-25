@@ -25,8 +25,7 @@ body {
 .timeline_graph {
   position: relative;
   width: 90vw;
-  aspect-ratio: 4;
-  transform: translateX(calc(45vw - 8px));
+  aspect-ratio: 1/4;
 }
 
 .timeline_graph-cover {
@@ -38,33 +37,12 @@ body {
   height: 6em;
 }
 
-@media screen and (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: scroll()) {
-    .timeline_graph, .timeline_nav {
-      animation-name: timeline-scroll;
-      animation-timeline: scroll();
-      animation-timing-function: linear;
-    }
-  }
-}
-
-@keyframes timeline-scroll {
-  0% {
-    transfrom: translateX(calc(45vw - 8px));
-  }
-
-  100% {
-    transform: translateX(-55vw);
-  }
-}
-
 .timeline_nav {
   width: calc(100% + 2.5rem + 0.25rem);
   margin-left: -0.25rem;
   margin-right: -2.5rem;
   margin-top: 2em;
   min-width: fit-content;
-  transform: translateX(calc(45vw - 8px));
 }
 
 .timeline_list {
@@ -105,7 +83,37 @@ body {
   transform: rotate(30deg);
 }
 
+/* Timeline animation on mobile */
+@media screen and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .timeline_graph, .timeline_nav {
+      transform: translateX(calc(45vw - 8px));
+      animation-name: timeline-scroll;
+      animation-timeline: scroll();
+      animation-timing-function: linear;
+    }
+  }
+}
+
+@keyframes timeline-scroll {
+  0% {
+    transfrom: translateX(calc(45vw - 8px));
+  }
+
+  100% {
+    transform: translateX(-55vw);
+  }
+}
+
+/* Timeline animation on Desktop */
 @media screen and (width > 540px) {
+
+  /* Remove mobile animation */
+  .timeline_nav,
+  .timeline_graph {
+    transform: translateX(0);
+    animation: none;
+  }
 
   @media screen and (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: scroll()) {
@@ -123,17 +131,10 @@ body {
     }
   }
 
-  .timeline_nav,
-  .timeline_graph {
-    transform: translateX(0);
-    animation: none;
-  }
-
   .timeline_graph-cover {
     width: calc(100% - 8px);
     position: absolute;
     top: 2em;
-    background-color: white;
     height: calc(100% - 2em);
   }
 
@@ -146,5 +147,4 @@ body {
       width: 0%;
     }
   }
-
 }
