@@ -1,9 +1,23 @@
 body {
     margin: 0px;
+    font: 100% Source Code Pro, Inconsolata, Menlo, monospace;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0em 0em 0.5em 0em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+:root {
+    --box-height: 450px;
 }
 
 .chart {
-    height: 65vh;
+    height: calc(100vh - var(--box-height));
     display: block;
     background-color: cyan;
     left: 0;
@@ -15,28 +29,32 @@ body {
 
 .info {
     height: 100%;
-    margin-top: 65vh;
+    margin-top: calc(100vh - var(--box-height));
     width: 100%;
 }
 
 .data-current-year {
-    height: 60vh;
-    scroll-snap-type: y;
-    scroll-snap-align: start;
+    height: 79vh;
 }
 
 .data-current-year section {
-    height: 35vh;
+    height: 40vh;
+    min-height: var(--box-height);
     display: flex;
     flex-direction: row;
     position: sticky;
-    top: 65vh;
-    background-color: bisque;
+    top: calc(100vh - var(--box-height));
+    background-color: #ff0000;
 }
 
 .data-current-year section section {
-    height: 35vh;
+    height: 40vh;
+    min-height: var(--box-height);
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    color: #fff;
 }
 
 .data-current-year:nth-child(2) section {
@@ -45,4 +63,68 @@ body {
 
 .data-current-year:nth-child(3) section {
     background-color: green;
+}
+
+.bg-color {
+    --theme-color: #ff0000;
+    /* fill: var(--theme-color); */
+    fill: color-mix(in srgb, var(--theme-color), white 30%)
+}
+
+svg {
+    background-color: #fff;
+    border-radius: 2em;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+}
+
+.avatar {
+    width: 200px;
+}
+
+h2.color {
+    position: absolute;
+    top: 18%;
+    right: -85px;
+    transform: rotate(90deg);
+    font-size: 4em;
+}
+
+iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+}
+
+@media screen and (max-width: 1024px) {
+    .data-current-year section {
+        flex-direction: column;
+        top: 40vh;
+        height: 160vh;
+    }
+
+    .chart {
+        height: 40vh;
+    }
+
+    .info {
+        margin-top: 40vh;
+    }
+
+    .data-current-year {
+        height: calc(100% + 10em);
+    }
+
+    .data-current-year section section {
+        max-height: 40vh;
+    }
+
+    h2.color {
+        position: absolute;
+        top: 18%;
+        right: -89px;
+        transform: rotate(90deg);
+        font-size: 4em;
+    }
 }
