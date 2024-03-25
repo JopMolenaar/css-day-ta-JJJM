@@ -13,5 +13,3 @@ Promise.all([yearsData, speakersData, talksData])
     .catch((error) => {
         console.error(error);
     });
-
-function logData(data) {}

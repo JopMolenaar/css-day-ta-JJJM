@@ -28,13 +28,12 @@ function giveCountryAColor(year, countryWithCount, themeColor) {
             highestNumber = count;
         }
     }
-    // console.log(highestNumber);
     for (const [country, count] of Object.entries(countryWithCount)) {
         // console.log(`country: ${country}, count: ${count}`);
         paths.forEach((path) => {
             if (path.dataset.country) {
                 if (country === path.dataset.country) {
-                    const color1 = themeColor; // Red
+                    const color1 = themeColor;
                     const color2 = "#ffffff"; // White
 
                     // Define the mix ratio (e.g., 30% white)
@@ -42,7 +41,6 @@ function giveCountryAColor(year, countryWithCount, themeColor) {
                     if (path.dataset.country !== "NL") {
                         mixRatio = 0.7 - (count / highestNumber) * 2;
                     }
-                    // const mixRatio = highestNumber / count;
 
                     // Convert the colors to RGB values
                     const rgbColor1 = hexToRgb(color1);
