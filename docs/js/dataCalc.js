@@ -5,7 +5,7 @@ const yearButtons = document.querySelectorAll(".yearButton");
 function dataCalc(data) {
     localStorage.setItem("data", data);
     const localData = localStorage.getItem("data");
-    console.log(data);
+    // console.log(data);
     const countries = {};
     yearButtons.forEach((yearButton) => {
         yearButton.addEventListener("click", function () {
@@ -22,8 +22,15 @@ function giveCountryAColor(year, countryWithCount, themeColor) {
     paths.forEach((path) => {
         path.setAttribute("style", `fill: #ECECEC`);
     });
+    let highestNumber = 1;
     for (const [country, count] of Object.entries(countryWithCount)) {
-        console.log(`country: ${country}, count: ${count}`);
+        if (highestNumber < count) {
+            highestNumber = count;
+        }
+    }
+    // console.log(highestNumber);
+    for (const [country, count] of Object.entries(countryWithCount)) {
+        // console.log(`country: ${country}, count: ${count}`);
         paths.forEach((path) => {
             if (path.dataset.country) {
                 if (country === path.dataset.country) {
@@ -31,7 +38,11 @@ function giveCountryAColor(year, countryWithCount, themeColor) {
                     const color2 = "#ffffff"; // White
 
                     // Define the mix ratio (e.g., 30% white)
-                    const mixRatio = 0.1;
+                    let mixRatio = 0;
+                    if (path.dataset.country !== "NL") {
+                        mixRatio = 0.7 - (count / highestNumber) * 2;
+                    }
+                    // const mixRatio = highestNumber / count;
 
                     // Convert the colors to RGB values
                     const rgbColor1 = hexToRgb(color1);
@@ -56,7 +67,7 @@ function giveCountryAColor(year, countryWithCount, themeColor) {
     }
     countryCodes.forEach((code) => {
         if (!alreadyGotCountryCodes.includes(code) && code !== "SG") {
-            console.log("missing:", code);
+            console.error("missing:", code);
         }
     });
 }
