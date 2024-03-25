@@ -1,28 +1,33 @@
 const paths = document.querySelectorAll(`path`);
 let countryCodes = [];
 let alreadyGotCountryCodes = [];
+const yearButtons = document.querySelectorAll(".yearButton");
 function dataCalc(data) {
     localStorage.setItem("data", data);
     const localData = localStorage.getItem("data");
     console.log(data);
     const countries = {};
-    for (const [year, info] of Object.entries(data)) {
-        // console.log(
-        //     `${year}: days: ${info.days}, color: ${info.color.hex}, price: ${info.price}, attendees: ${info.attendees.count}, countries: ${info.attendees.countries} `
-        // );
-        giveCountryAColor(year, info.attendees.countries);
-    }
+    yearButtons.forEach((yearButton) => {
+        yearButton.addEventListener("click", function () {
+            // Call giveCountryAColor function with the desired year and other necessary data
+            const year = yearButton.innerHTML; // Example year
+            const countryWithCount = data[year].attendees.countries; // Example data for the year
+            const themeColor = data[year].color.hex; // Example theme color for the year
+            giveCountryAColor(year, countryWithCount, themeColor);
+        });
+    });
 }
 
-function giveCountryAColor(year, countryWithCount) {
+function giveCountryAColor(year, countryWithCount, themeColor) {
+    paths.forEach((path) => {
+        path.setAttribute("style", `fill: #ECECEC`);
+    });
     for (const [country, count] of Object.entries(countryWithCount)) {
         console.log(`country: ${country}, count: ${count}`);
         paths.forEach((path) => {
             if (path.dataset.country) {
                 if (country === path.dataset.country) {
-                    // path.classList.add("bg-color");
-
-                    const color1 = "#ff0000"; // Red
+                    const color1 = themeColor; // Red
                     const color2 = "#ffffff"; // White
 
                     // Define the mix ratio (e.g., 30% white)
@@ -38,9 +43,6 @@ function giveCountryAColor(year, countryWithCount) {
                     // Set the mixed color as the fill attribute of the path element
                     path.setAttribute("style", `fill: rgb(${mixedColor.r}, ${mixedColor.g}, ${mixedColor.b})`);
 
-                    // path.fill = "fill: color-mix(in srgb, var(--theme-color), color percentage)";
-                    // path.setAttribute("style", `fill: color-mix(in srgb, #ff0000), white 30% )`);
-                    // path.setAttribute("style", `fill: color-mix(in srgb, #ff0000), white 30% )`);
                     if (!alreadyGotCountryCodes.includes(country)) {
                         alreadyGotCountryCodes.push(country);
                     }
@@ -59,12 +61,6 @@ function giveCountryAColor(year, countryWithCount) {
     });
 }
 
-// Assuming 'path' is a reference to the SVG path element
-// const path = document.querySelector('path');
-
-// Define the colors to mix
-
-// Function to convert hex color to RGB object
 function hexToRgb(hex) {
     // Remove the '#' character if present
     hex = hex.replace("#", "");
