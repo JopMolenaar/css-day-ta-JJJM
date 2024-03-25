@@ -1,0 +1,91 @@
+/* Reset */
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 500vh; /* temporary to get some scroll */
+	font-family: system-ui, sans-serif;
+}
+
+/* Timeline styling */
+.timeline {
+	width: 100vw;
+	height: 65vh;
+	position: fixed;
+	background: white;
+}
+
+.timeline_graph-cover {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	animation-name: timeline-scroll;
+	animation-timeline: scroll();
+	animation-timing-function: linear;
+	background-color: white;
+	transform-origin: right;
+}
+
+.timeline_graph {
+	height: 100%;
+	width: 100vw;
+	position: absolute;
+	right: 0;
+	top: 0;
+	object-fit: contain;
+}
+
+@keyframes timeline-scroll {
+	0% {
+		transform: scaleX(1);
+	}
+	
+	100% {
+		transform: scaleX(0);
+	}
+}
+
+.timeline_list {
+	position: absolute;
+	display: flex;
+	list-style: none;
+	margin-top: 30vh;
+	margin-left: 5rem;
+	margin-right: 0rem;
+	padding: 0;
+	width: calc(100% - 5rem);
+	justify-content: space-between;
+}
+
+.timeline_list:before {
+	content: '';
+	position: absolute;
+	display: block;
+	top: -1em;
+	left: 0;
+	width: 100%;
+	height: .2em;
+	background-color: black;
+}
+
+.timeline_item:before {
+	position: absolute;
+	content: '';
+	top: calc(-1em - .5em + .1em);
+	background-color: black;
+	width: 1em;
+	display: block;
+	aspect-ratio: 1/1;
+	border-radius: 100%;
+}
+
+.timeline_link {
+	display: block;
+	color: black;
+	font-size: 1.2em;
+	padding: .5em;
+	transform: rotate(30deg);
+}
