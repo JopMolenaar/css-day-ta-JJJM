@@ -1,0 +1,48 @@
+body {
+    margin: 0px;
+}
+
+.chart {
+    height: 65vh;
+    display: block;
+    background-color: cyan;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+}
+
+.info {
+    height: 100%;
+    margin-top: 65vh;
+    width: 100%;
+}
+
+.data-current-year {
+    height: 60vh;
+    scroll-snap-type: y;
+    scroll-snap-align: start;
+}
+
+.data-current-year section {
+    height: 35vh;
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+    top: 65vh;
+    background-color: bisque;
+}
+
+.data-current-year section section {
+    height: 35vh;
+    flex: 1;
+}
+
+.data-current-year:nth-child(2) section {
+    background-color: purple;
+}
+
+.data-current-year:nth-child(3) section {
+    background-color: green;
+}
