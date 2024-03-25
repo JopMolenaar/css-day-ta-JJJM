@@ -11,39 +11,21 @@ async function initChart() {
       data: {
         labels: data.labels,
         datasets: [
-          {
-            label: 'Attendees',
-            data: data.nrOfAttendees,
-          },
-          {
-            label: 'Price',
-            data: data.prices,
-          },
-          {
-            label: 'Views',
-            data: data.views,
-            yAxisID: 'y1',
-          },
+          { label: 'Attendees', data: data.nrOfAttendees },
+          { label: 'Price', data: data.prices },
+          { label: 'Views', data: data.views, yAxisID: 'y1' },
         ],
       },
       options: {
         aspectRatio: 4,
-        plugins: {
-          tooltip: {
-            interset: true,
-          },
-        },
         scales: {
-          x: {
-            display: false,
-          },
-          y: {
-            display: false,
-          },
+          x: { display: false },
+          y: { display: false },
           y1: {
             type: 'linear',
             display: false,
             position: 'right',
+            grid: { drawOnChartArea: false },
           },
         },
       },
