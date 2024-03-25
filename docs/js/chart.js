@@ -32,6 +32,30 @@ async function initChart() {
     })
 
     setFallback(ctx, data)
+
+    window.addEventListener('resize', () => {
+      const timeline = document.querySelector('nav.timeline_nav')
+      const lastChild = timeline.querySelector('ul li:last-child')
+      const ctx = document.getElementById('timeline-chart')
+
+      const rem = parseInt(
+        window
+          .getComputedStyle(document.body.parentElement, null)
+          .getPropertyValue('font-size')
+          .replace('px', '')
+      )
+
+      console.log('timeline', timeline.offsetWidth)
+      console.log('child', lastChild.offsetWidth)
+
+      const width = timeline.offsetWidth - lastChild.offsetWidth
+      const height = `${Math.max(100, width / 4)}px`
+
+      ctx.style.width = `${width}px`
+      ctx.style.height = height
+      ctx.parentElement.style.width = `${width}px`
+      ctx.parentElement.style.height = height
+    })
   } catch (e) {
     console.error(e)
   }

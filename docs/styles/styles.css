@@ -1,90 +1,98 @@
 /* Reset */
 * {
-	margin: 0;
-	box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-	height: 500vh; /* temporary to get some scroll */
-	font-family: system-ui, sans-serif;
+  height: 500vh; /* temporary to get some scroll */
+  font-family: system-ui, sans-serif;
 }
 
 /* Timeline styling */
 .timeline {
-	width: 100%;
-	position: fixed;
-	background: white;
+  width: 100%;
+  position: fixed;
+  background: white;
 }
 
 .timeline_container {
-	position: relative;
-	width: 90%;
-	margin: 2em auto;
+  position: relative;
+  width: 90%;
+  margin: 2em auto;
+}
+
+.timeline_graph {
+  position: relative;
+  width: 90vw;
+  aspect-ratio: 4;
 }
 
 .timeline_graph-cover {
-	background-color: white;
-	width: 100%;
-	height: 90%;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	animation-name: timeline-scroll;
-	animation-timeline: scroll();
-	animation-timing-function: linear;
-	transform-origin: right;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  animation-name: timeline-scroll;
+  animation-timeline: scroll();
+  animation-timing-function: linear;
+  transform-origin: right;
 }
 
 @keyframes timeline-scroll {
-	0% {
-		width: calc(100% - 8px);
-	}
-	
-	100% {
-		width: 0%;
-	}
+  0% {
+    width: calc(100% - 8px);
+  }
+
+  100% {
+    width: 0%;
+  }
 }
 
 .timeline_nav {
-	width: calc(100% + 2.5rem + .25rem);
-	margin-left: -.25rem;
-	margin-right: -2.5rem;
-	margin-top: 2em;
+  width: calc(100% + 2.5rem + 0.25rem);
+  margin-left: -0.25rem;
+  margin-right: -2.5rem;
+  margin-top: 2em;
+  min-width: fit-content;
 }
 
 .timeline_list {
-	position: relative;
-	display: flex;
-	list-style: none;
-	padding: 0;
-	justify-content: space-between;
+  position: relative;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  min-width: fit-content;
+  justify-content: space-between;
 }
 
 .timeline_list:before {
-	content: '';
-	position: absolute;
-	display: block;
-	top: -1em;
-	left: 0;
-	width: 100%;
-	height: .2em;
-	background-color: black;
+  content: '';
+  position: absolute;
+  display: block;
+  top: -1em;
+  left: 0;
+  width: 100%;
+  height: 0.2em;
+  background-color: black;
 }
 
 .timeline_item:before {
-	position: absolute;
-	content: '';
-	top: calc(-1em - .5em + .1em);
-	background-color: black;
-	width: 1em;
-	display: block;
-	aspect-ratio: 1/1;
-	border-radius: 100%;
+  position: absolute;
+  content: '';
+  top: calc(-1em - 0.5em + 0.1em);
+  background-color: black;
+  width: 1em;
+  display: block;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
 }
 
 .timeline_link {
-	display: block;
-	color: black;
-	padding: .5em;
-	transform: rotate(30deg);
+  display: block;
+  color: black;
+  padding: 0.5em;
+  transform: rotate(30deg);
 }
