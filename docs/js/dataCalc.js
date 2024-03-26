@@ -177,14 +177,14 @@ async function cloneInfoSections(year, info, data) {
 	data[year].mc.forEach((singleMc) => {
 		const div = document.createElement('div');
 		const img = document.createElement('img');
-		const name = document.createElement('p');
-
+		const name = document.createElement('a');
 		if (singleMc.avatar) {
 			img.src = singleMc.avatar;
 		} else {
 			img.src = 'images/dummy-portrait.jpg';
 		}
 		img.alt = '';
+		name.href = singleMc.link;
 		name.textContent = singleMc.name + ' | MC';
 
 		div.appendChild(img);
