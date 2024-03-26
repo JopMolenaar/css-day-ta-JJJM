@@ -4,7 +4,14 @@ const dataPromise = fetchData()
 
 /**
  * Fetches the data
- * @returns {Promise<Record<string, {price: number; attendees: {count: number}; talks: {video: {views: number}}[]}> | null>} The data
+ * @returns {Promise<Record<string, {
+ * title: string;
+ * price: number;
+ * color: {name: string; hex: string};
+ * attendees: {count: number; countries: Record<string, number>};
+ * mc: {name: string; avatar: string | false}[];
+ * talks: {video: {'youtube-id': string; views: number} | false}[]
+ * }> | null>} The data
  */
 async function fetchData() {
 	try {

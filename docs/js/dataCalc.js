@@ -129,18 +129,20 @@ function cloneInfoSections(year, info, data) {
 	giveCountryAColor(year, countryWithCount, themeColor, map) // fill in the map colors
 }
 
-async function getMostWatchedVid(year) {
+/**
+ * Gets the most watched video of a given year
+ * @param {string} year The year
+ * @returns {string | null} The most watched video of the year
+ */
+async function getMostWatchedVideo(year) {
 	const data = await dataPromise
+	const videos = data[year].talks
+		.map((talk) => talk.video)
+		.filter((video) => !!video)
+		.sort((a, b) => b.views - a.views)
 
-	allVids = []
-
-	data[year].talks.forEach((talk) => {
-		allVids.push(talk.video)
-	})
-
-	allVids.sort((a, b) => b.views - a.views)
-
-	return allVids[0]['youtube-id']
+	if (videos.length === 0) return null
+	return videos[0]['youtube-id']
 }
 
-dataCalc() 
+dataCalc()
