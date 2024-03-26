@@ -1,7 +1,7 @@
 /**
  * @type {Promise<Record<string, {price: number; attendees: {count: number}; talks: {video: {views: number}}[]}> | null>} The data
  */
-const data = fetchData()
+const dataPromise = fetchData()
 
 /**
  * Fetches the data
@@ -9,8 +9,11 @@ const data = fetchData()
  */
 async function fetchData() {
 	try {
+		console.log('Fetching data...')
 		const result = await fetch('./../data/data.json')
-		return await result.json()
+		const data = await result.json()
+		console.log('Data fetched', data)
+		return data
 	} catch (e) {
 		console.error(e)
 		return null
