@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', async () => {
-	console.log('DOM loaded')
 	await buildNav()
 	initChart()
 })
 
 const buildNav = async () => {
-	const data = await getData()
+	const data = await getChartData()
 	console.log('data', data)
 
 	const template = document.getElementById('template_timeline_item')

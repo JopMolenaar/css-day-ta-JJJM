@@ -1,9 +1,10 @@
+'use strict'
+
 async function initChart() {
 	try {
-		console.log('init chart')
 		const ctx = document.getElementById('timeline-chart')
 
-		const data = await getData()
+		const data = await getChartData()
 
 		new Chart(ctx, {
 			type: 'line',
@@ -30,7 +31,7 @@ async function initChart() {
 			},
 		})
 
-		setFallback(ctx, data)
+		setChartFallback(ctx, data)
 
 		window.addEventListener('resize', () => {
 			const root = document.documentElement
@@ -73,11 +74,9 @@ async function initChart() {
  * Gets data for the chart
  * @returns {Promise<{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}>} The data
  */
-async function getData() {
+async function getChartData() {
 	try {
-		await data
-
-		console.log('Data loaded', data)
+		const data = await dataPromise
 
 		const labels = Object.keys(data)
 		const nrOfAttendees = labels.map((label) => data[label].attendees.count)
@@ -102,7 +101,7 @@ async function getData() {
  * @param {HTMLCanvasElement} ctx Canvas element
  * @param {{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}} data
  */
-function setFallback(ctx, data) {
+function setChartFallback(ctx, data) {
 	ctx.innerHTML = ''
 	data.labels.forEach((label, i) => {
 		const container = document.createElement('div')
