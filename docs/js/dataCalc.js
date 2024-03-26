@@ -2,24 +2,14 @@ let countryCodes = []
 let alreadyGotCountryCodes = []
 const yearButtons = document.querySelectorAll('.yearButton')
 
-async function main() {
+async function dataCalc() {
 	const data = await dataPromise
 	if (data) {
-		await dataCalc(data)
+		for (const [year, info] of Object.entries(data)) {
+			cloneInfoSections(year, info, data)
+		}
 	} else {
 		console.error('Failed to fetch data.')
-	}
-}
-main()
-
-async function dataCalc(data) {
-	if (!data) {
-		console.error('Data is null or undefined.')
-		return
-	}
-
-	for (const [year, info] of Object.entries(data)) {
-		cloneInfoSections(year, info, data)
 	}
 }
 
@@ -135,3 +125,5 @@ function cloneInfoSections(year, info, data) {
 
 	giveCountryAColor(year, countryWithCount, themeColor, map)
 }
+
+dataCalc()
