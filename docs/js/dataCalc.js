@@ -168,8 +168,11 @@ async function cloneInfoSections(year, info, data) {
         mc.appendChild(div)
     })
 
-    getMostWatchedVideo(year)
-    console.log(getMostWatchedVideo(year))
+
+    const videoId = await getMostWatchedVideo(year)
+    const iframe = firstClone.querySelector('iframe')
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?privacy_mode=1`
+    // console.log(videoId)
 
     // const mcName = firstClone.querySelector('.mc-name')
     // mcName.textContent = data[year].mc[0].name + ' | MC'
