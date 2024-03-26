@@ -16,8 +16,7 @@ const dataPromise = fetchData()
 async function fetchData() {
 	try {
 		console.debug('Fetching data...')
-		// TODO use 'https://cssday.nl/data.json' instead of './../data/data.json'
-		const result = await fetch('./data/data.json')
+		const result = await fetch('https://cssday.nl/data.json')
 		const data = await result.json()
 		console.debug('Data fetched', data)
 		return data
