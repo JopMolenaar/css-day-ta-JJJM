@@ -105,11 +105,15 @@ function cloneInfoSections(year, info, data) {
 	const infoSection = document.querySelector('.info')
 
 	const firstClone = template.content.cloneNode(true)
-	// console.log(firstClone);
 	const sections = firstClone.querySelectorAll('section > section')
 	sections.forEach((section) => {
 		section.style.background = info.color.hex
 	})
+
+	// TODO hier zoeken naar de elementen om the veranderen
+	// dan data[year]. iets wat je nodig hebt uit de data als textContent of url of src
+
+	// Some changes of the id in the svg in the template
 	const map = firstClone.querySelector('section > section svg')
 	const title = firstClone.querySelector('section > section svg title')
 	const desc = firstClone.querySelector('section > section svg desc')
@@ -118,12 +122,11 @@ function cloneInfoSections(year, info, data) {
 	map.setAttribute('aria-labelledby', `title-${year}`)
 	map.setAttribute('aria-describedby', `desc-${year}`)
 
-	const countryWithCount = data[year].attendees.countries // Example data for the year
-	const themeColor = data[year].color.hex // Example theme color for the year
+	const countryWithCount = data[year].attendees.countries // data for the year
+	const themeColor = data[year].color.hex // theme color for the year
 
-	infoSection.appendChild(firstClone)
-
-	giveCountryAColor(year, countryWithCount, themeColor, map)
+	infoSection.appendChild(firstClone) // append template to section
+	giveCountryAColor(year, countryWithCount, themeColor, map) // fill in the map colors
 }
 
 dataCalc()
