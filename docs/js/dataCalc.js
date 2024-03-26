@@ -13,7 +13,13 @@ async function dataCalc() {
 	}
 }
 
-function giveCountryAColor(year, countryWithCount, themeColor, svg) {
+async function giveCountryAColor(
+	year,
+	countryWithCount,
+	themeColor,
+	themeColorText,
+	svg
+) {
 	const paths = svg.querySelectorAll(`path`)
 	const descOfSvg = document.getElementById(`desc-${year}`)
 	paths.forEach((path) => {
@@ -61,7 +67,17 @@ function giveCountryAColor(year, countryWithCount, themeColor, svg) {
 				}
 			}
 		})
-		visitedCountries.push(`${country} with ${count} visitors`)
+		if (country !== 'UK') {
+			const result = await fetch(
+				`https://restcountries.com/v3.1/alpha/${country}`
+			) // https://restcountries.com/#endpoints-name
+			const fullNameCountry = await result.json()
+			visitedCountries.push(
+				`${fullNameCountry[0].name.common} with ${count} visitors`
+			)
+		} else {
+			visitedCountries.push(`${country} with ${count} visitors`)
+		}
 	}
 	countryCodes.forEach((code) => {
 		if (!alreadyGotCountryCodes.includes(code) && code !== 'SG') {
@@ -70,9 +86,8 @@ function giveCountryAColor(year, countryWithCount, themeColor, svg) {
 	})
 	const visitedCountriesString = visitedCountries.join(', ')
 	descOfSvg.textContent = `The world map shows with the theme color where all the visitors come from. 
-    The team color is currently: purple. 
+    The team color is currently: ${themeColorText}. 
     The colored countries are: ${visitedCountriesString}.`
-	// TODO purple needs to be the color out of the data
 }
 
 function hexToRgb(hex) {
@@ -122,11 +137,11 @@ function cloneInfoSections(year, info, data) {
 	map.setAttribute('aria-describedby', `desc-${year}`)
 
 	const countryWithCount = data[year].attendees.countries // data for the year
-	console.log(countryWithCount)
 	const themeColor = data[year].color.hex // theme color for the year
+	const themeColorText = info.color.name
 
 	infoSection.appendChild(firstClone) // append template to section
-	giveCountryAColor(year, countryWithCount, themeColor, map) // fill in the map colors
+	giveCountryAColor(year, countryWithCount, themeColor, themeColorText, map) // fill in the map colors
 	eventListenerButtons()
 }
 
@@ -145,3 +160,25 @@ async function getMostWatchedVid(year) {
 }
 
 dataCalc() 
+
+
+
+// const dataPromise = fetchData()
+
+// /**
+//  * Fetches the data
+//  * @returns {Promise<Record<string, {price: number; attendees: {count: number}; talks: {video: {views: number}}[]}> | null>} The data
+//  */
+// async function fetchData() {
+// 	try {
+// 		console.log('Fetching data...')
+// 		// TODO use 'https://cssday.nl/data.json' instead of './../data/data.json'
+// 		const result = await fetch('./../data/data.json')
+// 		const data = await result.json()
+// 		console.log('Data fetched', data)
+// 		return data
+// 	} catch (e) {
+// 		console.error(e)
+// 	}
+// 	return null
+// }

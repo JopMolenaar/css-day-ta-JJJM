@@ -27,10 +27,12 @@ function eventListenerButtons() {
 								}
 
 								const themeColor = info.color.hex // theme color for the year
+                                const themeColorText = info.color.name
 								giveCountryAColor(
 									year,
 									countryWithCount,
 									themeColor,
+									themeColorText,
 									map
 								)
 							}
