@@ -1,3 +1,5 @@
+'use strict'
+
 /**
  * @type {Promise<Record<string, {price: number; attendees: {count: number}; talks: {video: {views: number}}[]}> | null>} The data
  */

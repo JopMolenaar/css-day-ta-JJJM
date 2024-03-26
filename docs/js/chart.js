@@ -1,9 +1,10 @@
+'use strict'
+
 async function initChart() {
 	try {
-		console.log('init chart')
 		const ctx = document.getElementById('timeline-chart')
 
-		const data = await getData()
+		const data = await getChartData()
 
 		new Chart(ctx, {
 			type: 'line',
@@ -73,7 +74,7 @@ async function initChart() {
  * Gets data for the chart
  * @returns {Promise<{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}>} The data
  */
-async function getData() {
+async function getChartData() {
 	try {
 		const data = await dataPromise
 
