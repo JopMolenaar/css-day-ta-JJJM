@@ -1,10 +1,10 @@
 h1 {
-    font-size: 2em;
-    margin: 0em 0em 0.5em 0em;
+	font-size: 2em;
+	margin: 0em 0em 0.5em 0em;
 }
 
 h2 {
-    font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 :root {
@@ -12,9 +12,9 @@ h2 {
 }
 
 .info {
-    height: 100%;
-    margin-top: calc(100vh - var(--box-height));
-    width: 100%;
+	height: 100%;
+	margin-top: calc(100vh - var(--box-height));
+	width: 100%;
 }
 
 .data-current-year section {
@@ -36,29 +36,29 @@ h2 {
 }
 
 .data-current-year:nth-child(2) section {
-    background-color: purple;
+	background-color: purple;
 }
 
 .data-current-year:nth-child(3) section {
-    background-color: green;
+	background-color: green;
 }
 
 .bg-color {
-    --theme-color: #ff0000;
-    /* fill: var(--theme-color); */
-    fill: color-mix(in srgb, var(--theme-color), white 30%)
+	--theme-color: #ff0000;
+	/* fill: var(--theme-color); */
+	fill: color-mix(in srgb, var(--theme-color), white 30%);
 }
 
 svg {
-    background-color: #fff;
-    border-radius: 2em;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
+	background-color: #fff;
+	border-radius: 2em;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16/9;
 }
 
 .avatar {
-    width: 200px;
+	width: 200px;
 }
 
 h2.color {
@@ -70,9 +70,10 @@ h2.color {
 }
 
 iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16/9;
+	max-width: calc((40vh - 22px) * 16 / 9);
 }
 
 @media screen and (max-width: 1024px) {
@@ -90,13 +91,13 @@ iframe {
         margin-top: calc(100vh - var(--box-height));
     }
 
-    .data-current-year {
-        height: calc(100% + 10em);
-    }
+	.data-current-year {
+		height: calc(100% + 10em);
+	}
 
-    .data-current-year section section {
-        max-height: 40vh;
-    }
+	.data-current-year section section {
+		max-height: 40vh;
+	}
 
     h2.color {
         font-size: 4em;
