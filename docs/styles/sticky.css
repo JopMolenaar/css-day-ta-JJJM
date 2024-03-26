@@ -8,7 +8,7 @@ h2 {
 }
 
 :root {
-    --box-height: 50vh;
+	--box-height: 50vh;
 }
 
 .info {
@@ -18,21 +18,21 @@ h2 {
 }
 
 .data-current-year section {
-    height: 80vh;
-    min-height: var(--box-height);
-    display: flex;
-    flex-direction: row;
-    position: sticky;
-    top: calc(100vh - var(--box-height));
+	height: 80vh;
+	min-height: var(--box-height);
+	display: flex;
+	flex-direction: row;
+	position: sticky;
+	top: calc(100vh - var(--box-height));
 }
 
 .data-current-year section section {
-    height: var(--box-height);
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 2em;
-    color: #fff;
+	height: var(--box-height);
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 2em;
+	color: #fff;
 }
 
 .data-current-year:nth-child(2) section {
@@ -62,11 +62,11 @@ svg {
 }
 
 h2.color {
-    position: absolute;
-    top: .2em;
-    right: 0;
-    writing-mode: vertical-lr;
-    font-size: 3em;
+	position: absolute;
+	top: 0.2em;
+	right: 0;
+	writing-mode: vertical-lr;
+	font-size: 3em;
 }
 
 iframe {
@@ -77,19 +77,19 @@ iframe {
 }
 
 @media screen and (max-width: 1024px) {
-    .data-current-year section {
-        flex-direction: column;
-        top: calc(100vh - var(--box-height));
-        height: fit-content;
-    }
+	.data-current-year section {
+		flex-direction: column;
+		top: calc(100vh - var(--box-height));
+		height: fit-content;
+	}
 
-    .chart {
-        height: calc(100vh - var(--box-height);
-    }
+	.chart {
+		height: calc(100vh - var(--box-height));
+	}
 
-    .info {
-        margin-top: calc(100vh - var(--box-height));
-    }
+	.info {
+		margin-top: calc(100vh - var(--box-height));
+	}
 
 	.data-current-year {
 		height: calc(100% + 10em);
@@ -99,7 +99,7 @@ iframe {
 		max-height: 40vh;
 	}
 
-    h2.color {
-        font-size: 4em;
-    }
+	h2.color {
+		font-size: 4em;
+	}
 }
