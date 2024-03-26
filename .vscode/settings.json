@@ -5,11 +5,16 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "cSpell.ignorePaths": [".vscode", "LICENSE"],
+  "cSpell.ignorePaths": [
+    ".vscode",
+    "LICENSE",
+    "node_modules",
+    "package-lock.json"
+  ],
   "cSpell.enabled": true,
   "cSpell.language": "en,nl",
   "liveServer.settings.root": "/docs",
   "liveServer.settings.mount": [["/css-day-ta-jjj/", "./docs"]],
-  "cSpell.ignoreWords": [],
+  "cSpell.ignoreWords": ["transform"],
   "cSpell.words": []
 }
