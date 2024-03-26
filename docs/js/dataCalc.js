@@ -2,7 +2,13 @@ const paths = document.querySelectorAll(`path`);
 let countryCodes = [];
 let alreadyGotCountryCodes = [];
 const yearButtons = document.querySelectorAll(".yearButton");
+
 function dataCalc(data) {
+
+    for (const [year, info] of Object.entries(data)) {
+        cloneInfoSections(year, info)
+    }
+
     localStorage.setItem("data", data);
     const localData = localStorage.getItem("data");
     // console.log(data);
@@ -99,4 +105,21 @@ function mixColors(color1, color2, ratio) {
 
     // Return the mixed color as an RGB object
     return { r: mixedR, g: mixedG, b: mixedB };
+}
+
+function cloneInfoSections(year, info) {
+
+    const template = document.getElementById("template");
+    const infoSection = document.querySelector(".info");
+
+    const firstClone = template.content.cloneNode(true);
+    // console.log(firstClone);
+    const sections = firstClone.querySelectorAll("section > section");
+    sections.forEach((section) => {
+        section.style.background = info.color.hex;
+    });
+
+
+    infoSection.appendChild(firstClone);
+
 }
