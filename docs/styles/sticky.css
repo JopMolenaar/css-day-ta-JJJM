@@ -56,12 +56,8 @@ h2 {
     color: #fff;
 }
 
-.data-current-year:nth-child(2) section {
-    background-color: purple;
-}
-
-.data-current-year:nth-child(3) section {
-    background-color: green;
+.data-current-year:nth-child(1) section {
+    background-color: #25b175;
 }
 
 .bg-color {
@@ -85,9 +81,14 @@ svg {
 h2.color {
     position: absolute;
     top: 18%;
-    right: -85px;
+    right: -75px;
     transform: rotate(90deg);
     font-size: 3em;
+}
+
+.video {
+    width: 100%;
+    height: auto;
 }
 
 iframe {
