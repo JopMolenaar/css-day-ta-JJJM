@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-const dataPromise = fetchData()
+const dataPromise = fetchData();
 
 /**
  * Fetches the data
@@ -15,13 +15,13 @@ const dataPromise = fetchData()
  */
 async function fetchData() {
 	try {
-		console.debug('Fetching data...')
-		const result = await fetch('https://cssday.nl/data.json')
-		const data = await result.json()
-		console.debug('Data fetched', data)
-		return data
+		console.debug('Fetching data...');
+		const result = await fetch('https://cssday.nl/data.json');
+		const data = await result.json();
+		console.debug('Data fetched', data);
+		return data;
 	} catch (e) {
-		console.error(e)
-		return null
+		console.error(e);
+		return null;
 	}
 }
