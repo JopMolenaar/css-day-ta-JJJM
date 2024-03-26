@@ -12,8 +12,9 @@ const buildNav = async () => {
 	data.labels.forEach((label) => {
 		const listItem = template.content.cloneNode(true)
 		const a = listItem.querySelector('a')
+		const span = listItem.querySelector('span')
 		a.href = `#${label}`
-		a.textContent = label
+		span.textContent = label
 
 		navList.appendChild(listItem)
 	})
