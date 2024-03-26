@@ -97,11 +97,11 @@ body {
 
 @keyframes timeline-scroll {
   0% {
-    transfrom: translateX(calc(45vw - 8px));
+    transform: translateX(calc(45vw - 8px));
   }
 
   100% {
-    transform: translateX(-55vw);
+    transform: translateX(calc(-1 * var(--chart-width) + 45vw - 8px));
   }
 }
 

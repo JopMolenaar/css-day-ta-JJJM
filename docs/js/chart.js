@@ -32,6 +32,7 @@ async function initChart() {
     setFallback(ctx, data)
 
     window.addEventListener('resize', () => {
+      const root = document.documentElement
       const timeline = document.querySelector('nav.timeline_nav')
       const lastChild = timeline.querySelector('ul li:last-child')
       const ctx = document.getElementById('timeline-chart')
@@ -39,17 +40,24 @@ async function initChart() {
       const width = timeline.offsetWidth - lastChild.offsetWidth
       const height = `${Math.max(100, width / 4)}px`
 
+      root.style.setProperty('--chart-width', `${width}px`)
+      root.style.setProperty('--chart-height', `${height}px`)
+
       ctx.style.width = `${width}px`
       ctx.style.height = height
       ctx.parentElement.style.width = `${width}px`
       ctx.parentElement.style.height = height
     })
 
+    const root = document.documentElement
     const timeline = document.querySelector('nav.timeline_nav')
     const lastChild = timeline.querySelector('ul li:last-child')
 
     const width = timeline.offsetWidth - lastChild.offsetWidth
     const height = `${Math.max(100, width / 4)}px`
+
+    root.style.setProperty('--chart-width', `${width}px`)
+    root.style.setProperty('--chart-height', `${height}px`)
 
     ctx.style.width = `${width}px`
     ctx.style.height = height
