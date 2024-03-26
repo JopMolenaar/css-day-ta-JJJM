@@ -13,7 +13,13 @@ async function dataCalc() {
 	}
 }
 
-function giveCountryAColor(year, countryWithCount, themeColor, svg) {
+async function giveCountryAColor(
+	year,
+	countryWithCount,
+	themeColor,
+	themeColorText,
+	svg
+) {
 	const paths = svg.querySelectorAll(`path`)
 	const descOfSvg = document.getElementById(`desc-${year}`)
 	paths.forEach((path) => {
@@ -34,11 +40,9 @@ function giveCountryAColor(year, countryWithCount, themeColor, svg) {
 					const color1 = themeColor
 					const color2 = '#ffffff' // White
 
-					// Define the mix ratio (e.g., 30% white)
-					let mixRatio = 0
-					if (path.dataset.country !== 'NL') {
-						mixRatio = 0.7 - (count / highestNumber) * 2
-					}
+					// Define the mix ratio
+					let mixRatio
+					mixRatio = 0.7 - count / highestNumber
 
 					// Convert the colors to RGB values
 					const rgbColor1 = hexToRgb(color1)
@@ -63,7 +67,17 @@ function giveCountryAColor(year, countryWithCount, themeColor, svg) {
 				}
 			}
 		})
-		visitedCountries.push(`${country} with ${count} visitors`)
+		if (country !== 'UK') {
+			const result = await fetch(
+				`https://restcountries.com/v3.1/alpha/${country}`
+			) // https://restcountries.com/#endpoints-name
+			const fullNameCountry = await result.json()
+			visitedCountries.push(
+				`${fullNameCountry[0].name.common} with ${count} visitors`
+			)
+		} else {
+			visitedCountries.push(`United Kingdom with ${count} visitors`)
+		}
 	}
 	countryCodes.forEach((code) => {
 		if (!alreadyGotCountryCodes.includes(code) && code !== 'SG') {
@@ -72,7 +86,7 @@ function giveCountryAColor(year, countryWithCount, themeColor, svg) {
 	})
 	const visitedCountriesString = visitedCountries.join(', ')
 	descOfSvg.textContent = `The world map shows with the theme color where all the visitors come from. 
-    The team color is currently: purple. 
+    The team color is currently: ${themeColorText}. 
     The colored countries are: ${visitedCountriesString}.`
 }
 
@@ -124,9 +138,11 @@ function cloneInfoSections(year, info, data) {
 
 	const countryWithCount = data[year].attendees.countries // data for the year
 	const themeColor = data[year].color.hex // theme color for the year
+	const themeColorText = info.color.name
 
 	infoSection.appendChild(firstClone) // append template to section
-	giveCountryAColor(year, countryWithCount, themeColor, map) // fill in the map colors
+	giveCountryAColor(year, countryWithCount, themeColor, themeColorText, map) // fill in the map colors
+	eventListenerButtons()
 }
 
 /**
