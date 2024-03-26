@@ -4,18 +4,24 @@ const dataPromise = fetchData()
 
 /**
  * Fetches the data
- * @returns {Promise<Record<string, {price: number; attendees: {count: number}; talks: {video: {views: number}}[]}> | null>} The data
+ * @returns {Promise<Record<string, {
+ * title: string;
+ * price: number;
+ * color: {name: string; hex: string};
+ * attendees: {count: number; countries: Record<string, number>};
+ * mc: {name: string; avatar: string | false}[];
+ * talks: {video: {'youtube-id': string; views: number} | false}[]
+ * }> | null>} The data
  */
 async function fetchData() {
 	try {
-		console.log('Fetching data...')
-		// TODO use 'https://cssday.nl/data.json' instead of './../data/data.json'
-		const result = await fetch('./../data/data.json')
+		console.debug('Fetching data...')
+		const result = await fetch('https://cssday.nl/data.json')
 		const data = await result.json()
-		console.log('Data fetched', data)
+		console.debug('Data fetched', data)
 		return data
 	} catch (e) {
 		console.error(e)
+		return null
 	}
-	return null
 }

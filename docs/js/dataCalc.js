@@ -145,40 +145,20 @@ function cloneInfoSections(year, info, data) {
 	eventListenerButtons()
 }
 
-async function getMostWatchedVid(year) {
+/**
+ * Gets the most watched video of a given year
+ * @param {string} year The year
+ * @returns {string | null} The most watched video of the year
+ */
+async function getMostWatchedVideo(year) {
 	const data = await dataPromise
+	const videos = data[year].talks
+		.map((talk) => talk.video)
+		.filter((video) => !!video)
+		.sort((a, b) => b.views - a.views)
 
-	allVids = []
-
-	data[year].talks.forEach((talk) => {
-		allVids.push(talk.video)
-	})
-
-	allVids.sort((a, b) => b.views - a.views)
-
-	return allVids[0]['youtube-id']
+	if (videos.length === 0) return null
+	return videos[0]['youtube-id']
 }
 
-dataCalc() 
-
-
-
-// const dataPromise = fetchData()
-
-// /**
-//  * Fetches the data
-//  * @returns {Promise<Record<string, {price: number; attendees: {count: number}; talks: {video: {views: number}}[]}> | null>} The data
-//  */
-// async function fetchData() {
-// 	try {
-// 		console.log('Fetching data...')
-// 		// TODO use 'https://cssday.nl/data.json' instead of './../data/data.json'
-// 		const result = await fetch('./../data/data.json')
-// 		const data = await result.json()
-// 		console.log('Data fetched', data)
-// 		return data
-// 	} catch (e) {
-// 		console.error(e)
-// 	}
-// 	return null
-// }
+dataCalc()
