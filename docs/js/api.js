@@ -10,7 +10,7 @@ const dataPromise = fetchData()
 async function fetchData() {
 	try {
 		console.log('Fetching data...')
-		const result = await fetch('./../data/data.json')
+		const result = await fetch("https://cssday.nl/data.json")
 		const data = await result.json()
 		console.log('Data fetched', data)
 		return data
