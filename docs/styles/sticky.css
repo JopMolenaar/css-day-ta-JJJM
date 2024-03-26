@@ -1,105 +1,116 @@
 h1 {
-	font-size: 2em;
-	margin: 0em 0em 0.5em 0em;
+    font-size: 2em;
+    margin: 0em 0em 0.5em 0em;
 }
 
 h2 {
-	font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 :root {
-	--box-height: 50vh;
+    --box-height: 50vh;
 }
 
 .info {
-	height: 100%;
-	margin-top: calc(100vh - var(--box-height));
-	width: 100%;
+    height: 100%;
+    margin-top: calc(100vh - var(--box-height));
+    width: 100%;
 }
 
 .data-current-year section {
-	height: 80vh;
-	min-height: var(--box-height);
-	display: flex;
-	flex-direction: row;
-	position: sticky;
-	top: calc(100vh - var(--box-height));
+    height: 80vh;
+    min-height: var(--box-height);
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+    top: calc(100vh - var(--box-height));
 }
 
-.data-current-year section section {
-	height: var(--box-height);
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	padding: 2em;
-	color: #fff;
+.data-current-year>section>section {
+    height: var(--box-height);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    color: #fff;
 }
 
-.data-current-year:nth-child(2) section {
-	background-color: purple;
+.data-current-year>section>section>section {
+    display: flex;
+    flex-direction: column;
 }
 
-.data-current-year:nth-child(3) section {
-	background-color: green;
+.data-current-year:nth-child(1) section {
+    background-color: #25b175;
 }
 
 .bg-color {
-	--theme-color: #ff0000;
-	/* fill: var(--theme-color); */
-	fill: color-mix(in srgb, var(--theme-color), white 30%);
+    --theme-color: #ff0000;
+    /* fill: var(--theme-color); */
+    fill: color-mix(in srgb, var(--theme-color), white 30%);
 }
 
 svg {
-	background-color: #fff;
-	border-radius: 2em;
-	width: 100%;
-	height: auto;
-	aspect-ratio: 16/9;
+    background-color: #fff;
+    border-radius: 2em;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
 }
 
 .avatar {
-	width: 200px;
+    width: 200px;
 }
 
 h2.color {
-	position: absolute;
-	top: 0.2em;
-	right: 0;
-	writing-mode: vertical-lr;
-	font-size: 3em;
+    position: absolute;
+    top: 18%;
+    right: -75px;
+    transform: rotate(90deg);
+    font-size: 3em;
+    position: absolute;
+    top: 0.2em;
+    right: 0;
+    writing-mode: vertical-lr;
+    font-size: 3em;
+}
+
+.video {
+    width: 100%;
+    height: auto;
 }
 
 iframe {
-	width: 100%;
-	height: auto;
-	aspect-ratio: 16/9;
-	max-width: calc((40vh - 22px) * 16 / 9);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    max-width: calc((40vh - 22px) * 16 / 9);
 }
 
 @media screen and (max-width: 1024px) {
-	.data-current-year section {
-		flex-direction: column;
-		top: calc(100vh - var(--box-height));
-		height: fit-content;
-	}
+    .data-current-year section {
+        flex-direction: column;
+        top: calc(100vh - var(--box-height));
+        height: fit-content;
+    }
 
-	.chart {
-		height: calc(100vh - var(--box-height));
-	}
+    .chart {
+        height: calc(100vh - var(--box-height));
+    }
 
-	.info {
-		margin-top: calc(100vh - var(--box-height));
-	}
+    .info {
+        margin-top: calc(100vh - var(--box-height));
+    }
 
-	.data-current-year {
-		height: calc(100% + 10em);
-	}
+    .data-current-year {
+        height: calc(100% + 10em);
+    }
 
-	.data-current-year section section {
-		max-height: 40vh;
-	}
+    .data-current-year section section {
+        max-height: 40vh;
+    }
 
-	h2.color {
-		font-size: 4em;
-	}
+    h2.color {
+        font-size: 4em;
+    }
 }
