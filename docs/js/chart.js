@@ -45,7 +45,7 @@ async function initChart() {
 			const timeline = document.querySelector('nav.timeline_nav')
 			const lastChild = timeline.querySelector('ul li:last-child')
 
-			const width = timeline.offsetWidth - lastChild.offsetWidth
+			const width = timeline.offsetWidth - lastChild.offsetWidth + 12
 			const height = `${Math.max(100, width / 4)}px`
 
 			root.style.setProperty('--chart-width', `${width}px`)
@@ -61,7 +61,7 @@ async function initChart() {
 		const timeline = document.querySelector('nav.timeline_nav')
 		const lastChild = timeline.querySelector('ul li:last-child')
 
-		const width = timeline.offsetWidth - (lastChild?.offsetWidth ?? 0)
+		const width = timeline.offsetWidth - (lastChild?.offsetWidth ?? 0) + 12
 		const height = `${Math.max(100, width / 4)}px`
 
 		root.style.setProperty('--chart-width', `${width}px`)
