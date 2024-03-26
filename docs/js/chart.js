@@ -1,5 +1,6 @@
 async function initChart() {
 	try {
+		console.log('init chart')
 		const ctx = document.getElementById('timeline-chart')
 
 		const data = await getData()
@@ -74,12 +75,9 @@ async function initChart() {
  */
 async function getData() {
 	try {
-		const result = await fetch('./../data/data.json')
+		await data
 
-		/**
-		 * @type {Record<string, {price: number; attendees: {count: number}; talks: {video: {views: number}}[]}>}
-		 */
-		const data = await result.json()
+		console.log('Data loaded', data)
 
 		const labels = Object.keys(data)
 		const nrOfAttendees = labels.map((label) => data[label].attendees.count)
