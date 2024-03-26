@@ -5,21 +5,24 @@
 }
 
 body {
-	height: 500vh;
-	/* temporary to get some scroll */
-	font-family: system-ui, sans-serif;
+	font-family: Source Code Pro, Inconsolata, Menlo, monospace;
 }
 
 /* Timeline styling */
 .timeline {
+	display: block;
 	width: 100%;
+	height: calc(100vh - var(--box-height));
 	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
 	background: white;
 }
 
 .timeline_container {
 	position: relative;
-	width: 90%;
+	width: min(90%, calc(4* (100vh - var(--box-height) - 8em)));
 	margin: 2em auto;
 }
 
