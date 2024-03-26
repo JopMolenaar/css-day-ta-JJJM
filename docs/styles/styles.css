@@ -8,6 +8,16 @@
 
 body {
 	font-family: Source Code Pro, Inconsolata, Menlo, monospace;
+	timeline-scope: --section-1;
+}
+
+main {
+	scroll-snap-type: y mandatory;
+	height: 50vh;
+	overflow: scroll;
+	scroll-timeline: --section-1 y;
+	margin-top: calc(100vh - var(--box-height));
+	scroll-behavior: smooth;
 }
 
 header {
@@ -115,6 +125,7 @@ header {
 			animation-name: timeline-scroll;
 			animation-timeline: scroll();
 			animation-timing-function: linear;
+			animation-timeline: --section-1;
 		}
 	}
 }
@@ -146,9 +157,9 @@ header {
 				width: 100%;
 				right: 0;
 				animation-name: timeline-scroll;
-				animation-timeline: scroll();
 				animation-timing-function: linear;
 				transform-origin: right;
+				animation-timeline: --section-1;
 			}
 		}
 	}

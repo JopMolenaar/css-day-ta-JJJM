@@ -13,8 +13,11 @@ h3 {
 
 .info {
 	height: 100%;
-	margin-top: calc(100vh - var(--box-height));
 	width: 100%;
+}
+
+.data-current-year {
+	scroll-snap-align: end;
 }
 
 .data-current-year > section {
@@ -89,10 +92,6 @@ iframe {
 
 	.chart {
 		height: calc(100vh - var(--box-height));
-	}
-
-	.info {
-		margin-top: calc(100vh - var(--box-height));
 	}
 
 	.data-current-year {
