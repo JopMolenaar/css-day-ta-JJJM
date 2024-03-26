@@ -125,10 +125,19 @@ function cloneInfoSections(year, info, data) {
     const countryWithCount = data[year].attendees.countries // data for the year
     const themeColor = data[year].color.hex // theme color for the year
 
+    const themeColorText = firstClone.querySelector('.color')
+    themeColorText.textContent = themeColor
+
+    const titleEvent = firstClone.querySelector('.title')
+    titleEvent.textContent = data[year].title
+
     infoSection.appendChild(firstClone) // append template to section
 
     const dummyData = document.getElementById('dummy-data')
-    dummyData.remove()
+    if (dummyData) {
+        dummyData.remove()
+    }
+
     giveCountryAColor(year, countryWithCount, themeColor, map) // fill in the map colors
 }
 
