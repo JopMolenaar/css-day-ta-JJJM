@@ -14,35 +14,35 @@ async function dataCalc() {
 }
 
 async function giveCountryAColor(
-	year,
-	countryWithCount,
-	themeColor,
-	themeColorText,
-	svg
+    year,
+    countryWithCount,
+    themeColor,
+    themeColorText,
+    svg
 ) {
-	const paths = svg.querySelectorAll(`path`)
-	const descOfSvg = document.getElementById(`desc-${year}`)
-	paths.forEach((path) => {
-		path.setAttribute('style', `rgb(124, 124, 124)`)
-	})
-	let highestNumber = 1
-	for (const [country, count] of Object.entries(countryWithCount)) {
-		if (highestNumber < count) {
-			highestNumber = count
-		}
-	}
-	const visitedCountries = []
-	for (const [country, count] of Object.entries(countryWithCount)) {
-		// console.log(`country: ${country}, count: ${count}`);
-		paths.forEach((path) => {
-			if (path.dataset.country) {
-				if (country === path.dataset.country) {
-					const color1 = themeColor
-					const color2 = '#ffffff' // White
+    const paths = svg.querySelectorAll(`path`)
+    const descOfSvg = document.getElementById(`desc-${year}`)
+    paths.forEach((path) => {
+        path.setAttribute('style', `rgb(124, 124, 124)`)
+    })
+    let highestNumber = 1
+    for (const [country, count] of Object.entries(countryWithCount)) {
+        if (highestNumber < count) {
+            highestNumber = count
+        }
+    }
+    const visitedCountries = []
+    for (const [country, count] of Object.entries(countryWithCount)) {
+        // console.log(`country: ${country}, count: ${count}`);
+        paths.forEach((path) => {
+            if (path.dataset.country) {
+                if (country === path.dataset.country) {
+                    const color1 = themeColor
+                    const color2 = '#ffffff' // White
 
-					// Define the mix ratio
-					let mixRatio
-					mixRatio = 0.7 - count / highestNumber
+                    // Define the mix ratio
+                    let mixRatio
+                    mixRatio = 0.7 - count / highestNumber
 
                     // Convert the colors to RGB values
                     const rgbColor1 = hexToRgb(color1)
@@ -62,30 +62,30 @@ async function giveCountryAColor(
                     }
                 }
 
-				if (!countryCodes.includes(country)) {
-					countryCodes.push(country)
-				}
-			}
-		})
-		if (country !== 'UK') {
-			const result = await fetch(
-				`https://restcountries.com/v3.1/alpha/${country}`
-			) // https://restcountries.com/#endpoints-name
-			const fullNameCountry = await result.json()
-			visitedCountries.push(
-				`${fullNameCountry[0].name.common} with ${count} visitors`
-			)
-		} else {
-			visitedCountries.push(`United Kingdom with ${count} visitors`)
-		}
-	}
-	countryCodes.forEach((code) => {
-		if (!alreadyGotCountryCodes.includes(code) && code !== 'SG') {
-			console.error('missing:', code)
-		}
-	})
-	const visitedCountriesString = visitedCountries.join(', ')
-	descOfSvg.textContent = `The world map shows with the theme color where all the visitors come from. 
+                if (!countryCodes.includes(country)) {
+                    countryCodes.push(country)
+                }
+            }
+        })
+        if (country !== 'UK') {
+            const result = await fetch(
+                `https://restcountries.com/v3.1/alpha/${country}`
+            ) // https://restcountries.com/#endpoints-name
+            const fullNameCountry = await result.json()
+            visitedCountries.push(
+                `${fullNameCountry[0].name.common} with ${count} visitors`
+            )
+        } else {
+            visitedCountries.push(`United Kingdom with ${count} visitors`)
+        }
+    }
+    countryCodes.forEach((code) => {
+        if (!alreadyGotCountryCodes.includes(code) && code !== 'SG') {
+            console.error('missing:', code)
+        }
+    })
+    const visitedCountriesString = visitedCountries.join(', ')
+    descOfSvg.textContent = `The world map shows with the theme color where all the visitors come from. 
     The team color is currently: ${themeColorText}. 
     The colored countries are: ${visitedCountriesString}.`
 }
@@ -114,7 +114,7 @@ function mixColors(color1, color2, ratio) {
     return { r: mixedR, g: mixedG, b: mixedB }
 }
 
-function cloneInfoSections(year, info, data) {
+async function cloneInfoSections(year, info, data) {
     const template = document.getElementById('template')
     const infoSection = document.querySelector('.info')
 
@@ -143,6 +143,7 @@ function cloneInfoSections(year, info, data) {
     themeColorText.textContent = themeColor
 
     const titleEvent = firstClone.querySelector('.title')
+    console.log(titleEvent);
     titleEvent.textContent = data[year].title
 
     const mc = firstClone.querySelector('.mc')
@@ -216,14 +217,14 @@ function cloneInfoSections(year, info, data) {
  * @returns {string | null} The most watched video of the year
  */
 async function getMostWatchedVideo(year) {
-	const data = await dataPromise
-	const videos = data[year].talks
-		.map((talk) => talk.video)
-		.filter((video) => !!video)
-		.sort((a, b) => b.views - a.views)
+    const data = await dataPromise
+    const videos = data[year].talks
+        .map((talk) => talk.video)
+        .filter((video) => !!video)
+        .sort((a, b) => b.views - a.views)
 
-	if (videos.length === 0) return 'xfr64zoBTAQ'
-	return videos[0]['youtube-id']
+    if (videos.length === 0) return 'xfr64zoBTAQ'
+    return videos[0]['youtube-id']
 }
 
 dataCalc()
