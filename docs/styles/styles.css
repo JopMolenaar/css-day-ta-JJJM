@@ -1,3 +1,5 @@
+@import url('./chart.css');
+
 /* Reset */
 * {
 	margin: 0;
@@ -5,21 +7,28 @@
 }
 
 body {
-	height: 500vh;
-	/* temporary to get some scroll */
-	font-family: system-ui, sans-serif;
+	font-family: Source Code Pro, Inconsolata, Menlo, monospace;
+}
+
+header {
+	overflow: scroll;
 }
 
 /* Timeline styling */
 .timeline {
+	display: block;
 	width: 100%;
+	height: calc(100vh - var(--box-height));
 	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
 	background: white;
 }
 
 .timeline_container {
 	position: relative;
-	width: 90%;
+	width: min(90%, calc(4 * (100vh - var(--box-height) - 8em)));
 	margin: 2em auto;
 }
 
@@ -61,7 +70,18 @@ body {
 	background-color: black;
 }
 
-.timeline_item:before {
+.timeline_link {
+	display: block;
+	color: black;
+}
+
+.timeline_link span {
+	display: block;
+	transform: rotate(30deg);
+	padding: 0.5em;
+}
+
+.timeline_link:before {
 	position: absolute;
 	content: '';
 	top: calc(-1em - 0.5em + 0.1em);
@@ -72,24 +92,21 @@ body {
 	border-radius: 100%;
 }
 
-.timeline_link {
-	display: block;
-	color: black;
-	padding: 0.5em;
-	transform: rotate(30deg);
-}
-
 /* Timeline animation on mobile */
 @media screen and (prefers-reduced-motion: no-preference) {
 	@supports (animation-timeline: scroll()) {
+		header {
+			overflow: visible;
+		}
+
 		.timeline_graph-cover {
 			display: block;
 			width: 50vw;
 			position: fixed;
 			right: 0;
-			top: 4em;
+			top: 0;
 			background-color: white;
-			height: 6em;
+			height: 50vh;
 		}
 
 		.timeline_graph,
@@ -114,7 +131,6 @@ body {
 
 /* Timeline animation on Desktop */
 @media screen and (width > 540px) {
-
 	/* Remove mobile animation */
 	.timeline_nav,
 	.timeline_graph {
@@ -141,7 +157,7 @@ body {
 	.timeline_graph-cover {
 		width: calc(100% - 8px);
 		position: absolute;
-		top: 2em;
+		top: 0;
 		height: calc(100% - 2em);
 	}
 
