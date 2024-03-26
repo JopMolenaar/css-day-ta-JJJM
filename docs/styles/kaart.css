@@ -26,10 +26,10 @@ svg path {
 
 .button-wrapper button {
     all: unset;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.594);
     padding: 0.3rem;
     border-radius: 10px;
-    transition: 200ms;
+    transition: 100ms;
 }
 .button-wrapper button:hover {
     scale: 1.1;
@@ -41,6 +41,9 @@ svg path {
     border: solid white 3px;
 }
 .button-wrapper button:active {
-    scale: 0.9;
+    scale: 1;
     background-color: color-mix(in srgb, rgba(0, 0, 0, 0.694), currentcolor 20%);
+}
+.button-wrapper button.active {
+    background-color: black;
 }
