@@ -30,7 +30,7 @@ async function initChart() {
 			},
 		})
 
-		setFallback(ctx, data)
+		setChartFallback(ctx, data)
 
 		window.addEventListener('resize', () => {
 			const root = document.documentElement
@@ -75,9 +75,7 @@ async function initChart() {
  */
 async function getData() {
 	try {
-		await data
-
-		console.log('Data loaded', data)
+		const data = await dataPromise
 
 		const labels = Object.keys(data)
 		const nrOfAttendees = labels.map((label) => data[label].attendees.count)
@@ -102,7 +100,7 @@ async function getData() {
  * @param {HTMLCanvasElement} ctx Canvas element
  * @param {{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}} data
  */
-function setFallback(ctx, data) {
+function setChartFallback(ctx, data) {
 	ctx.innerHTML = ''
 	data.labels.forEach((label, i) => {
 		const container = document.createElement('div')
