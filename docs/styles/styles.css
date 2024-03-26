@@ -29,12 +29,7 @@ body {
 }
 
 .timeline_graph-cover {
-  width: 50vw;
-  position: fixed;
-  right: 0;
-  top: 4em;
-  background-color: white;
-  height: 6em;
+  display: none;
 }
 
 .timeline_nav {
@@ -86,6 +81,16 @@ body {
 /* Timeline animation on mobile */
 @media screen and (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: scroll()) {
+    .timeline_graph-cover {
+      display: block;
+      width: 50vw;
+      position: fixed;
+      right: 0;
+      top: 4em;
+      background-color: white;
+      height: 6em;
+    }
+
     .timeline_graph, .timeline_nav {
       transform: translateX(calc(45vw - 8px));
       animation-name: timeline-scroll;
