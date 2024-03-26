@@ -11,3 +11,36 @@ svg path {
     stroke: rgb(0, 0, 0);
     stroke-width: 1px;
 }
+
+.svg-section {
+    /* display: flex !important; */
+/* flex-direction: row; */
+    position: relative;
+}
+.button-wrapper {
+    width: fit-content;
+    position: absolute;
+    right: 50%;
+    transform: translate(50%);
+}
+
+.button-wrapper button {
+    all: unset;
+    background-color: black;
+    padding: 0.3rem;
+    border-radius: 10px;
+    transition: 200ms;
+}
+.button-wrapper button:hover {
+    scale: 1.1;
+    background-color: rgba(0, 0, 0, 0.694);
+}
+.button-wrapper button:focus-visible {
+    scale: 1.1;
+    background-color: rgba(0, 0, 0, 0.694);
+    border: solid white 3px;
+}
+.button-wrapper button:active {
+    scale: 0.9;
+    background-color: color-mix(in srgb, rgba(0, 0, 0, 0.694), currentcolor 20%);
+}
