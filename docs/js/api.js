@@ -1,8 +1,5 @@
 'use strict'
 
-/**
- * @type {Promise<Record<string, {price: number; attendees: {count: number}; talks: {video: {views: number}}[]}> | null>} The data
- */
 const dataPromise = fetchData()
 
 /**
@@ -19,6 +16,6 @@ async function fetchData() {
 		return data
 	} catch (e) {
 		console.error(e)
-		return null
 	}
+	return null
 }
