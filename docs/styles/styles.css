@@ -18,6 +18,8 @@ main {
 	scroll-timeline: --section-1 y;
 	margin-top: calc(100vh - var(--box-height));
 	scroll-behavior: smooth;
+	position: relative;
+	z-index: 999999;
 }
 
 header {
@@ -126,6 +128,7 @@ header {
 			animation-timeline: scroll();
 			animation-timing-function: linear;
 			animation-timeline: --section-1;
+			animation-fill-mode: both;
 		}
 	}
 }
@@ -160,6 +163,7 @@ header {
 				animation-timing-function: linear;
 				transform-origin: right;
 				animation-timeline: --section-1;
+				animation-fill-mode: both;
 			}
 		}
 	}

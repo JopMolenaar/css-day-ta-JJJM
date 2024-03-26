@@ -84,7 +84,7 @@ iframe {
 }
 
 @media screen and (max-width: 1024px) {
-	.data-current-year section {
+	.data-current-year > section {
 		flex-direction: column;
 		top: calc(100vh - var(--box-height));
 		height: fit-content;
@@ -96,10 +96,9 @@ iframe {
 
 	.data-current-year {
 		scroll-margin-top: 50vh;
-		height: calc(100% + 10em);
 	}
 
-	.data-current-year section section {
+	.data-current-year > section > section {
 		max-height: 40vh;
 	}
 
