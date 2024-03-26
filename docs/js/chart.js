@@ -134,7 +134,7 @@ function setChartFallback(ctx, data) {
 	})
 }
 
-const getOrCreateLegendList = (chart, id) => {
+function getOrCreateLegendList(_chart, id) {
 	const legendContainer = document.getElementById(id)
 	let listContainer = legendContainer.querySelector('ul')
 
@@ -153,7 +153,7 @@ const getOrCreateLegendList = (chart, id) => {
 
 const htmlLegendPlugin = {
 	id: 'htmlLegend',
-	afterUpdate(chart, args, options) {
+	afterUpdate(chart, _args, options) {
 		const ul = getOrCreateLegendList(chart, options.containerID)
 
 		// Remove old legend items
