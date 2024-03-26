@@ -1,6 +1,5 @@
 let countryCodes = []
 let alreadyGotCountryCodes = []
-const yearButtons = document.querySelectorAll('.yearButton')
 
 async function dataCalc() {
 	const data = await dataPromise
