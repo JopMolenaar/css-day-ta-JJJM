@@ -226,7 +226,7 @@ async function getMostWatchedVideo(year) {
         .filter((video) => !!video)
         .sort((a, b) => b.views - a.views)
 
-    if (videos.length === 0) return 'xfr64zoBTAQ'
+    if (videos.length === 0) return 'ub82Xb1C8os'
     return videos[0]['youtube-id']
 }
 
