@@ -1,0 +1,5 @@
+#legend-container {
+	position: fixed;
+	padding: 2em;
+	z-index: 2;
+}
