@@ -1,6 +1,4 @@
 svg {
-    /* width: 30vw; */
-    /* min-width: 25em; */
     height: auto;
     background-color: #c9c9c9;
     border-radius: 10%;
@@ -12,16 +10,12 @@ svg path {
     stroke-width: 1px;
 }
 
-.svg-section {
-    /* display: flex !important; */
-/* flex-direction: row; */
-    position: relative;
-}
 .button-wrapper {
-    width: fit-content;
-    position: absolute;
-    right: 50%;
-    transform: translate(50%);
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.2rem;
+    width: 100%;
+    justify-content: center;
 }
 
 .button-wrapper button {
