@@ -78,6 +78,8 @@ async function getChartData() {
 	try {
 		const data = await dataPromise
 
+		if (!data) throw new Error('No data')
+
 		const labels = Object.keys(data)
 		const nrOfAttendees = labels.map((label) => data[label].attendees.count)
 		const prices = labels.map((label) => data[label].price)

@@ -8,11 +8,11 @@ const dataPromise = fetchData()
  */
 async function fetchData() {
 	try {
-		console.log('Fetching data...')
+		console.debug('Fetching data...')
 		// TODO use 'https://cssday.nl/data.json' instead of './../data/data.json'
 		const result = await fetch('./../data/data.json')
 		const data = await result.json()
-		console.log('Data fetched', data)
+		console.debug('Data fetched', data)
 		return data
 	} catch (e) {
 		console.error(e)
