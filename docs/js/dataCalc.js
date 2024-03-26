@@ -105,7 +105,7 @@ function cloneInfoSections(year, info, data) {
     const infoSection = document.querySelector('.info')
 
     const firstClone = template.content.cloneNode(true)
-    const sections = firstClone.querySelectorAll('section > section')
+    const sections = firstClone.querySelectorAll('.data-current-year > section > section')
     sections.forEach((section) => {
         section.style.background = info.color.hex
     })
@@ -130,6 +130,59 @@ function cloneInfoSections(year, info, data) {
 
     const titleEvent = firstClone.querySelector('.title')
     titleEvent.textContent = data[year].title
+
+    const mc = firstClone.querySelector('.mc')
+
+
+    data[year].mc.forEach(singleMc => {
+        const div = document.createElement("div")
+        const img = document.createElement("img")
+        const name = document.createElement("p")
+
+        if (singleMc.avatar) {
+            img.src = singleMc.avatar
+        } else {
+            img.src = "images/dummy-portrait.jpg"
+        }
+        img.alt = ""
+        name.textContent = singleMc.name + ' | MC'
+
+        div.appendChild(img)
+        div.appendChild(name)
+
+        mc.appendChild(div)
+    })
+
+    getMostWatchedVideo(year)
+    console.log(getMostWatchedVideo(year))
+
+    // const mcName = firstClone.querySelector('.mc-name')
+    // mcName.textContent = data[year].mc[0].name + ' | MC'
+
+    // const avatar = firstClone.querySelector('.avatar')
+    // if (data[year].mc[0].avatar) {
+    //     avatar.src = data[year].mc[0].avatar
+    // }
+
+    // const mc = document.querySelector('.mc')
+
+    // // create a new div element
+    // const newDiv = document.createElement("div");
+
+    // // and give it some content
+    // const newContent = document.createTextNode("Hi there and greetings!");
+
+    // // add the text node to the newly created div
+    // newDiv.appendChild(newContent);
+
+    // // add the newly created element and its content into the DOM
+    // const currentDiv = firstClone.querySelector('.mc');
+    // currentDiv.parentElement.insertBefore(newDiv, currentDiv);
+
+
+
+
+
 
     infoSection.appendChild(firstClone) // append template to section
 

@@ -46,7 +46,7 @@ h2 {
     top: calc(100vh - var(--box-height));
 }
 
-.data-current-year section section {
+.data-current-year>section>section {
     height: 40vh;
     min-height: var(--box-height);
     flex: 1;
@@ -54,6 +54,11 @@ h2 {
     flex-direction: column;
     padding: 2em;
     color: #fff;
+}
+
+.data-current-year>section>section>section {
+    display: flex;
+    flex-direction: column;
 }
 
 .data-current-year:nth-child(1) section {
