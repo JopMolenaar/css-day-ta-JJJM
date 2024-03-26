@@ -1,9 +1,11 @@
 'use strict'
 
+/**
+ * Initializes the chart
+ */
 async function initChart() {
 	try {
 		const ctx = document.getElementById('timeline-chart')
-
 		const data = await getChartData()
 
 		new Chart(ctx, {
@@ -37,7 +39,6 @@ async function initChart() {
 			const root = document.documentElement
 			const timeline = document.querySelector('nav.timeline_nav')
 			const lastChild = timeline.querySelector('ul li:last-child')
-			const ctx = document.getElementById('timeline-chart')
 
 			const width = timeline.offsetWidth - lastChild.offsetWidth
 			const height = `${Math.max(100, width / 4)}px`
@@ -77,7 +78,6 @@ async function initChart() {
 async function getChartData() {
 	try {
 		const data = await dataPromise
-
 		if (!data) throw new Error('No data')
 
 		const labels = Object.keys(data)
@@ -101,7 +101,7 @@ async function getChartData() {
 /**
  * Sets the fallback for the chart
  * @param {HTMLCanvasElement} ctx Canvas element
- * @param {{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}} data
+ * @param {{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}} data Data for the chart
  */
 function setChartFallback(ctx, data) {
 	ctx.innerHTML = ''

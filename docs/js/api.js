@@ -16,6 +16,6 @@ async function fetchData() {
 		return data
 	} catch (e) {
 		console.error(e)
+		return null
 	}
-	return null
 }
