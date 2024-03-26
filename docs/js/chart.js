@@ -85,7 +85,10 @@ async function getData() {
 		const nrOfAttendees = labels.map((label) => data[label].attendees.count)
 		const prices = labels.map((label) => data[label].price)
 		const views = labels.map((label) =>
-			data[label].talks.reduce((acc, talk) => acc + (talk.video ? .views ? ? 0), 0)
+			data[label].talks.reduce(
+				(acc, talk) => acc + (talk.video?.views ?? 0),
+				0
+			)
 		)
 
 		return { labels, nrOfAttendees, prices, views }
