@@ -10,6 +10,10 @@ body {
 	font-family: Source Code Pro, Inconsolata, Menlo, monospace;
 }
 
+header {
+	overflow: scroll;
+}
+
 /* Timeline styling */
 .timeline {
 	display: block;
@@ -91,6 +95,10 @@ body {
 /* Timeline animation on mobile */
 @media screen and (prefers-reduced-motion: no-preference) {
 	@supports (animation-timeline: scroll()) {
+		header {
+			overflow: visible;
+		}
+
 		.timeline_graph-cover {
 			display: block;
 			width: 50vw;
