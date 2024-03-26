@@ -147,7 +147,6 @@ async function cloneInfoSections(year, info, data) {
 	themeColorText.textContent = themeColor
 
 	const titleEvent = firstClone.querySelector('.title')
-	console.log(titleEvent)
 	titleEvent.textContent = data[year].title
 
 	const mc = firstClone.querySelector('.mc')
@@ -174,30 +173,6 @@ async function cloneInfoSections(year, info, data) {
 	const videoId = await getMostWatchedVideo(year)
 	const iframe = firstClone.querySelector('iframe')
 	iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`
-	// console.log(videoId)
-
-	// const mcName = firstClone.querySelector('.mc-name')
-	// mcName.textContent = data[year].mc[0].name + ' | MC'
-
-	// const avatar = firstClone.querySelector('.avatar')
-	// if (data[year].mc[0].avatar) {
-	//     avatar.src = data[year].mc[0].avatar
-	// }
-
-	// const mc = document.querySelector('.mc')
-
-	// // create a new div element
-	// const newDiv = document.createElement("div");
-
-	// // and give it some content
-	// const newContent = document.createTextNode("Hi there and greetings!");
-
-	// // add the text node to the newly created div
-	// newDiv.appendChild(newContent);
-
-	// // add the newly created element and its content into the DOM
-	// const currentDiv = firstClone.querySelector('.mc');
-	// currentDiv.parentElement.insertBefore(newDiv, currentDiv);
 
 	infoSection.appendChild(firstClone) // append template to section
 
