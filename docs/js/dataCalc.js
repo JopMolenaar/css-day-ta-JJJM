@@ -76,7 +76,7 @@ async function giveCountryAColor(
 				`${fullNameCountry[0].name.common} with ${count} visitors`
 			)
 		} else {
-			visitedCountries.push(`${country} with ${count} visitors`)
+			visitedCountries.push(`United Kingdom with ${count} visitors`)
 		}
 	}
 	countryCodes.forEach((code) => {
