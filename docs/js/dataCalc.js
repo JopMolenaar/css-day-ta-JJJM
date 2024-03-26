@@ -126,6 +126,8 @@ async function cloneInfoSections(year, info, data) {
 		section.style.background = info.color.hex
 	})
 
+	firstClone.querySelector('section').id = year
+
 	// TODO hier zoeken naar de elementen om the veranderen
 	// dan data[year]. iets wat je nodig hebt uit de data als textContent of url of src
 
