@@ -61,7 +61,18 @@ body {
 	background-color: black;
 }
 
-.timeline_item:before {
+.timeline_link {
+	display: block;
+	color: black;
+}
+
+.timeline_link span {
+	display: block;
+	transform: rotate(30deg);
+	padding: 0.5em;	
+}
+
+.timeline_link:before {
 	position: absolute;
 	content: '';
 	top: calc(-1em - 0.5em + 0.1em);
@@ -70,13 +81,6 @@ body {
 	display: block;
 	aspect-ratio: 1/1;
 	border-radius: 100%;
-}
-
-.timeline_link {
-	display: block;
-	color: black;
-	padding: 0.5em;
-	transform: rotate(30deg);
 }
 
 /* Timeline animation on mobile */
