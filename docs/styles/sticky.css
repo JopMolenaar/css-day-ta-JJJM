@@ -19,7 +19,7 @@ h2 {
 .chart {
     height: calc(100vh - var(--box-height));
     display: block;
-    background-color: cyan;
+    background-color: rgb(255, 255, 255);
     left: 0;
     z-index: 9999;
     width: 100%;

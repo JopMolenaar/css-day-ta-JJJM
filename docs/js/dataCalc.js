@@ -130,16 +130,17 @@ function cloneInfoSections(year, info, data) {
 }
 
 async function getMostWatchedVid(year) {
+	const data = await dataPromise
 
-    const data = await dataPromise;
+	allVids = []
 
-    allVids = [];
+	data[year].talks.forEach((talk) => {
+		allVids.push(talk.video)
+	})
 
-    data[year].talks.forEach((talk) => {
-        allVids.push(talk.video);
-    });
+	allVids.sort((a, b) => b.views - a.views)
 
-    allVids.sort((a, b) => b.views - a.views);
-
-    return allVids[0]['youtube-id'];
+	return allVids[0]['youtube-id']
 }
+
+dataCalc() 
