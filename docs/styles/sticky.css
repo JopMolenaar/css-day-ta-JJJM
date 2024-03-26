@@ -19,7 +19,7 @@ h2 {
 .chart {
     height: calc(100vh - var(--box-height));
     display: block;
-    background-color: cyan;
+    background-color: rgb(255, 255, 255);
     left: 0;
     z-index: 9999;
     width: 100%;
@@ -44,7 +44,6 @@ h2 {
     flex-direction: row;
     position: sticky;
     top: calc(100vh - var(--box-height));
-    background-color: #ff0000;
 }
 
 .data-current-year section section {
@@ -88,7 +87,7 @@ h2.color {
     top: 18%;
     right: -85px;
     transform: rotate(90deg);
-    font-size: 4em;
+    font-size: 3em;
 }
 
 iframe {
@@ -101,7 +100,7 @@ iframe {
     .data-current-year section {
         flex-direction: column;
         top: 40vh;
-        height: 160vh;
+        height: fit-content;
     }
 
     .chart {

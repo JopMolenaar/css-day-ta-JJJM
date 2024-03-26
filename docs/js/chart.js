@@ -1,8 +1,10 @@
+'use strict'
+
 async function initChart() {
 	try {
 		const ctx = document.getElementById('timeline-chart')
 
-		const data = await getData()
+		const data = await getChartData()
 
 		new Chart(ctx, {
 			type: 'line',
@@ -29,7 +31,7 @@ async function initChart() {
 			},
 		})
 
-		setFallback(ctx, data)
+		setChartFallback(ctx, data)
 
 		window.addEventListener('resize', () => {
 			const root = document.documentElement
@@ -72,20 +74,20 @@ async function initChart() {
  * Gets data for the chart
  * @returns {Promise<{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}>} The data
  */
-async function getData() {
+async function getChartData() {
 	try {
-		const result = await fetch('./../data/data.json')
+		const data = await dataPromise
 
-		/**
-		 * @type {Record<string, {price: number; attendees: {count: number}; talks: {video: {views: number}}[]}>}
-		 */
-		const data = await result.json()
+		if (!data) throw new Error('No data')
 
 		const labels = Object.keys(data)
 		const nrOfAttendees = labels.map((label) => data[label].attendees.count)
 		const prices = labels.map((label) => data[label].price)
 		const views = labels.map((label) =>
-			data[label].talks.reduce((acc, talk) => acc + (talk.video ? .views ? ? 0), 0)
+			data[label].talks.reduce(
+				(acc, talk) => acc + (talk.video?.views ?? 0),
+				0
+			)
 		)
 
 		return { labels, nrOfAttendees, prices, views }
@@ -101,7 +103,7 @@ async function getData() {
  * @param {HTMLCanvasElement} ctx Canvas element
  * @param {{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}} data
  */
-function setFallback(ctx, data) {
+function setChartFallback(ctx, data) {
 	ctx.innerHTML = ''
 	data.labels.forEach((label, i) => {
 		const container = document.createElement('div')

@@ -1,20 +1,20 @@
 {
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.acceptSuggestionOnEnter": "smart",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "cSpell.ignorePaths": [
-    ".vscode",
-    "LICENSE",
-    "node_modules",
-    "package-lock.json"
-  ],
-  "cSpell.enabled": true,
-  "cSpell.language": "en,nl",
-  "liveServer.settings.root": "/docs",
-  "liveServer.settings.mount": [["/css-day-ta-jjj/", "./docs"]],
-  "cSpell.ignoreWords": ["transform"],
-  "cSpell.words": []
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"editor.acceptSuggestionOnEnter": "smart",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"cSpell.ignorePaths": [
+		".vscode",
+		"LICENSE",
+		"node_modules",
+		"package-lock.json"
+	],
+	"cSpell.enabled": true,
+	"cSpell.language": "en,nl",
+	"liveServer.settings.root": "/docs",
+	"liveServer.settings.mount": [["/css-day-ta-jjjm/", "./docs"]],
+	"cSpell.ignoreWords": ["transform"],
+	"cSpell.words": ["ecma"]
 }
