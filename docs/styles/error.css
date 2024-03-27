@@ -1,5 +1,9 @@
 /* Error state */
 
+.error header {
+	display: none;
+}
+
 .error main {
 	margin-top: 0;
 	text-align: center;
@@ -10,10 +14,18 @@
 	position: static;
 }
 
+.error main > section.info {
+	display: none;
+}
+
+.error main > img {
+	max-width: 100%;
+}
+
 .error main > button {
 	appearance: button;
 	backface-visibility: hidden;
-	background-color: #405cf5;
+	background-color: #000080;
 	border-radius: 6px;
 	border-width: 0;
 	box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,

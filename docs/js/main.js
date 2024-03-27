@@ -57,11 +57,19 @@ function setErrorState(enable = false) {
 			main.insertBefore(p, info);
 		}
 
+		if (!main.querySelector('main > img')) {
+			const img = document.createElement('img');
+			img.src = 'images/error.gif';
+			img.alt = '';
+			main.insertBefore(img, info);
+		}
+
 		if (!main.querySelector('main > button')) {
 			const button = document.createElement('button');
 			button.textContent = 'Retry';
 			button.addEventListener('click', initApp);
 			main.insertBefore(button, info);
+			button.focus();
 		}
 	} else if (!enable) {
 		const button = main.querySelector('button');

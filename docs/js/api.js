@@ -19,7 +19,6 @@ async function fetchData() {
 		console.debug('Data fetched', data);
 		return data;
 	} catch (e) {
-		console.error(e);
 		return null;
 	}
 }
