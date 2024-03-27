@@ -1,11 +1,6 @@
+@import url('./reset.css');
 @import url('./chart.css');
 @import url('./error.css');
-
-/* Reset */
-* {
-	margin: 0;
-	box-sizing: border-box;
-}
 
 body {
 	font-family: Source Code Pro, Inconsolata, Menlo, monospace;
