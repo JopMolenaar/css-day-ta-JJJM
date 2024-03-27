@@ -2,20 +2,28 @@
 
 /**
  * Initializes the chart
+ * @param {Record<string, {
+ * title: string;
+ * price: number;
+ * color: {name: string; hex: string};
+ * attendees: {count: number; countries: Record<string, number>};
+ * mc: {name: string; avatar: string | false}[];
+ * talks: {video: {'youtube-id': string; views: number} | false}[]
+ * }>} data The data
  */
-async function initChart() {
+function initChart(data) {
 	try {
 		const ctx = document.getElementById('timeline-chart');
-		const data = await getChartData();
+		const chartData = getChartData(data);
 
 		new Chart(ctx, {
 			type: 'line',
 			data: {
-				labels: data.labels,
+				labels: chartData.labels,
 				datasets: [
-					{ label: 'Attendees', data: data.nrOfAttendees },
-					{ label: 'Price', data: data.prices },
-					{ label: 'Views', data: data.views, yAxisID: 'y1' },
+					{ label: 'Attendees', data: chartData.nrOfAttendees },
+					{ label: 'Price', data: chartData.prices },
+					{ label: 'Views', data: chartData.views, yAxisID: 'y1' },
 				],
 			},
 			plugins: [htmlLegendPlugin],
@@ -38,7 +46,7 @@ async function initChart() {
 			},
 		});
 
-		setChartFallback(ctx, data);
+		setChartFallback(ctx, chartData);
 
 		window.addEventListener('resize', () => {
 			const root = document.documentElement;
@@ -77,14 +85,19 @@ async function initChart() {
 }
 
 /**
- * Gets data for the chart
- * @returns {Promise<{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}>} The data
+ * Parses data for the chart
+ * @param {Record<string, {
+ * title: string;
+ * price: number;
+ * color: {name: string; hex: string};
+ * attendees: {count: number; countries: Record<string, number>};
+ * mc: {name: string; avatar: string | false}[];
+ * talks: {video: {'youtube-id': string; views: number} | false}[]
+ * }>} data The original data
+ * @returns {{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}} The parsed data
  */
-async function getChartData() {
+function getChartData(data) {
 	try {
-		const data = await dataPromise;
-		if (!data) throw new Error('No data');
-
 		const labels = Object.keys(data);
 		const nrOfAttendees = labels.map(
 			(label) => data[label].attendees.count
@@ -142,6 +155,12 @@ function setChartFallback(ctx, data) {
 	});
 }
 
+/**
+ * Gets or create the legend
+ * @param {any} _chart The chart
+ * @param {string} id The ID of the container
+ * @returns {HTMLUListElement} The legend container
+ */
 function getOrCreateLegendList(_chart, id) {
 	const legendContainer = document.getElementById(id);
 	let listContainer = legendContainer.querySelector('ul');

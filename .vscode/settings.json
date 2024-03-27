@@ -16,5 +16,5 @@
 	"liveServer.settings.root": "/docs",
 	"liveServer.settings.mount": [["/css-day-ta-jjjm/", "./docs"]],
 	"cSpell.ignoreWords": ["transform"],
-	"cSpell.words": ["ecma"]
+	"cSpell.words": ["cioc", "describedby", "ecma", "labelledby"]
 }
