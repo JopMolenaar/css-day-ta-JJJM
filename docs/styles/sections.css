@@ -22,15 +22,16 @@ h3 {
 	scroll-snap-align: start;
 }
 
-.data-current-year > section {
-/*    min-height: 80vh;*/
-    min-height: var(--box-height);
-    top: calc(100vh - var(--box-height));
+.data-current-year>section {
+	/*    min-height: 80vh;*/
+	min-height: var(--box-height);
+	top: calc(100vh - var(--box-height));
 
-    display: grid;
-    grid-template-columns: 30vw 1fr 30vw;
+	display: grid;
+	grid-template-columns: 30vw 1fr 30vw;
 }
-.data-current-year > section > section {
+
+.data-current-year>section>section {
 	min-height: var(--box-height);
 	flex: 1;
 	display: flex;
@@ -41,7 +42,7 @@ h3 {
 	grid-gap: 1em;
 }
 
-.data-current-year > section {
+.data-current-year>section {
 	background-color: #25b175;
 }
 
@@ -56,13 +57,26 @@ h3 {
 	flex-direction: column;
 	grid-gap: 1em;
 }
+
 .data-current-year .mc div {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
+	gap: .4em;
 }
-.data-current-year .mc div:nth-of-type(2){
-    flex-direction: row;
+
+.data-current-year .mc>div>div {
+	width: 4em;
+	height: 4em;
+	overflow: hidden;
+	position: relative;
+	border-radius: 0.4rem;
+	transition: 200ms;
 }
+
+.data-current-year .mc>div:nth-of-type(2) {
+	flex-direction: row;
+}
+
 .data-current-year .mc a {
 	display: block;
 	text-decoration: none;
@@ -70,23 +84,32 @@ h3 {
 	color: white;
 	transition: 200ms;
 	width: fit-content;
-	    order: -1;
+	order: -1;
 }
+
 .data-current-year .mc a:hover {
 	background-color: rgba(255, 255, 255, 0.5);
 	color: black;
 }
+
 .data-current-year .mc img {
-    width: 6em;
-    aspect-ratio: 1;
-    object-fit: cover;
-    object-position: center;
-    border-radius: .4rem;
-    transition: 200ms;
+	width: 6em;
+	aspect-ratio: 1;
+	transform-origin: center;
+	position: absolute;
+	transition: 200ms;
+	left: -25%;
+	top: -25%;
 }
 
-.mc a:hover + img {
-    scale: 1.1;
+.mc a:hover+div img {
+	left: 0;
+	top: 0;
+}
+
+.mc a:hover+div {
+	width: 6em;
+	height: 6em;
 }
 
 p.color {
@@ -95,19 +118,22 @@ p.color {
 	writing-mode: vertical-lr;
 	font-size: 3em;
 }
+
 .vid-section {
-    margin-top: auto;
+	margin-top: auto;
 }
+
 .vid-section h4 {
-    margin-bottom: 0.3rem;
+	margin-bottom: 0.3rem;
 }
+
 .video {
 	width: 100%;
 	height: auto;
 }
 
 iframe {
-	    max-width: 20em;
+	max-width: 20em;
 	width: 100%;
 	height: auto;
 	aspect-ratio: 16/9;
@@ -116,8 +142,8 @@ iframe {
 }
 
 @media screen and (max-width: 1024px) {
-	.data-current-year > section {
-		        display: flex;
+	.data-current-year>section {
+		display: flex;
 		flex-direction: column;
 		top: calc(100vh - var(--box-height));
 		height: fit-content;
@@ -131,17 +157,18 @@ iframe {
 		scroll-margin-top: 0;
 	}
 
-	.data-current-year > section > section {
+	.data-current-year>section>section {
 		max-height: 40vh;
 	}
 
 	p.color {
 		font-size: 4em;
 	}
-	   h2.title svg {
-        width: 100%;
-        height: auto;
-        order: -1;
-        filter: invert(100%);
-    }
+
+	h2.title svg {
+		width: 100%;
+		height: auto;
+		order: -1;
+		filter: invert(100%);
+	}
 }
