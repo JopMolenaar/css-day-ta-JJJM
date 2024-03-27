@@ -71,7 +71,7 @@ function setErrorState(enable = false) {
 			main.insertBefore(button, info);
 			button.focus();
 		}
-	} else if (!enable) {
+	} else {
 		const button = main.querySelector('button');
 		if (button) button.remove();
 	}
