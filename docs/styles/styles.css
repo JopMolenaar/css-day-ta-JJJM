@@ -1,6 +1,8 @@
 @import url('./reset.css');
-@import url('./chart.css');
 @import url('./error.css');
+@import url('./chart.css');
+@import url('./countries.css');
+@import url('./sticky.css');
 
 body {
 	font-family: Source Code Pro, Inconsolata, Menlo, monospace;

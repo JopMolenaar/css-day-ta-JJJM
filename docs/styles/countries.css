@@ -1,0 +1,60 @@
+/* World map */
+
+.svg-section svg {
+	width: 100%;
+	height: auto;
+	background-color: #c9c9c9;
+	border-radius: 0.5rem;
+	aspect-ratio: 16/9;
+}
+
+svg path {
+	fill: rgb(124, 124, 124);
+	stroke: rgb(0, 0, 0);
+	stroke-width: 1px;
+}
+
+.svg-section {
+	display: flex;
+}
+
+.button-wrapper {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 0.5rem;
+	margin-bottom: 0.2rem;
+	width: 100%;
+	justify-content: center;
+	order: 2;
+}
+
+.button-wrapper button {
+	background-color: rgba(128, 128, 128, 0.594);
+	color: white;
+	padding: 0.5rem;
+	border-radius: 10px;
+	transition: 100ms;
+	border: none;
+}
+.button-wrapper button:hover {
+	scale: 1.1;
+	background-color: rgba(0, 0, 0, 0.694);
+	cursor: pointer;
+}
+.button-wrapper button:focus-visible {
+	scale: 1.1;
+	background-color: rgba(0, 0, 0, 0.694);
+	border: solid white 3px;
+}
+.button-wrapper button:active {
+	scale: 1;
+	background-color: color-mix(
+		in srgb,
+		rgba(0, 0, 0, 0.694),
+		currentcolor 20%
+	);
+}
+.button-wrapper button.active {
+	background-color: black;
+	scale: 1.1;
+}
