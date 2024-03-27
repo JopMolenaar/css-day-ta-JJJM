@@ -220,14 +220,6 @@ iframe {
 	max-width: calc((40vh - 22px) * 16 / 9);
 	border-radius: 0.4rem;
 }
-@media screen and (max-width: 360px) {
-	.data-current-year > section > section {
-		padding: 0.5rem;
-	}
-	h2.title {
-		grid-template-columns: 60vw 1em;
-	}
-}
 @media screen and (max-width: 1150px) {
 	.data-current-year > section > section {
 		padding: 1em;
@@ -274,7 +266,7 @@ iframe {
 	}
 
 	h2.title {
-		grid-template-columns: 10em 1em;
+		grid-template-columns: 7em 1em;
 	}
 
 	h2.title svg {
@@ -295,6 +287,9 @@ iframe {
 }
 
 @media screen and (max-width: 810px) {
+		h2.title {
+		grid-template-columns: 60vw 1em;
+	}
 	.data-current-year > section {
 		display: flex;
 		flex-direction: column;
@@ -306,5 +301,13 @@ iframe {
 
 	iframe {
 		width: 65vw;
+	}
+}
+@media screen and (max-width: 360px) {
+	.data-current-year > section > section {
+		padding: 0.5rem;
+	}
+	h2.title {
+		grid-template-columns: 60vw 1em;
 	}
 }
