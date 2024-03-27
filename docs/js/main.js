@@ -1,8 +1,12 @@
-const DOMContentLoaded = awaitDOMContentLoaded();
+const DOMContentLoaded = new Promise((resolve) => {
+	document.addEventListener('DOMContentLoaded', resolve);
+});
+
 initApp();
 
-const TITLE = 'CSS day - data visualization';
-
+/**
+ * Initializes the application
+ */
 async function initApp() {
 	setErrorState(false);
 	setLoadingState(true);
@@ -27,10 +31,18 @@ async function initApp() {
 	setLoadingState(false);
 }
 
+/**
+ * Toggles the loading state of the page
+ * @param {boolean} enable Wether to enable or disable the loading state
+ */
 function setLoadingState(enable = false) {
 	document.body.classList.toggle('loading', enable);
 }
 
+/**
+ * Toggles the error state of the page
+ * @param {boolean} enable Wether to enable or disable the error state
+ */
 function setErrorState(enable = false) {
 	document.body.classList.toggle('error', enable);
 	const header = document.querySelector('main');
@@ -43,10 +55,4 @@ function setErrorState(enable = false) {
 		const button = header.querySelector('button');
 		if (button) button.remove();
 	}
-}
-
-async function awaitDOMContentLoaded() {
-	return new Promise((resolve) => {
-		document.addEventListener('DOMContentLoaded', resolve);
-	});
 }

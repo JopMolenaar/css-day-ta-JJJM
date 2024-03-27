@@ -2,6 +2,14 @@
 
 /**
  * Initializes the chart
+ * @param {Record<string, {
+ * title: string;
+ * price: number;
+ * color: {name: string; hex: string};
+ * attendees: {count: number; countries: Record<string, number>};
+ * mc: {name: string; avatar: string | false}[];
+ * talks: {video: {'youtube-id': string; views: number} | false}[]
+ * }>} data The data
  */
 function initChart(data) {
 	try {
@@ -77,8 +85,16 @@ function initChart(data) {
 }
 
 /**
- * Gets data for the chart
- * @returns {{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}} The data
+ * Parses data for the chart
+ * @param {Record<string, {
+ * title: string;
+ * price: number;
+ * color: {name: string; hex: string};
+ * attendees: {count: number; countries: Record<string, number>};
+ * mc: {name: string; avatar: string | false}[];
+ * talks: {video: {'youtube-id': string; views: number} | false}[]
+ * }>} data The original data
+ * @returns {{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}} The parsed data
  */
 function getChartData(data) {
 	try {
@@ -139,6 +155,12 @@ function setChartFallback(ctx, data) {
 	});
 }
 
+/**
+ * Gets or create the legend
+ * @param {any} _chart The chart
+ * @param {string} id The ID of the container
+ * @returns {HTMLUListElement} The legend container
+ */
 function getOrCreateLegendList(_chart, id) {
 	const legendContainer = document.getElementById(id);
 	let listContainer = legendContainer.querySelector('ul');
