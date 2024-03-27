@@ -137,7 +137,7 @@ function cloneInfoSections(year, info, data, countries) {
 	firstClone.querySelector('section').id = year;
 
 	// Some changes of the id in the svg in the template
-	const map = firstClone.querySelector('section > section svg');
+	const map = firstClone.querySelector('section > section.svg-section svg');
 	const title = firstClone.querySelector('section > section svg title');
 	const desc = firstClone.querySelector('section > section svg desc');
 	title.id = `title-${year}`;
@@ -175,18 +175,27 @@ function cloneInfoSections(year, info, data, countries) {
 	data[year].mc.forEach((singleMc) => {
 		const div = document.createElement('div');
 		const img = document.createElement('img');
-		const name = document.createElement('a');
 		if (singleMc.avatar) {
 			img.src = singleMc.avatar;
 		} else {
 			img.src = 'images/dummy-portrait.jpg';
 		}
 		img.alt = '';
-		name.href = singleMc.link;
-		name.textContent = singleMc.name + ' | MC';
-
 		div.appendChild(img);
-		div.appendChild(name);
+
+		if (singleMc.link) {
+			const name = document.createElement('a');
+			name.href = singleMc.link;
+			name.target = '_blank';
+			name.textContent = singleMc.name + ' | MC';
+
+			div.appendChild(name);
+		} else {
+			const name = document.createElement('p');
+			name.textContent = singleMc.name + ' | MC';
+
+			div.appendChild(name);
+		}
 
 		mc.appendChild(div);
 	});
@@ -210,7 +219,7 @@ function cloneInfoSections(year, info, data, countries) {
 		map,
 		countries
 	); // fill in the map colors
-	eventListenerButtons(data);
+	eventListenerButtons(data, countries);
 }
 
 function getMostWatchedVideo(data) {

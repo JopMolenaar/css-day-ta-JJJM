@@ -6,6 +6,7 @@ const TITLE = 'CSS day - data visualization';
 async function initApp() {
 	setErrorState(false);
 	setLoadingState(true);
+	const splash = new Promise((resolve) => setTimeout(resolve, 3600));
 
 	try {
 		const countries = fetchCountries();
@@ -17,6 +18,7 @@ async function initApp() {
 		initTimeline(data);
 		initChart(data);
 		initSections(data, await countries);
+		await splash;
 	} catch (e) {
 		setErrorState(true);
 		console.error(e);
@@ -27,14 +29,12 @@ async function initApp() {
 
 function setLoadingState(enable = false) {
 	document.body.classList.toggle('loading', enable);
-	const title = document.querySelector('main > h1');
-	title.textContent = enable ? 'Loading...' : TITLE;
 }
 
 function setErrorState(enable = false) {
 	document.body.classList.toggle('error', enable);
 	const header = document.querySelector('main');
-	if (enable && !header.querySelector('button')) {
+	if (enable && !header.querySelector('main > button')) {
 		const button = document.createElement('button');
 		button.textContent = 'Retry';
 		button.addEventListener('click', initApp);

@@ -1,4 +1,4 @@
-function eventListenerButtons(data) {
+function eventListenerButtons(data, countries) {
 	const mapSections = document.querySelectorAll('.svg-section');
 
 	mapSections.forEach((mapSection) => {
@@ -17,7 +17,7 @@ function eventListenerButtons(data) {
 					for (const [year, info] of Object.entries(data)) {
 						if (yearFromId === year) {
 							let countryWithCount;
-							if (button.textContent === 'Speakers') {
+							if (button.textContent.trim() === 'Speakers') {
 								countryWithCount = getSpeakersCountries(info);
 							} else {
 								countryWithCount = info.attendees.countries;
@@ -30,7 +30,8 @@ function eventListenerButtons(data) {
 								countryWithCount,
 								themeColor,
 								themeColorText,
-								map
+								map,
+								countries
 							);
 						}
 					}

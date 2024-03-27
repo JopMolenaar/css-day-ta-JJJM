@@ -3,6 +3,7 @@ function initTimeline(data) {
 
 	const template = document.getElementById('template_timeline_item');
 	const navList = document.querySelector('nav ul');
+	navList.innerHTML = '';
 
 	chartData.labels.forEach((label) => {
 		const listItem = template.content.cloneNode(true);

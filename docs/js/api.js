@@ -1,7 +1,5 @@
 'use strict';
 
-const dataPromise = fetchData();
-
 /**
  * Fetches the data
  * @returns {Promise<Record<string, {
