@@ -6,6 +6,7 @@ const TITLE = 'CSS day - data visualization';
 async function initApp() {
 	setErrorState(false);
 	setLoadingState(true);
+	const splash = new Promise((resolve) => setTimeout(resolve, 3600));
 
 	try {
 		const countries = fetchCountries();
@@ -13,6 +14,7 @@ async function initApp() {
 		if (!data) throw new Error('No data');
 
 		await DOMContentLoaded;
+		await splash;
 
 		initTimeline(data);
 		initChart(data);
