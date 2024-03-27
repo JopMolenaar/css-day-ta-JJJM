@@ -113,12 +113,6 @@ function getChartData(data) {
 		return { labels, nrOfAttendees, prices, views };
 	} catch (e) {
 		console.error(e);
-		const header = document.querySelector('header');
-		if (!header.querySelector('h1')) {
-			const h1 = document.createElement('h1');
-			h1.textContent = 'Error loading data';
-			header.prepend(h1);
-		}
 	}
 
 	return { labels: [], nrOfAttendees: [], prices: [], views: [] };
