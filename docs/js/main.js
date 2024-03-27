@@ -18,6 +18,7 @@ async function initApp() {
 		initTimeline(data);
 		initChart(data);
 		initSections(data, await countries);
+		initFireworks();
 		await splash;
 	} catch (e) {
 		setErrorState(true);
