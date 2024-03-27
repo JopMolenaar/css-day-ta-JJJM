@@ -14,7 +14,7 @@ svg path {
 
 .svg-section {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
 }
 .svg-section div {
     position: relative;
