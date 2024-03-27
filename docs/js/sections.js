@@ -1,0 +1,118 @@
+let countryCodes = [];
+let alreadyGotCountryCodes = [];
+
+function initSections(data, countries) {
+	for (const [year, info] of Object.entries(data)) {
+		cloneInfoSections(year, info, data, countries);
+	}
+}
+
+function cloneInfoSections(year, info, data, countries) {
+	const template = document.getElementById('template');
+	const infoSection = document.querySelector('.info');
+
+	const firstClone = template.content.cloneNode(true);
+	const sections = firstClone.querySelectorAll(
+		'.data-current-year > section > section'
+	);
+	sections.forEach((section) => {
+		section.style.background = info.color.hex;
+	});
+
+	firstClone.querySelector('section').id = year;
+
+	// Some changes of the id in the svg in the template
+	const map = firstClone.querySelector('section > section.svg-section svg');
+	const title = firstClone.querySelector('section > section svg title');
+	const desc = firstClone.querySelector('section > section svg desc');
+	title.id = `title-${year}`;
+	title.textContent = title.textContent.replace(/(\s|\n|\t)+/g, ' ');
+	desc.id = `desc-${year}`;
+	desc.textContent = desc.textContent.replace(/(\s|\n|\t)+/g, ' ');
+	map.setAttribute('aria-labelledby', `title-${year}`);
+	map.setAttribute('aria-describedby', `desc-${year}`);
+
+	const countryWithCount = data[year].attendees.countries; // data for the year
+	const themeColor = data[year].color.hex; // theme color for the year
+	const themeColorTextData = info.color.name;
+	const themeColorText = firstClone.querySelector('.color');
+	themeColorText.textContent = themeColor;
+
+	const titleEvent = firstClone.querySelector('.title');
+	const titleText = data[year].title;
+	const cssDay = 'CSS Day';
+	let restOfText = titleText.substring(cssDay.length + 1); // Add 1 to exclude the space
+	const plusIndex = restOfText.indexOf('+');
+	let extra;
+	if (plusIndex !== -1) {
+		extra = restOfText.substring(plusIndex + 1); // Extract text after the "+"
+		restOfText = restOfText.substring(0, plusIndex);
+	}
+	const hiddenText = titleEvent.querySelector('.visually-hidden');
+	hiddenText.textContent = cssDay;
+	const rotateYear = titleEvent.querySelector('.rotate');
+	rotateYear.textContent = restOfText;
+	const specialText = titleEvent.querySelector('.extra');
+	specialText.textContent = extra;
+
+	const mc = firstClone.querySelector('.mc');
+
+	data[year].mc.forEach((singleMc) => {
+		const div = document.createElement('div');
+		const img = document.createElement('img');
+		if (singleMc.avatar) {
+			img.src = singleMc.avatar;
+		} else {
+			img.src = 'images/dummy-portrait.jpg';
+		}
+		img.alt = '';
+		div.appendChild(img);
+
+		if (singleMc.link) {
+			const name = document.createElement('a');
+			name.href = singleMc.link;
+			name.target = '_blank';
+			name.textContent = singleMc.name + ' | MC';
+
+			div.appendChild(name);
+		} else {
+			const name = document.createElement('p');
+			name.textContent = singleMc.name + ' | MC';
+
+			div.appendChild(name);
+		}
+
+		mc.appendChild(div);
+	});
+
+	const videoId = getMostWatchedVideo(info);
+	const iframe = firstClone.querySelector('iframe');
+	iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
+
+	infoSection.appendChild(firstClone); // append template to section
+
+	const dummyData = document.getElementById('dummy-data');
+	if (dummyData) {
+		dummyData.remove();
+	}
+
+	giveCountryAColor(
+		year,
+		countryWithCount,
+		themeColor,
+		themeColorTextData,
+		map,
+		countries
+	); // fill in the map colors
+	eventListenerButtons(data, countries);
+}
+
+function getMostWatchedVideo(data) {
+	const videos = data.talks
+		.map((talk) => talk.video)
+		.filter((video) => !!video)
+		.sort((a, b) => b.views - a.views);
+
+	if (videos.length === 0) return 'dPmZqsQNzGA?privacy_mode=1&start=14';
+	return videos[0]['youtube-id'] + '?privacy_mode=1';
+}
