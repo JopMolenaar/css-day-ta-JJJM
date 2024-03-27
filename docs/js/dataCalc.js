@@ -131,9 +131,6 @@ async function cloneInfoSections(year, info, data) {
 
 	firstClone.querySelector('section').id = year;
 
-	// TODO hier zoeken naar de elementen om the veranderen
-	// dan data[year]. iets wat je nodig hebt uit de data als textContent of url of src
-
 	// Some changes of the id in the svg in the template
 	const map = firstClone.querySelector('section > section svg');
 	const title = firstClone.querySelector('section > section svg title');
@@ -150,21 +147,44 @@ async function cloneInfoSections(year, info, data) {
 	themeColorText.textContent = themeColor;
 
 	const titleEvent = firstClone.querySelector('.title');
-	titleEvent.textContent = data[year].title;
+	const titleText = data[year].title;
+	const cssDay = 'CSS Day';
+	let restOfText = titleText.substring(cssDay.length + 1); // Add 1 to exclude the space
+	const plusIndex = restOfText.indexOf('+');
+	let extra;
+	if (plusIndex !== -1) {
+		extra = restOfText.substring(plusIndex + 1); // Extract text after the "+"
+		restOfText = restOfText.substring(0, plusIndex);
+	}
+	const imgElement = document.createElement('img');
+	imgElement.src = 'https://cssday.nl/_img/cssday-logo.svg';
+	imgElement.setAttribute('aria-label', '');
+	titleEvent.innerHTML = `<span class="visually-hidden">${cssDay}</span><span class="rotate">${restOfText}</span>`;
+
+	const span = document.createElement('span');
+	span.textContent = extra;
+	span.classList.add('extra');
+	titleEvent.appendChild(span);
+	titleEvent.appendChild(imgElement);
+
+
+
+
+
 
 	const mc = firstClone.querySelector('.mc');
 
 	data[year].mc.forEach((singleMc) => {
 		const div = document.createElement('div');
 		const img = document.createElement('img');
-		const name = document.createElement('p');
-
+		const name = document.createElement('a');
 		if (singleMc.avatar) {
 			img.src = singleMc.avatar;
 		} else {
 			img.src = 'images/dummy-portrait.jpg';
 		}
 		img.alt = '';
+		name.href = singleMc.link;
 		name.textContent = singleMc.name + ' | MC';
 
 		div.appendChild(img);
