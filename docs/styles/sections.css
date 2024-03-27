@@ -36,6 +36,15 @@ h2.title svg {
 	order: -1;
 	filter: invert(100%);
 }
+h2.title svg g rect {
+	opacity: 1;
+	transition: 1s ease-out;
+}
+
+h2.title svg g rect:hover {
+	opacity: 0.3;
+	transition: 0.2s ease-out;
+}
 .rotate {
 	writing-mode: vertical-lr;
 	height: fit-content;
@@ -220,6 +229,14 @@ iframe {
 	iframe {
 		width: 65vw;
 	}
+	}
+	@media screen and (max-width: 360px) {
+		.data-current-year > section > section {
+			padding: 0.5rem;
+		}
+		h2.title {
+			grid-template-columns: 60vw 1em;
+		}
 	}
 }
 
