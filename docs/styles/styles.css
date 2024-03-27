@@ -14,7 +14,7 @@ body {
 main {
 	scroll-snap-type: y mandatory;
 	height: 50vh;
-	overflow: scroll;
+	overflow: auto;
 	scroll-timeline: --section-1 y;
 	margin-top: calc(100vh - var(--box-height));
 	scroll-behavior: smooth;

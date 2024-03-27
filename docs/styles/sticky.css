@@ -17,7 +17,7 @@ h3 {
 }
 
 .data-current-year {
-	scroll-snap-align: end;
+	scroll-snap-align: start;
 }
 
 .data-current-year > section {
