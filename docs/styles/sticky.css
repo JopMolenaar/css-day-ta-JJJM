@@ -139,4 +139,11 @@ iframe {
     p.color {
         font-size: 4em;
     }
+
+    h2.title svg {
+        width: 100%;
+        height: auto;
+        order: -1;
+        filter: invert(100%);
+    }
 }
