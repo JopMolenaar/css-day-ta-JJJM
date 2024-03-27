@@ -1,8 +1,14 @@
-const DOMContentLoaded = awaitDOMContentLoaded();
+'use strict';
+
+const DOMContentLoaded = new Promise((resolve) => {
+	document.addEventListener('DOMContentLoaded', resolve);
+});
+
 initApp();
 
-const TITLE = 'CSS day - data visualization';
-
+/**
+ * Initializes the application
+ */
 async function initApp() {
 	setErrorState(false);
 	setLoadingState(true);
@@ -28,26 +34,46 @@ async function initApp() {
 	setLoadingState(false);
 }
 
+/**
+ * Toggles the loading state of the page
+ * @param {boolean} enable Wether to enable or disable the loading state
+ */
 function setLoadingState(enable = false) {
 	document.body.classList.toggle('loading', enable);
 }
 
+/**
+ * Toggles the error state of the page
+ * @param {boolean} enable Wether to enable or disable the error state
+ */
 function setErrorState(enable = false) {
 	document.body.classList.toggle('error', enable);
-	const header = document.querySelector('main');
-	if (enable && !header.querySelector('main > button')) {
-		const button = document.createElement('button');
-		button.textContent = 'Retry';
-		button.addEventListener('click', initApp);
-		header.prepend(button);
-	} else if (!enable) {
-		const button = header.querySelector('button');
+	const main = document.querySelector('main');
+	if (enable) {
+		const info = main.querySelector('section.info');
+
+		if (!main.querySelector('main > p')) {
+			const p = document.createElement('p');
+			p.textContent = 'An error occurred while loading the data.';
+			main.insertBefore(p, info);
+		}
+
+		if (!main.querySelector('main > img')) {
+			const img = document.createElement('img');
+			img.src = 'images/error.gif';
+			img.alt = '';
+			main.insertBefore(img, info);
+		}
+
+		if (!main.querySelector('main > button')) {
+			const button = document.createElement('button');
+			button.textContent = 'Retry';
+			button.addEventListener('click', initApp);
+			main.insertBefore(button, info);
+			button.focus();
+		}
+	} else {
+		const button = main.querySelector('button');
 		if (button) button.remove();
 	}
-}
-
-async function awaitDOMContentLoaded() {
-	return new Promise((resolve) => {
-		document.addEventListener('DOMContentLoaded', resolve);
-	});
 }
