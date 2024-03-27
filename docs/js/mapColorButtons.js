@@ -1,4 +1,4 @@
-function eventListenerButtons() {
+function eventListenerButtons(data) {
 	const mapSections = document.querySelectorAll('.svg-section');
 
 	mapSections.forEach((mapSection) => {
@@ -8,34 +8,30 @@ function eventListenerButtons() {
 		const yearFromId = id.match(/\d+/)[0];
 		const buttons = mapSection.querySelectorAll('.button-wrapper button');
 		buttons.forEach((button) => {
-			button.addEventListener('click', async () => {
+			button.addEventListener('click', () => {
 				if (!button.classList.contains('active')) {
 					buttons.forEach((button) => {
 						button.classList.remove('active');
 					});
 					button.classList.add('active');
-					const data = await dataPromise;
-					if (data) {
-						for (const [year, info] of Object.entries(data)) {
-							if (yearFromId === year) {
-								let countryWithCount;
-								if (button.textContent === 'Speakers') {
-									countryWithCount =
-										getSpeakersCountries(info);
-								} else {
-									countryWithCount = info.attendees.countries;
-								}
-
-								const themeColor = info.color.hex; // theme color for the year
-								const themeColorText = info.color.name;
-								giveCountryAColor(
-									year,
-									countryWithCount,
-									themeColor,
-									themeColorText,
-									map
-								);
+					for (const [year, info] of Object.entries(data)) {
+						if (yearFromId === year) {
+							let countryWithCount;
+							if (button.textContent === 'Speakers') {
+								countryWithCount = getSpeakersCountries(info);
+							} else {
+								countryWithCount = info.attendees.countries;
 							}
+
+							const themeColor = info.color.hex; // theme color for the year
+							const themeColorText = info.color.name;
+							giveCountryAColor(
+								year,
+								countryWithCount,
+								themeColor,
+								themeColorText,
+								map
+							);
 						}
 					}
 				}

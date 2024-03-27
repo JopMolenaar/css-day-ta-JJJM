@@ -1,23 +1,19 @@
 let countryCodes = [];
 let alreadyGotCountryCodes = [];
 
-async function dataCalc() {
-	const data = await dataPromise;
-	if (data) {
-		for (const [year, info] of Object.entries(data)) {
-			cloneInfoSections(year, info, data);
-		}
-	} else {
-		console.error('Failed to fetch data.');
+function initSections(data, countries) {
+	for (const [year, info] of Object.entries(data)) {
+		cloneInfoSections(year, info, data, countries);
 	}
 }
 
-async function giveCountryAColor(
+function giveCountryAColor(
 	year,
 	countryWithCount,
 	themeColor,
 	themeColorText,
-	svg
+	svg,
+	countries
 ) {
 	const paths = svg.querySelectorAll(`path`);
 	const descOfSvg = document.getElementById(`desc-${year}`);
@@ -32,7 +28,6 @@ async function giveCountryAColor(
 	}
 	const visitedCountries = [];
 	for (const [country, count] of Object.entries(countryWithCount)) {
-		// console.log(`country: ${country}, count: ${count}`);
 		paths.forEach((path) => {
 			if (path.dataset.country) {
 				if (country === path.dataset.country) {
@@ -70,17 +65,8 @@ async function giveCountryAColor(
 				}
 			}
 		});
-		if (country !== 'UK') {
-			const result = await fetch(
-				`https://restcountries.com/v3.1/alpha/${country}`
-			); // https://restcountries.com/#endpoints-name
-			const fullNameCountry = await result.json();
-			visitedCountries.push(
-				`${fullNameCountry[0].name.common} with ${count} visitors`
-			);
-		} else {
-			visitedCountries.push(`United Kingdom with ${count} visitors`);
-		}
+		const fullNameCountry = findCountryName(countries, country);
+		visitedCountries.push(`${fullNameCountry} with ${count} visitors`);
 	}
 	countryCodes.forEach((code) => {
 		if (!alreadyGotCountryCodes.includes(code) && code !== 'SG') {
@@ -88,9 +74,28 @@ async function giveCountryAColor(
 		}
 	});
 	const visitedCountriesString = visitedCountries.join(', ');
-	descOfSvg.textContent = `The world map shows with the theme color where all the visitors come from. 
-    The team color is currently: ${themeColorText}. 
-    The colored countries are: ${visitedCountriesString}.`;
+	descOfSvg.textContent = `The world map shows with the theme color where all the visitors come from. The team color is currently: ${themeColorText}. The colored countries are: ${visitedCountriesString}.`;
+}
+
+/**
+ * Find the country name based on the country code
+ * @param {{
+ * name: {common: string};
+ * tld: string[];
+ * cca2: string;
+ * cca3: string;
+ * cioc: string;
+ * }[]} countries
+ * @param {string} code
+ */
+function findCountryName(countries, code) {
+	const country = countries.find(({ cca2, cca3, cioc }) => {
+		return [cca2, cca3, cioc]
+			.map((m) => m?.toLowerCase() ?? '')
+			.includes(code.toLowerCase().replace('uk', 'gb'));
+	});
+
+	return country ? country.name.common : code;
 }
 
 function hexToRgb(hex) {
@@ -117,7 +122,7 @@ function mixColors(color1, color2, ratio) {
 	return { r: mixedR, g: mixedG, b: mixedB };
 }
 
-async function cloneInfoSections(year, info, data) {
+function cloneInfoSections(year, info, data, countries) {
 	const template = document.getElementById('template');
 	const infoSection = document.querySelector('.info');
 
@@ -136,7 +141,9 @@ async function cloneInfoSections(year, info, data) {
 	const title = firstClone.querySelector('section > section svg title');
 	const desc = firstClone.querySelector('section > section svg desc');
 	title.id = `title-${year}`;
+	title.textContent = title.textContent.replace(/\s/g, ' ');
 	desc.id = `desc-${year}`;
+	desc.textContent = desc.textContent.replace(/\s/g, ' ');
 	map.setAttribute('aria-labelledby', `title-${year}`);
 	map.setAttribute('aria-describedby', `desc-${year}`);
 
@@ -167,11 +174,6 @@ async function cloneInfoSections(year, info, data) {
 	titleEvent.appendChild(span);
 	titleEvent.appendChild(imgElement);
 
-
-
-
-
-
 	const mc = firstClone.querySelector('.mc');
 
 	data[year].mc.forEach((singleMc) => {
@@ -193,7 +195,7 @@ async function cloneInfoSections(year, info, data) {
 		mc.appendChild(div);
 	});
 
-	const videoId = await getMostWatchedVideo(year);
+	const videoId = getMostWatchedVideo(info);
 	const iframe = firstClone.querySelector('iframe');
 	iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
 
@@ -209,19 +211,14 @@ async function cloneInfoSections(year, info, data) {
 		countryWithCount,
 		themeColor,
 		themeColorTextData,
-		map
+		map,
+		countries
 	); // fill in the map colors
-	eventListenerButtons();
+	eventListenerButtons(data);
 }
 
-/**
- * Gets the most watched video of a given year
- * @param {string} year The year
- * @returns {string | null} The most watched video of the year
- */
-async function getMostWatchedVideo(year) {
-	const data = await dataPromise;
-	const videos = data[year].talks
+function getMostWatchedVideo(data) {
+	const videos = data.talks
 		.map((talk) => talk.video)
 		.filter((video) => !!video)
 		.sort((a, b) => b.views - a.views);
@@ -229,5 +226,3 @@ async function getMostWatchedVideo(year) {
 	if (videos.length === 0) return 'dPmZqsQNzGA?privacy_mode=1&start=14';
 	return videos[0]['youtube-id'] + '?privacy_mode=1';
 }
-
-dataCalc();

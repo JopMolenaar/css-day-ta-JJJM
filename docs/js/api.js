@@ -25,3 +25,26 @@ async function fetchData() {
 		return null;
 	}
 }
+
+/**
+ * Fetches countries
+ * @returns {Promise<{
+ * name: {common: string};
+ * tld: string[];
+ * cca2: string;
+ * cca3: string;
+ * cioc: string;
+ * }[]> | null>} The countries
+ */
+async function fetchCountries() {
+	try {
+		console.debug('Fetching countries...');
+		const result = await fetch('https://restcountries.com/v3.1/all');
+		const data = await result.json();
+		console.debug('Countries fetched', data);
+		return data;
+	} catch (e) {
+		console.error(e);
+		return [];
+	}
+}

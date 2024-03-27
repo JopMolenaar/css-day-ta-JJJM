@@ -3,19 +3,19 @@
 /**
  * Initializes the chart
  */
-async function initChart() {
+function initChart(data) {
 	try {
 		const ctx = document.getElementById('timeline-chart');
-		const data = await getChartData();
+		const chartData = getChartData(data);
 
 		new Chart(ctx, {
 			type: 'line',
 			data: {
-				labels: data.labels,
+				labels: chartData.labels,
 				datasets: [
-					{ label: 'Attendees', data: data.nrOfAttendees },
-					{ label: 'Price', data: data.prices },
-					{ label: 'Views', data: data.views, yAxisID: 'y1' },
+					{ label: 'Attendees', data: chartData.nrOfAttendees },
+					{ label: 'Price', data: chartData.prices },
+					{ label: 'Views', data: chartData.views, yAxisID: 'y1' },
 				],
 			},
 			plugins: [htmlLegendPlugin],
@@ -38,7 +38,7 @@ async function initChart() {
 			},
 		});
 
-		setChartFallback(ctx, data);
+		setChartFallback(ctx, chartData);
 
 		window.addEventListener('resize', () => {
 			const root = document.documentElement;
@@ -78,13 +78,10 @@ async function initChart() {
 
 /**
  * Gets data for the chart
- * @returns {Promise<{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}>} The data
+ * @returns {{labels: string[]; nrOfAttendees: number[]; prices: number[]; views: number[]}} The data
  */
-async function getChartData() {
+function getChartData(data) {
 	try {
-		const data = await dataPromise;
-		if (!data) throw new Error('No data');
-
 		const labels = Object.keys(data);
 		const nrOfAttendees = labels.map(
 			(label) => data[label].attendees.count
