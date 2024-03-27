@@ -2,7 +2,7 @@
 @import url('./error.css');
 @import url('./chart.css');
 @import url('./countries.css');
-@import url('./sticky.css');
+@import url('./sections.css');
 
 body {
 	font-family: Source Code Pro, Inconsolata, Menlo, monospace;
