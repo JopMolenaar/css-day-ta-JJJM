@@ -24,7 +24,11 @@ h3 {
 /* h2 */
 h2.title {
 	display: grid;
-	grid-template-columns: 1fr 1em;
+	grid-template-columns: 1fr 3em;
+	/* min-width: 18.75em;
+	max-width: 25em; */
+	min-width: 300px;
+	max-width: 400px;
 }
 h2.title svg {
 	width: 100%;
@@ -36,6 +40,7 @@ h2.title svg {
 	writing-mode: vertical-lr;
 	height: fit-content;
 	width: fit-content;
+	font-size: 1.7em;
 }
 .extra {
 	font-size: 1.7rem;
@@ -137,7 +142,7 @@ p.color {
 }
 
 iframe {
-	max-width: 20em;
+	max-width: 13em;
 	width: 100%;
 	height: auto;
 	aspect-ratio: 16/9;
@@ -184,16 +189,20 @@ iframe {
 		justify-content: space-around;
 	}
 	h2.title {
-		grid-template-columns: 10em 1em;
+		grid-template-columns: 7.5em 1em;
 	}
+	
 	h2.title svg {
 		/* width: 50%; */
 		height: auto;
 		order: -1;
 		filter: invert(100%);
 	}
-	iframe {
-		width: 40vw;
+	.rotate {
+		writing-mode: vertical-lr;
+		height: fit-content;
+		width: fit-content;
+		font-size: 2em;
 	}
 	.vid-section {
 		height: fit-content;
