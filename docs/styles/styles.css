@@ -73,7 +73,7 @@ h2.title svg {
 .timeline_container {
 	position: relative;
 	width: min(90%, calc(4 * (100vh - var(--box-height) - 8em)));
-	margin: 2em auto;
+	margin: 3em auto 1em auto;
 }
 
 .timeline_graph {
