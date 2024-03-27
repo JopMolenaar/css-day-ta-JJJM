@@ -23,9 +23,10 @@ h3 {
 .data-current-year > section {
 /*    min-height: 80vh;*/
     min-height: var(--box-height);
-    display: flex;
-    flex-direction: row;
     top: calc(100vh - var(--box-height));
+
+    display: grid;
+    grid-template-columns: 30vw 1fr 30vw;
 }
 
 .data-current-year > section > section {
@@ -33,7 +34,7 @@ h3 {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 2em;
+    padding: 1em;
     color: #fff;
     position: sticky;
     grid-gap: 1em;
@@ -82,6 +83,12 @@ p.color {
     font-size: 3em;
 }
 
+.vid-section {
+    margin-top: auto;
+}
+.vid-section h4 {
+    margin-bottom: 0.3rem;
+}
 .video {
 	width: 100%;
 	height: auto;
@@ -93,10 +100,12 @@ iframe {
     aspect-ratio: 16/9;
     max-width: calc((40vh - 22px) * 16 / 9);
     border-radius: .4rem;
+    max-width: 20em;
 }
 
 @media screen and (max-width: 1024px) {
 	.data-current-year > section {
+        display: flex;
 		flex-direction: column;
 		top: calc(100vh - var(--box-height));
 		height: fit-content;
