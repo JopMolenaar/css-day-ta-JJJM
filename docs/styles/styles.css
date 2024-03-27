@@ -1,4 +1,5 @@
 @import url('./reset.css');
+@import url('./dark.css');
 @import url('./error.css');
 @import url('./chart.css');
 @import url('./countries.css');
@@ -60,7 +61,7 @@ h2.title svg g rect {
 
 h2.title svg g rect:hover {
 	opacity: 0.3;
-	transition: .2s ease-out;
+	transition: 0.2s ease-out;
 }
 
 .rotate {
@@ -193,7 +194,6 @@ h2.title svg g rect:hover {
 
 /* Timeline animation on Desktop */
 @media screen and (width > 540px) {
-
 	/* Remove mobile animation */
 	.timeline_nav,
 	.timeline_graph {
