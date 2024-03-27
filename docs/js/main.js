@@ -14,11 +14,11 @@ async function initApp() {
 		if (!data) throw new Error('No data');
 
 		await DOMContentLoaded;
-		await splash;
 
 		initTimeline(data);
 		initChart(data);
 		initSections(data, await countries);
+		await splash;
 	} catch (e) {
 		setErrorState(true);
 		console.error(e);
