@@ -36,8 +36,43 @@ header {
 	white-space: nowrap;
 	width: 1px;
 }
+
 h1 {
 	position: absolute;
+}
+
+/* h2 */
+h2.title {
+	display: grid;
+	grid-template-columns: 1fr 1em;
+}
+
+h2.title svg {
+	width: 100%;
+	height: auto;
+	order: -1;
+	filter: invert(100%);
+}
+
+h2.title svg g rect {
+	opacity: 1;
+	transition: 1s ease-out;
+}
+
+h2.title svg g rect:hover {
+	opacity: 0.3;
+	transition: 0.2s ease-out;
+}
+
+.rotate {
+	writing-mode: vertical-lr;
+	height: fit-content;
+	width: fit-content;
+}
+
+.extra {
+	font-size: 1.7rem;
+	grid-column: 1/3;
 }
 
 /* Timeline styling */

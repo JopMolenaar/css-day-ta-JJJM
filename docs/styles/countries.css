@@ -1,3 +1,17 @@
+.svg-section svg {
+	width: 100%;
+	height: auto;
+	background-color: #c9c9c9;
+	border-radius: .5rem;
+	aspect-ratio: 16/9;
+}
+
+svg path {
+	fill: rgb(124, 124, 124);
+	stroke: rgb(0, 0, 0);
+	stroke-width: 1px;
+}
+
 .svg-section {
     display: flex;
     justify-content: center;
@@ -61,32 +75,63 @@
 }
 
 .button-wrapper button {
-	background-color: rgba(128, 128, 128, 0.594);
-	color: white;
-	padding: 0.5rem;
-	border-radius: 10px;
-	transition: 100ms;
-	border: none;
-}
-.button-wrapper button:hover {
-	scale: 1.1;
-	background-color: rgba(0, 0, 0, 0.694);
+	align-items: center;
+	background-color: #fee6e3;
+	border: 2px solid #111;
+	border-radius: 8px;
+	box-sizing: border-box;
+	color: #111;
 	cursor: pointer;
+	display: flex;
+	font-family: Inter, sans-serif;
+	font-size: 16px;
+	height: 48px;
+	justify-content: center;
+	line-height: 24px;
+	max-width: 100%;
+	padding: 0 25px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
 }
-.button-wrapper button:focus-visible {
-	scale: 1.1;
-	background-color: rgba(0, 0, 0, 0.694);
-	border: solid white 3px;
+
+.button-wrapper button:after {
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 8px;
+	content: "";
+	display: block;
+	height: 48px;
+	left: 0;
+	width: 100%;
+	position: absolute;
+	top: -2px;
+	transform: translate(8px, 8px);
+	transition: transform .2s ease-out;
+	z-index: -1;
 }
+
+.button-wrapper button:hover:after {
+	transform: translate(4px, 4px);
+}
+
 .button-wrapper button:active {
-	scale: 1;
-	background-color: color-mix(
-		in srgb,
-		rgba(0, 0, 0, 0.694),
-		currentcolor 20%
-	);
+	background-color: #ffdeda;
+	outline: 0;
 }
-.button-wrapper button.active {
-	background-color: black;
-	scale: 1.1;
+
+.button-wrapper button:hover {
+	outline: 0;
+}
+
+.button-wrapper button.active:after {
+	transform: translate(0, 0);
+}
+
+@media (min-width: 768px) {
+	.button-wrapper button {
+		padding: 0 40px;
+	}
 }
