@@ -3,12 +3,14 @@
     justify-content: center;
 }
 .svg-section div {
-    display: grid;
     width: 100%;
     position: relative;
     place-self: center;
     max-width: 25em;
     border-radius: 50%;
+}
+.svg-section div:nth-child(1) {
+    display: grid;
 }
 .svg-section div div:nth-child(1){
     grid-area: 1/1;
