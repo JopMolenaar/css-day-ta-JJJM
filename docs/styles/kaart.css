@@ -1,0 +1,88 @@
+.svg-section {
+    display: flex;
+    justify-content: center;
+}
+.svg-section div {
+    width: 100%;
+    position: relative;
+    place-self: center;
+    max-width: 25em;
+    border-radius: 50%;
+}
+.svg-section div:nth-child(1) {
+    display: grid;
+}
+.svg-section div div:nth-child(1){
+    grid-area: 1/1;
+    width: 100%;
+    place-self: center;
+    max-width: 25em;
+    border-radius: 50%;
+    overflow: scroll;
+    background-color: #c9c9c9;
+    aspect-ratio: 1;
+}
+.svg-mask {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(1,1,1,0.9) 84%);
+    pointer-events: none;
+  }
+.svg-section div::-webkit-scrollbar {
+    display: none;
+}
+.svg-section div svg {
+    width: auto;
+    height: 40vh;
+    background-color: #c9c9c9;
+    border-radius: .5rem;
+    aspect-ratio: 18/13;
+}
+
+.svg-section svg path {
+    fill: rgb(124, 124, 124);
+    stroke: rgb(0, 0, 0);
+    stroke-width: 1px;
+}
+
+
+.button-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    margin-bottom: 0.2rem;
+    width: 100%;
+    justify-content: center;
+    order: 2;
+}
+
+.button-wrapper button {
+    background-color: rgba(128, 128, 128, 0.594);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    transition: 100ms;
+    border: none;
+}
+.button-wrapper button:hover {
+    scale: 1.1;
+    background-color: rgba(0, 0, 0, 0.694);
+    cursor: pointer;
+}
+.button-wrapper button:focus-visible {
+    scale: 1.1;
+    background-color: rgba(0, 0, 0, 0.694);
+    border: solid white 3px;
+}
+.button-wrapper button:active {
+    scale: 1;
+    background-color: color-mix(in srgb, rgba(0, 0, 0, 0.694), currentcolor 20%);
+}
+.button-wrapper button.active {
+    background-color: black;
+    scale: 1.1;
+}
