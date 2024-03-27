@@ -66,72 +66,40 @@ svg path {
 
 .button-wrapper {
 	display: flex;
-	flex-wrap: nowrap;
-	gap: 0.5rem;
-	margin-bottom: 0.2rem;
+	gap: 1rem;
 	width: 100%;
-	justify-content: center;
 	order: 2;
+	justify-content: center;
 }
 
 .button-wrapper button {
-	align-items: center;
-	background-color: #fee6e3;
-	border: 2px solid #111;
-	border-radius: 8px;
-	box-sizing: border-box;
+	background-color: hsl(7, 0%, 94%);
+	border-radius: .4em;
 	color: #111;
 	cursor: pointer;
-	display: flex;
-	font-family: Inter, sans-serif;
-	font-size: 16px;
-	height: 48px;
-	justify-content: center;
-	line-height: 24px;
+	font-size: 1em;
 	max-width: 100%;
-	padding: 0 25px;
-	position: relative;
-	text-align: center;
-	text-decoration: none;
+	padding: .5em 2em;
 	user-select: none;
 	-webkit-user-select: none;
-	touch-action: manipulation;
+	box-shadow: .4rem .2rem hsl(0, 0%, 50%);
+	border: none;
+	transition: .1s;
 }
 
-.button-wrapper button:after {
-	background-color: rgba(255, 255, 255, 0.5);
-	border-radius: 8px;
-	content: "";
-	display: block;
-	height: 48px;
-	left: 0;
-	width: 100%;
-	position: absolute;
-	top: -2px;
-	transform: translate(8px, 8px);
-	transition: transform .2s ease-out;
-	z-index: -1;
-}
-
-.button-wrapper button:hover:after {
-	transform: translate(4px, 4px);
-}
-
-.button-wrapper button:active {
-	background-color: #ffdeda;
-	outline: 0;
+.button-wrapper button:active,
+.button-wrapper button.active {
+	background-color: hsl(7, 0%, 78%);
+	box-shadow: .05rem .025rem hsl(0, 0%, 100%), 0 0 .5rem hsla(0, 0%, 100%, 1);
+	transform: translate(.35rem, .175rem);
+	transition: .1s;
 }
 
 .button-wrapper button:hover {
-	outline: 0;
+	background-color: hsl(7, 0%, 100%);
+	transition: .1s;
 }
 
-.button-wrapper button.active:after {
-	transform: translate(0, 0);
-}
-
-@media (min-width: 768px) {
-	.button-wrapper button {
-		padding: 0 40px;
-	}
+.button-wrapper button.active:hover {
+	background-color: hsl(7, 0%, 78%);
 }
