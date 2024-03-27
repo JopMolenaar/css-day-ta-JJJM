@@ -1,6 +1,8 @@
 @import url('./reset.css');
-@import url('./chart.css');
 @import url('./error.css');
+@import url('./chart.css');
+@import url('./countries.css');
+@import url('./sections.css');
 
 body {
 	font-family: Source Code Pro, Inconsolata, Menlo, monospace;
@@ -429,3 +431,243 @@ h2.title svg {
 .loader :nth-child(6) :nth-child(4) {
 	animation-delay: 2.3s;
 }
+
+/* Fireworks */
+
+:nth-of-type(1) {--index: 1}
+:nth-of-type(2) {--index: 2}
+:nth-of-type(3) {--index: 3}
+:nth-of-type(4) {--index: 4}
+:nth-of-type(5) {--index: 5}
+:nth-of-type(6) {--index: 6}
+:nth-of-type(7) {--index: 7}
+:nth-of-type(8) {--index: 8}
+:nth-of-type(9) {--index: 9}
+:nth-of-type(10) {--index: 10}
+:nth-of-type(11) {--index: 11}
+:nth-of-type(12) {--index: 12}
+:nth-of-type(13) {--index: 13}
+:nth-of-type(14) {--index: 14}
+:nth-of-type(15) {--index: 15}
+:nth-of-type(16) {--index: 16}
+:nth-of-type(17) {--index: 17}
+:nth-of-type(18) {--index: 18}
+:nth-of-type(19) {--index: 19}
+:nth-of-type(20) {--index: 20}
+:nth-of-type(21) {--index: 21}
+:nth-of-type(22) {--index: 22}
+:nth-of-type(23) {--index: 23}
+:nth-of-type(24) {--index: 24}
+:nth-of-type(25) {--index: 25}
+:nth-of-type(26) {--index: 26}
+:nth-of-type(27) {--index: 27}
+:nth-of-type(28) {--index: 28}
+:nth-of-type(29) {--index: 29}
+:nth-of-type(30) {--index: 30}
+:nth-of-type(31) {--index: 31}
+:nth-of-type(32) {--index: 32}
+
+:root {
+	--firework-element-color: red;
+}
+
+.fireworks {
+	display: none;
+	pointer-events: none;
+}
+
+.fireworks.show {
+	display: block;
+}
+
+.firework {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	place-items: center;
+	width: 20em;
+	aspect-ratio: 1;
+	position: fixed;
+	bottom: 0;
+	right: calc(15vw * var(--index) - 5em);
+	animation: firework 2s linear;
+	animation-delay: calc(.2s * var(--index) - .2s);
+	z-index: 100;
+	animation-fill-mode: both;
+}
+
+@keyframes firework {
+	0% {
+		transform: translateY(11em) rotate(0);
+	}
+
+	50% {
+		transform: translateY(calc(-30vh - 2em * var(--index))) rotate(0);
+	}
+
+	100% {
+		transform: translateY(calc(-30vh - 2em * var(--index))) rotate(calc(20deg * var(--index)));
+	}
+}
+
+.firework:before {
+	position: absolute;
+	content: '';
+	background-color: white;
+	width: 1em;
+	aspect-ratio: 1/1;
+	border-radius: 100%;
+	animation: initialDot 2s linear;
+	z-index: 3;
+	animation-fill-mode: both;
+	animation-delay: inherit;
+}
+
+@keyframes initialDot {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	60% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+.firework li {
+	grid-area: 1 / 1;
+	transform: rotate(calc(360deg / 32 * var(--index))) translateY(0);
+	animation-fill-mode: both;
+	animation-timing-function: linear;
+	animation-duration: 2s;
+	animation-delay: inherit;
+}
+
+.firework li:nth-child(4n) {
+	width: .5em;
+	aspect-ratio: 1/1;
+	background-color: var(--firework-element-color);
+	display: block;
+	border-radius: 100%;
+	animation-name: sphere;
+}
+
+.firework li:nth-child(4n + 1),
+.firework li:nth-child(4n + 3) {
+	width: .3em;
+	height: 6em;
+	background-color: var(--firework-element-color);
+	display: block;
+	border-radius: .5em;
+	animation-name: spoke;
+}
+
+.firework li:nth-child(4n + 2) {
+	position: relative;
+	width: .7em;
+	aspect-ratio: 1/1;
+	animation-name: sphere;
+}
+
+.firework li:nth-child(4n + 2):before,
+.firework li:nth-child(4n + 2):after {
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: var(--firework-element-color);
+}
+
+.firework li:nth-child(4n + 2):after {
+	transform: rotate(45deg);
+}
+
+@keyframes sphere {
+	50% {
+		transform: rotate(calc(360deg / 32 * var(--index))) translateY(0em);
+		opacity: 1;
+	}
+
+	65% {
+		transform: rotate(calc(360deg / 32 * var(--index))) translateY(8em);
+		opacity: 1;
+	}
+
+	100% {
+		transform: rotate(calc(360deg / 32 * var(--index))) translateY(10em);
+		opacity: 0;
+	}
+}
+
+@keyframes spoke {
+	0% {
+		transform: rotate(calc(360deg / 32 * var(--index))) translateY(0em) scale(0);
+		opacity: 1;
+	}
+
+	50% {
+		transform: rotate(calc(360deg / 32 * var(--index))) translateY(0em) scaleY(0);
+		opacity: 1;
+	}
+
+	70% {
+		transform: rotate(calc(360deg / 32 * var(--index))) translateY(8em) scaleY(1);
+		opacity: 1;
+	}
+
+	100% {
+		transform: rotate(calc(360deg / 32 * var(--index))) translateY(10em) scaleY(0);
+		opacity: 0;
+	}
+}
+
+.firework li:nth-child(10n) {
+	--firework-element-color: peru;
+}
+
+.firework li:nth-child(10n + 1) {
+	--firework-element-color: darkorchid;
+}
+
+.firework li:nth-child(10n + 2) {
+	--firework-element-color: mediumseagreen;
+}
+
+.firework li:nth-child(10n + 3) {
+	--firework-element-color: deepskyblue;
+}
+
+.firework li:nth-child(10n + 4) {
+	--firework-element-color: tomato;
+}
+
+.firework li:nth-child(10n + 5) {
+	--firework-element-color: goldenrod;
+}
+
+.firework li:nth-child(10n + 6) {
+	--firework-element-color: hotpink;
+}
+
+.firework li:nth-child(10n + 7) {
+	--firework-element-color: olivedrab;
+}
+
+.firework li:nth-child(10n + 8) {
+	--firework-element-color: navy;
+}
+
+.firework li:nth-child(10n + 9) {
+	--firework-element-color: red;
+}
+
