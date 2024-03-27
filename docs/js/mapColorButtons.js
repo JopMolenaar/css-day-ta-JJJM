@@ -31,7 +31,8 @@ function eventListenerButtons(data, countries) {
 								themeColor,
 								themeColorText,
 								map,
-								countries
+								countries,
+								button.textContent.trim().toLowerCase()
 							);
 						}
 					}

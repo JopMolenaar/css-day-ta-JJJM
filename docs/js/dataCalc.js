@@ -13,9 +13,12 @@ function giveCountryAColor(
 	themeColor,
 	themeColorText,
 	svg,
-	countries
+	countries,
+	subject = 'visitors'
 ) {
 	const paths = svg.querySelectorAll(`path`);
+	const titleOfSvg = document.getElementById(`title-${year}`);
+	titleOfSvg.textContent = `A map of the world that shows where the ${subject} come from.`;
 	const descOfSvg = document.getElementById(`desc-${year}`);
 	paths.forEach((path) => {
 		path.setAttribute('style', `rgb(124, 124, 124)`);
@@ -74,7 +77,7 @@ function giveCountryAColor(
 		}
 	});
 	const visitedCountriesString = visitedCountries.join(', ');
-	descOfSvg.textContent = `The world map shows with the theme color where all the visitors come from. The team color is currently: ${themeColorText}. The colored countries are: ${visitedCountriesString}.`;
+	descOfSvg.textContent = `The world map shows with the theme color where all the ${subject} come from. The team color is currently: ${themeColorText}. The colored countries are: ${visitedCountriesString}.`;
 }
 
 /**
@@ -141,9 +144,9 @@ function cloneInfoSections(year, info, data, countries) {
 	const title = firstClone.querySelector('section > section svg title');
 	const desc = firstClone.querySelector('section > section svg desc');
 	title.id = `title-${year}`;
-	title.textContent = title.textContent.replace(/\s/g, ' ');
+	title.textContent = title.textContent.replace(/(\s|\n|\t)+/g, ' ');
 	desc.id = `desc-${year}`;
-	desc.textContent = desc.textContent.replace(/\s/g, ' ');
+	desc.textContent = desc.textContent.replace(/(\s|\n|\t)+/g, ' ');
 	map.setAttribute('aria-labelledby', `title-${year}`);
 	map.setAttribute('aria-describedby', `desc-${year}`);
 
