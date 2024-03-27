@@ -221,10 +221,36 @@ h2.title svg {
 
 .loader-wrapper {
 	display: none;
+	height: 100dvh;
+	width: 100%;
+	place-items: center;
+	background-color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	opacity: 0;
+	transition: opacity 1s, transform 1s;
+	transform: scale(1.2);
+	animation: displayNone 1s linear;
+}
+
+@keyframes displayNone {
+	0% {
+		display: grid;
+	}
+
+	99% {
+		display: grid;
+	}
+
+	100% {
+		display: none;
+	}
 }
 
 .loading .loader-wrapper {
-	display: block;
+	animation: none;
 	height: 100dvh;
 	width: 100%;
 	display: grid;
@@ -234,6 +260,9 @@ h2.title svg {
 	top: 0;
 	left: 0;
 	z-index: 999;
+	opacity: 1;
+	transform: scale(1);
+	transition: none;
 }
 
 .loader {
