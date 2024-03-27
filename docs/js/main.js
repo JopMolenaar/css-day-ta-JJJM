@@ -47,14 +47,24 @@ function setLoadingState(enable = false) {
  */
 function setErrorState(enable = false) {
 	document.body.classList.toggle('error', enable);
-	const header = document.querySelector('main');
-	if (enable && !header.querySelector('main > button')) {
-		const button = document.createElement('button');
-		button.textContent = 'Retry';
-		button.addEventListener('click', initApp);
-		header.prepend(button);
+	const main = document.querySelector('main');
+	if (enable) {
+		const info = main.querySelector('section.info');
+
+		if (!main.querySelector('main > p')) {
+			const p = document.createElement('p');
+			p.textContent = 'An error occurred while loading the data.';
+			main.insertBefore(p, info);
+		}
+
+		if (!main.querySelector('main > button')) {
+			const button = document.createElement('button');
+			button.textContent = 'Retry';
+			button.addEventListener('click', initApp);
+			main.insertBefore(button, info);
+		}
 	} else if (!enable) {
-		const button = header.querySelector('button');
+		const button = main.querySelector('button');
 		if (button) button.remove();
 	}
 }
