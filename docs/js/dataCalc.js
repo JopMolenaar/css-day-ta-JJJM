@@ -219,7 +219,7 @@ function cloneInfoSections(year, info, data, countries) {
 		map,
 		countries
 	); // fill in the map colors
-	eventListenerButtons(data);
+	eventListenerButtons(data, countries);
 }
 
 function getMostWatchedVideo(data) {
