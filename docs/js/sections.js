@@ -57,33 +57,28 @@ function cloneInfoSections(year, info, data, countries) {
 
 	const mc = firstClone.querySelector('.mc');
 
-	data[year].mc.forEach((singleMc) => {
-		const div = document.createElement('div');
-		const img = document.createElement('img');
-		if (singleMc.avatar) {
-			img.src = singleMc.avatar;
-		} else {
-			img.src = 'images/dummy-portrait.jpg';
-		}
-		img.alt = '';
-		div.appendChild(img);
+	const div = document.createElement('div');
 
+	data[year].mc.forEach((singleMc, index) => {
+		const img = document.createElement('img');
+		img.src = singleMc.avatar || 'images/dummy-portrait.jpg'; // Use singleMc.avatar if available, otherwise use a default image
+		img.alt = '';
+
+		// Create either a link or a paragraph based on the presence of singleMc.link
+		const name = singleMc.link
+			? document.createElement('a')
+			: document.createElement('p');
 		if (singleMc.link) {
-			const name = document.createElement('a');
 			name.href = singleMc.link;
 			name.target = '_blank';
-			name.textContent = singleMc.name + ' | MC';
-
-			div.appendChild(name);
-		} else {
-			const name = document.createElement('p');
-			name.textContent = singleMc.name + ' | MC';
-
-			div.appendChild(name);
 		}
-
-		mc.appendChild(div);
+		name.textContent = singleMc.name + ' | MC';
+		div.appendChild(name);
+		div.appendChild(img);
 	});
+
+	// Append the containers to the main container
+	mc.appendChild(div);
 
 	const videoId = getMostWatchedVideo(info);
 	const iframe = firstClone.querySelector('iframe');
