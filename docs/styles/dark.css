@@ -1,0 +1,28 @@
+@media screen and (prefers-color-scheme: dark) {
+	#legend-container p {
+		color: #fff !important;
+	}
+
+	body.loading .loader-wrapper {
+		background-color: black;
+	}
+
+	body.loading .loader {
+		fill: #fff;
+		background-color: black;
+	}
+
+	header.timeline {
+		background: black;
+		color: #fff;
+	}
+
+	.timeline .timeline_list::before,
+	a.timeline_link::before {
+		background-color: #fff;
+	}
+
+	a.timeline_link {
+		color: #fff;
+	}
+}

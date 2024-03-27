@@ -160,7 +160,7 @@ iframe {
 	}
 
 	.data-current-year {
-		scroll-margin-top: 50vh;
+		scroll-margin-top: 0;
 	}
 
 	.data-current-year > section > section {
