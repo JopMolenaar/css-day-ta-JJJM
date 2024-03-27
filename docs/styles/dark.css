@@ -1,11 +1,11 @@
 @media screen and (prefers-color-scheme: dark) {
 	html,
-	body.loading .loader-wrapper,
+	body.body > div.loader-wrapper,
 	.timeline .timeline_graph-cover {
 		background-color: black;
 	}
 
-	body.loading .loader {
+	body .loader {
 		fill: #fff;
 		background-color: black;
 	}
