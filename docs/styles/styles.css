@@ -45,7 +45,7 @@ h2.title {
 	display: grid;
 	grid-template-columns: 5em 3em;
 }
-h2.title img {
+h2.title svg {
 	width: auto;
 	height: 100px;
 	order: -1;

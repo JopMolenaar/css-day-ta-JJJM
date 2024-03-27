@@ -156,21 +156,12 @@ async function cloneInfoSections(year, info, data) {
 		extra = restOfText.substring(plusIndex + 1); // Extract text after the "+"
 		restOfText = restOfText.substring(0, plusIndex);
 	}
-	const imgElement = document.createElement('img');
-	imgElement.src = 'https://cssday.nl/_img/cssday-logo.svg';
-	imgElement.setAttribute('aria-label', '');
-	titleEvent.innerHTML = `<span class="visually-hidden">${cssDay}</span><span class="rotate">${restOfText}</span>`;
-
-	const span = document.createElement('span');
-	span.textContent = extra;
-	span.classList.add('extra');
-	titleEvent.appendChild(span);
-	titleEvent.appendChild(imgElement);
-
-
-
-
-
+	const hiddenText = titleEvent.querySelector('.visually-hidden');
+	hiddenText.textContent = cssDay;
+	const rotateYear = titleEvent.querySelector('.rotate');
+	rotateYear.textContent = restOfText;
+	const specialText = titleEvent.querySelector('.extra');
+	specialText.textContent = extra;
 
 	const mc = firstClone.querySelector('.mc');
 
