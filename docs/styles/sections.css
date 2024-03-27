@@ -1,7 +1,3 @@
-@layer onDesktop, onMobile;
-
-@layer onDesktop{
-	/* Sections */
 
 h2 {
 	font-size: 2em;
@@ -158,9 +154,8 @@ iframe {
 	max-width: calc((40vh - 22px) * 16 / 9);
 	border-radius: 0.4rem;
 }
-}
 
-@layer onMobile{
+
 	@media screen and (max-width: 1024px) {
 	.data-current-year > section {
 		display: flex;
@@ -238,5 +233,4 @@ iframe {
 			grid-template-columns: 60vw 1em;
 		}
 	}
-}
 
