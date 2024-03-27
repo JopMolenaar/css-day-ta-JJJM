@@ -35,8 +35,6 @@ function cloneInfoSections(year, info, data, countries) {
 	const countryWithCount = data[year].attendees.countries; // data for the year
 	const themeColor = data[year].color.hex; // theme color for the year
 	const themeColorTextData = info.color.name;
-	const themeColorText = firstClone.querySelector('.color');
-	themeColorText.textContent = themeColor;
 
 	const titleEvent = firstClone.querySelector('.title');
 	const titleText = data[year].title;

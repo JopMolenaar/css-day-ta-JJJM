@@ -90,7 +90,7 @@ h2.title svg g rect:hover {
 .timeline_container {
 	position: relative;
 	width: min(90%, calc(4 * (100vh - var(--box-height) - 8em)));
-	margin: 2em auto;
+	margin: 3em auto 1em auto;
 }
 
 .timeline_graph {
@@ -158,7 +158,7 @@ h2.title svg g rect:hover {
 @media screen and (prefers-reduced-motion: no-preference) {
 	@supports (animation-timeline: scroll()) {
 		header {
-			overflow-x: visible;
+			overflow-x: hidden;
 		}
 
 		.timeline_graph-cover {
