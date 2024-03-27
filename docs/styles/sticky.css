@@ -17,7 +17,7 @@ h3 {
 }
 
 .data-current-year {
-	scroll-snap-align: end;
+	scroll-snap-align: start;
 }
 
 .data-current-year > section {
@@ -53,6 +53,18 @@ h3 {
     display: flex;
     flex-direction: column;
     grid-gap: 1em;
+}
+.data-current-year .mc a {
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px dotted;
+    color: white;
+    transition: 200ms;
+    width: fit-content;
+}
+.data-current-year .mc a:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
 }
 
 .data-current-year .mc img {
