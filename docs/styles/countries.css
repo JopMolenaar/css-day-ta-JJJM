@@ -38,7 +38,7 @@
 }
 .svg-section div svg {
     width: auto;
-    height: 40vh;
+    height: 100%;
     background-color: #c9c9c9;
     border-radius: .5rem;
     aspect-ratio: 18/13;
