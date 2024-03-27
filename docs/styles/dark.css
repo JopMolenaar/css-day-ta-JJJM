@@ -15,7 +15,6 @@
 		background-color: #00bfff;
 	}
 
-	html,
 	#legend-container p {
 		color: #fff !important;
 	}
@@ -30,6 +29,7 @@
 		background-color: #fff;
 	}
 
+	html,
 	a.timeline_link {
 		color: #fff;
 	}
