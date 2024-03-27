@@ -23,19 +23,19 @@ h3 {
 }
 
 .data-current-year > section {
-	/*    min-height: 80vh;*/
-	min-height: var(--box-height);
-	display: flex;
-	flex-direction: row;
-	top: calc(100vh - var(--box-height));
-}
+/*    min-height: 80vh;*/
+    min-height: var(--box-height);
+    top: calc(100vh - var(--box-height));
 
+    display: grid;
+    grid-template-columns: 30vw 1fr 30vw;
+}
 .data-current-year > section > section {
 	min-height: var(--box-height);
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	padding: 2em;
+	padding: 1em;
 	color: #fff;
 	position: sticky;
 	grid-gap: 1em;
@@ -56,6 +56,13 @@ h3 {
 	flex-direction: column;
 	grid-gap: 1em;
 }
+.data-current-year .mc div {
+    display: flex;
+    flex-direction: column;
+}
+.data-current-year .mc div:nth-of-type(2){
+    flex-direction: row;
+}
 .data-current-year .mc a {
 	display: block;
 	text-decoration: none;
@@ -63,18 +70,23 @@ h3 {
 	color: white;
 	transition: 200ms;
 	width: fit-content;
+	    order: -1;
 }
 .data-current-year .mc a:hover {
 	background-color: rgba(255, 255, 255, 0.5);
 	color: black;
 }
-
 .data-current-year .mc img {
-	width: 6em;
-	aspect-ratio: 1;
-	object-fit: cover;
-	object-position: center;
-	border-radius: 0.4rem;
+    width: 6em;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: .4rem;
+    transition: 200ms;
+}
+
+.mc a:hover + img {
+    scale: 1.1;
 }
 
 p.color {
@@ -83,13 +95,19 @@ p.color {
 	writing-mode: vertical-lr;
 	font-size: 3em;
 }
-
+.vid-section {
+    margin-top: auto;
+}
+.vid-section h4 {
+    margin-bottom: 0.3rem;
+}
 .video {
 	width: 100%;
 	height: auto;
 }
 
 iframe {
+	    max-width: 20em;
 	width: 100%;
 	height: auto;
 	aspect-ratio: 16/9;
@@ -99,6 +117,7 @@ iframe {
 
 @media screen and (max-width: 1024px) {
 	.data-current-year > section {
+		        display: flex;
 		flex-direction: column;
 		top: calc(100vh - var(--box-height));
 		height: fit-content;
@@ -119,4 +138,10 @@ iframe {
 	p.color {
 		font-size: 4em;
 	}
+	   h2.title svg {
+        width: 100%;
+        height: auto;
+        order: -1;
+        filter: invert(100%);
+    }
 }
