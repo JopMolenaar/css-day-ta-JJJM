@@ -59,6 +59,8 @@ function cloneInfoSections(year, info, data, countries) {
 
 	const div = document.createElement('div');
 
+
+
 	data[year].mc.forEach((singleMc, index) => {
 		const img = document.createElement('img');
 		img.src = singleMc.avatar || 'images/dummy-portrait.jpg'; // Use singleMc.avatar if available, otherwise use a default image
@@ -72,9 +74,12 @@ function cloneInfoSections(year, info, data, countries) {
 			name.href = singleMc.link;
 			name.target = '_blank';
 		}
+
+		const divImg = document.createElement('div');
 		name.textContent = singleMc.name + ' | MC';
 		div.appendChild(name);
-		div.appendChild(img);
+		divImg.appendChild(img);
+		div.appendChild(divImg);
 	});
 
 	// Append the containers to the main container

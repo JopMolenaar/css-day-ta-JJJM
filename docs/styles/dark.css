@@ -1,0 +1,36 @@
+@media screen and (prefers-color-scheme: dark) {
+	html,
+	body.body > div.loader-wrapper,
+	.timeline .timeline_graph-cover {
+		background-color: black;
+	}
+
+	body .loader {
+		fill: #fff;
+		background-color: black;
+	}
+
+	body.error main > button {
+		color: black;
+		background-color: #00bfff;
+	}
+
+	#legend-container p {
+		color: #fff !important;
+	}
+
+	header.timeline {
+		background: black;
+		color: #fff;
+	}
+
+	.timeline .timeline_list::before,
+	a.timeline_link::before {
+		background-color: #fff;
+	}
+
+	html,
+	a.timeline_link {
+		color: #fff;
+	}
+}
