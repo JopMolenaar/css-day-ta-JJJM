@@ -83,8 +83,7 @@ svg path {
 }
 
 .button-wrapper button:after {
-    background-color: #fff;
-    mix-blend-mode: overlay;
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     content: "";
     display: block;
