@@ -73,7 +73,12 @@ function setErrorState(enable = false) {
 			button.focus();
 		}
 	} else {
-		const button = main.querySelector('button');
+		const p = document.querySelector('main > p');
+		const img = document.querySelector('main > img');
+		const button = main.querySelector('main > button');
+
+		if (p) p.remove();
+		if (img) img.remove();
 		if (button) button.remove();
 	}
 }
