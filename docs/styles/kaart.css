@@ -20,6 +20,7 @@
     border-radius: 50%;
     overflow: scroll;
     background-color: #c9c9c9;
+    aspect-ratio: 1;
 }
 .svg-mask {
     position: absolute !important;
