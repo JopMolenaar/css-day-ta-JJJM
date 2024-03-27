@@ -22,6 +22,8 @@ function initFireworks() {
 				fireworks.classList.remove('show');
 			}
 		})
+	},{
+		threshold: .2
 	});
 
 	observer.observe(year2024);
