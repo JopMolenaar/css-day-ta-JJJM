@@ -274,7 +274,7 @@ iframe {
 	}
 
 	h2.title {
-		grid-template-columns: 10em 1em;
+		grid-template-columns: 7em 1em;
 	}
 
 	h2.title svg {
@@ -295,6 +295,9 @@ iframe {
 }
 
 @media screen and (max-width: 810px) {
+		h2.title {
+		grid-template-columns: 60vw 1em;
+	}
 	.data-current-year > section {
 		display: flex;
 		flex-direction: column;
