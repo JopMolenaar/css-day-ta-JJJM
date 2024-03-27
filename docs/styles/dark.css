@@ -1,15 +1,23 @@
 @media screen and (prefers-color-scheme: dark) {
-	#legend-container p {
-		color: #fff !important;
-	}
-
-	body.loading .loader-wrapper {
+	html,
+	body.loading .loader-wrapper,
+	.timeline .timeline_graph-cover {
 		background-color: black;
 	}
 
 	body.loading .loader {
 		fill: #fff;
 		background-color: black;
+	}
+
+	body.error main > button {
+		color: black;
+		background-color: #00bfff;
+	}
+
+	html,
+	#legend-container p {
+		color: #fff !important;
 	}
 
 	header.timeline {

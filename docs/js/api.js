@@ -16,6 +16,7 @@ async function fetchData() {
 		console.debug('Fetching data...');
 		const result = await fetch('https://cssday.nl/data.json');
 		const data = await result.json();
+		throw new Error('error');
 
 		const willFail =
 			window.location.protocol === 'https:' && Math.random() < 0.5;
