@@ -17,7 +17,7 @@ function eventListenerButtons(data, countries) {
 					for (const [year, info] of Object.entries(data)) {
 						if (yearFromId === year) {
 							let countryWithCount;
-							if (button.textContent === 'Speakers') {
+							if (button.textContent.trim() === 'Speakers') {
 								countryWithCount = getSpeakersCountries(info);
 							} else {
 								countryWithCount = info.attendees.countries;

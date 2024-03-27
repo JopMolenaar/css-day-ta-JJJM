@@ -137,7 +137,7 @@ function cloneInfoSections(year, info, data, countries) {
 	firstClone.querySelector('section').id = year;
 
 	// Some changes of the id in the svg in the template
-	const map = firstClone.querySelector('section > section svg');
+	const map = firstClone.querySelector('section > section.svg-section svg');
 	const title = firstClone.querySelector('section > section svg title');
 	const desc = firstClone.querySelector('section > section svg desc');
 	title.id = `title-${year}`;
