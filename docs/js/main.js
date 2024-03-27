@@ -1,3 +1,5 @@
+'use strict';
+
 const DOMContentLoaded = new Promise((resolve) => {
 	document.addEventListener('DOMContentLoaded', resolve);
 });
