@@ -48,30 +48,12 @@ h2.title svg g rect:hover {
 	width: 100%;
 }
 
-/* h2 */
-h2.title {
-	display: grid;
-	/* grid-template-columns: 1fr 1em; */
-}
 
-h2.title svg {
-	width: 100%;
-	height: auto;
-	order: -1;
-	filter: invert(100%);
-}
 
-.rotate {
-	writing-mode: vertical-lr;
-	height: fit-content;
-	width: fit-content;
-	font-size: 1.7em;
-}
 
-.extra {
-	font-size: 1.7rem;
-	grid-column: 1/3;
-}
+
+
+
 
 .data-current-year {
 	scroll-snap-align: start;
@@ -148,7 +130,9 @@ iframe {
 	color: white;
 	transition: 200ms;
 	width: fit-content;
+	grid-column: 1 / 3;
 	justify-content: space-around;
+	order: -1;
 }
 h2.title {
 	grid-template-columns: 7.5em 1em;
