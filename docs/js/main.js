@@ -26,6 +26,13 @@ async function initApp() {
 		initSections(data, await countries);
 		initFireworks();
 		await splash;
+		if (window.location.hash) {
+			const year = window.location.hash.substring(1);
+			const section = document.getElementById(year);
+			if (section) {
+				section.scrollIntoView();
+			}
+		}
 	} catch (e) {
 		setErrorState(true);
 		console.error(e);
