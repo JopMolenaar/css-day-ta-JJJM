@@ -90,6 +90,9 @@ iframe {
 }
 .data-current-year > section {
 	background-color: #25b175;
+	max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .bg-color {
