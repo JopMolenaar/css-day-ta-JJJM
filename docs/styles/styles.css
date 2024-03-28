@@ -12,10 +12,12 @@ body {
 
 main {
 	scroll-snap-type: y mandatory;
-	height: 50vh;
+	height: 500vh;
+	height: 50svh;
 	overflow: auto;
 	scroll-timeline: --section-1 y;
 	margin-top: calc(100vh - var(--box-height));
+	margin-top: calc(100svh - var(--box-height));
 	scroll-behavior: smooth;
 	position: relative;
 	z-index: 99;
@@ -47,6 +49,7 @@ h1 {
 	display: block;
 	width: 100%;
 	height: calc(100vh - var(--box-height));
+	height: calc(100svh - var(--box-height));
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -57,6 +60,7 @@ h1 {
 .timeline_container {
 	position: relative;
 	width: min(90%, calc(4 * (100vh - var(--box-height) - 8em)));
+	width: min(90%, calc(4 * (100svh - var(--box-height) - 8em)));
 	margin: 3em auto 1em auto;
 }
 
@@ -135,6 +139,7 @@ h1 {
 			right: 0;
 			top: 0;
 			height: 50vh;
+			height: 50svh;
 		}
 
 		.timeline_graph,
@@ -206,7 +211,8 @@ h1 {
 
 .loader-wrapper {
 	display: none;
-	height: 100dvh;
+	height: 100vh;
+	height: 100svh;
 	width: 100%;
 	place-items: center;
 	background-color: white;
@@ -236,7 +242,8 @@ h1 {
 
 .loading .loader-wrapper {
 	animation: none;
-	height: 100dvh;
+	height: 100vh;
+	height: 100svh;
 	width: 100%;
 	display: grid;
 	place-items: center;
@@ -580,10 +587,13 @@ h1 {
 
 	50% {
 		transform: translateY(calc(-30vh - 2em * var(--index))) rotate(0);
+		transform: translateY(calc(-30svh - 2em * var(--index))) rotate(0);
 	}
 
 	100% {
 		transform: translateY(calc(-30vh - 2em * var(--index)))
+			rotate(calc(20deg * var(--index)));
+		transform: translateY(calc(-30svh - 2em * var(--index)))
 			rotate(calc(20deg * var(--index)));
 	}
 }

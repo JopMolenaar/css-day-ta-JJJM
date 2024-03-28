@@ -41,6 +41,7 @@ h2.title svg g rect:hover {
 
 :root {
 	--box-height: 50vh;
+	--box-height: 50svh;
 }
 
 .info {
@@ -58,6 +59,7 @@ h2.title svg g rect:hover {
 	/*    min-height: 80vh;*/
 	min-height: var(--box-height);
 	top: calc(100vh - var(--box-height));
+	top: calc(100svh - var(--box-height));
 	display: grid;
 	grid-template-columns: 30vw 1fr 30vw;
 }
@@ -67,6 +69,7 @@ iframe {
 	height: auto;
 	aspect-ratio: 16/9;
 	max-width: calc((40vh - 22px) * 16 / 9);
+	max-width: calc((40svh - 22px) * 16 / 9);
 	border-radius: 0.4rem;
 }
 
@@ -211,6 +214,7 @@ iframe {
 	height: auto;
 	aspect-ratio: 16/9;
 	max-width: calc((40vh - 22px) * 16 / 9);
+	max-width: calc((40svh - 22px) * 16 / 9);
 	border-radius: 0.4rem;
 }
 @media screen and (max-width: 1150px) {
@@ -223,11 +227,13 @@ iframe {
 		display: flex;
 		flex-direction: column;
 		top: calc(100vh - var(--box-height));
+		top: calc(100svh - var(--box-height));
 		height: fit-content;
 	}
 
 	.chart {
 		height: calc(100vh - var(--box-height));
+		height: calc(100svh - var(--box-height));
 	}
 
 	.data-current-year {
