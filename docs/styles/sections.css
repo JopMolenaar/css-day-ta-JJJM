@@ -49,13 +49,6 @@ h2.title svg g rect:hover {
 	grid-auto-rows: 1fr;
 }
 
-
-
-
-
-
-
-
 .data-current-year {
 	scroll-snap-align: start;
 	background-color: #25b175;
@@ -132,6 +125,7 @@ iframe {
 	grid-column: 1 / 3;
 	justify-content: space-around;
 	order: -1;
+	height: fit-content;
 }
 h2.title {
 	grid-template-columns: 7.5em 1em;
@@ -240,10 +234,6 @@ iframe {
 		scroll-margin-top: 0;
 	}
 
-	.data-current-year > section > section {
-		/* max-height: 40vh; */
-	}
-
 	p.color {
 		font-size: 4em;
 	}
@@ -286,7 +276,7 @@ iframe {
 }
 
 @media screen and (max-width: 810px) {
-		h2.title {
+	h2.title {
 		grid-template-columns: 60vw 1em;
 	}
 	.data-current-year > section {
