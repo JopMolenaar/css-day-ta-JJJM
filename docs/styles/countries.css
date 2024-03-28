@@ -38,6 +38,7 @@ svg path {
     aspect-ratio: 1;
 	grid-template-columns: 100% 1fr 100%;
 	animation: turnTheGlobe 15s infinite linear;
+	transform: translate(-120%);
 }
 .svg-section div div:nth-child(1) q{
 	width: 100%;
@@ -92,7 +93,37 @@ svg path {
 	transform: translate(-268%);
 	}
 }
-
+@media (prefers-reduced-motion: reduce) {
+.svg-section div div:nth-child(1){
+	animation: none;
+	transform: translate(-134%);
+}
+.svg-section div svg {
+    aspect-ratio: 18/13;
+}
+.svg-section div:nth-child(1) {
+	 overflow-x: scroll;
+	overflow-y: hidden;
+}
+.svg-section div div:nth-child(1){
+	grid-template-columns: 1fr;
+	animation: none;
+	transform: translate(0%);
+}
+.svg-section div svg {
+    aspect-ratio: 23/13;
+}
+.svg-section div div:nth-child(1) q:not([aria-hidden="true"]) {
+	display: none;
+	grid-column: 3/4;
+	transform: translate(190%);
+}
+.svg-section div div:nth-child(1) q[aria-hidden="true"] {
+	grid-row: 1/2;
+	text-align: center;
+	display: none;
+}
+}
 
 .button-wrapper {
 	display: flex;
