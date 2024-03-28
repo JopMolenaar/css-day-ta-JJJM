@@ -64,7 +64,7 @@ function cloneInfoSections(year, info, data, countries) {
 		const name = document.createElement('a');
 		name.href =
 			singleMc.link ||
-			'https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1';
+			'https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1&controls=0&rel=0&loop=1&disablekb=1';
 		name.target = '_blank';
 
 		const divImg = document.createElement('div');
