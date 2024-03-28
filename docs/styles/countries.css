@@ -14,13 +14,18 @@ svg path {
 
 .svg-section {
     display: flex;
-    /* justify-content: center; */
 }
+.svg-section > div:nth-of-type(2){
+	overflow: hidden;
+	border-radius: 50%;
+	background-color: #c9c9c9;
+	box-shadow: rgba(255, 255, 255, 0.4) -4px -4px 8px;
+}
+
 .svg-section div {
     position: relative;
     place-self: center;
     max-width: 25em;
-    border-radius: 50%;
 }
 .svg-section div:nth-child(1) {
     display: grid;
@@ -28,22 +33,41 @@ svg path {
 .svg-section div div:nth-child(1){
     grid-area: 1/1;
 	height: 36vh;
+	height: 36svh;
     place-self: center;
     max-width: 25em;
-    border-radius: 50%;
-    overflow-x: scroll;
-	overflow-y: hidden;
     background-color: #c9c9c9;
     aspect-ratio: 1;
+	grid-template-columns: 100% 1fr 100%;
+	animation: turnTheGlobe 15s infinite linear;
+	transform: translate(-120%);
 }
-.svg-mask {
-    position: absolute !important;
+.svg-section div div:nth-child(1) q{
+	width: 100%;
+	height: fit-content;
+	align-self: center;
+	color: black;
+}
+.svg-section div div:nth-child(1) q:not([aria-hidden="true"]) {
+	grid-column: 3/4;
+	transform: translate(190%);
+}
+.svg-section div div:nth-child(1) q[aria-hidden="true"] {
+	grid-row: 1/2;
+	text-align: center;
+}
+
+.svg-section div.svg-mask {
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(1,1,1,0.9) 84%);
+	background: 
+		radial-gradient(circle at 40% 40%, rgba(0,0,0,0) 60%,   rgba(1,1,1,0.9) 85%), 
+		radial-gradient(circle at 100px 100px, #5cabff00, #000000b7), 
+		radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
     pointer-events: none;
   }
 .svg-section div::-webkit-scrollbar {
@@ -54,13 +78,56 @@ svg path {
     height: 100%;
     background-color: #c9c9c9;
     border-radius: .5rem;
-    aspect-ratio: 18/13;
+    aspect-ratio: 23/13;
+	grid-column: 2/3;
 }
 
 .svg-section svg path {
     fill: rgb(124, 124, 124);
     stroke: rgb(0, 0, 0);
     stroke-width: 1px;
+}
+
+
+@keyframes turnTheGlobe {
+	0%{
+	transform: translate(0%);
+	}
+
+	100% {
+	transform: translate(-268%);
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+.svg-section div div:nth-child(1){
+	animation: none;
+	transform: translate(-134%);
+}
+.svg-section div svg {
+    aspect-ratio: 18/13;
+}
+.svg-section div:nth-child(1) {
+	 overflow-x: scroll;
+	overflow-y: hidden;
+}
+.svg-section div div:nth-child(1){
+	grid-template-columns: 1fr;
+	animation: none;
+	transform: translate(0%);
+}
+.svg-section div svg {
+    aspect-ratio: 23/13;
+}
+.svg-section div div:nth-child(1) q:not([aria-hidden="true"]) {
+	display: none;
+	grid-column: 3/4;
+	transform: translate(190%);
+}
+.svg-section div div:nth-child(1) q[aria-hidden="true"] {
+	grid-row: 1/2;
+	text-align: center;
+	display: none;
+}
 }
 
 .button-wrapper {

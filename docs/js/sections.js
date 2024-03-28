@@ -15,9 +15,8 @@ function cloneInfoSections(year, info, data, countries) {
 	const sections = firstClone.querySelectorAll(
 		'.data-current-year > section > section'
 	);
-	sections.forEach((section) => {
-		section.style.background = info.color.hex;
-	});
+
+	firstClone.querySelector('section').style.backgroundColor = info.color.hex;
 
 	firstClone.querySelector('section').id = year;
 
@@ -57,21 +56,16 @@ function cloneInfoSections(year, info, data, countries) {
 
 	const div = document.createElement('div');
 
-
-
 	data[year].mc.forEach((singleMc, index) => {
 		const img = document.createElement('img');
 		img.src = singleMc.avatar || 'images/dummy-portrait.jpg'; // Use singleMc.avatar if available, otherwise use a default image
 		img.alt = '';
 
-		// Create either a link or a paragraph based on the presence of singleMc.link
-		const name = singleMc.link
-			? document.createElement('a')
-			: document.createElement('p');
-		if (singleMc.link) {
-			name.href = singleMc.link;
-			name.target = '_blank';
-		}
+		const name = document.createElement('a');
+		name.href =
+			singleMc.link ||
+			'https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1';
+		name.target = '_blank';
 
 		const divImg = document.createElement('div');
 		name.textContent = singleMc.name + ' | MC';
