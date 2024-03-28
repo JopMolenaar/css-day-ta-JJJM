@@ -25,6 +25,7 @@ async function initApp() {
 		initChart(data);
 		initSections(data, await countries);
 		initFireworks();
+		initScrollAnimationSize();
 		await splash;
 		if (window.location.hash) {
 			const year = window.location.hash.substring(1);

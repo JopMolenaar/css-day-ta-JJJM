@@ -154,6 +154,8 @@ h1 {
 			animation-timing-function: linear;
 			animation-timeline: --section-1;
 			animation-fill-mode: both;
+			animation-range: 0% calc(100% - (var(--section-height) - 50vh));
+			animation-range: 0% calc(100% - (var(--section-height) - 50svh));
 		}
 	}
 }
@@ -164,7 +166,7 @@ h1 {
 	}
 
 	100% {
-		transform: translateX(calc(-1 * var(--chart-width) + 45vw - 8px));
+		transform: translateX(calc(-1 * var(--chart-width) + 45vw));
 	}
 }
 
@@ -189,6 +191,8 @@ h1 {
 				transform-origin: right;
 				animation-timeline: --section-1;
 				animation-fill-mode: both;
+				animation-range: 0% calc(100% - (var(--section-height) - 50vh));
+				animation-range: 0% calc(100% - (var(--section-height) - 50svh));
 			}
 		}
 	}
