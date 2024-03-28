@@ -134,6 +134,15 @@ iframe {
 	justify-content: space-around;
 	order: -1;
 }
+
+.data-current-year .mc a:nth-last-of-type(1) {
+	margin-bottom: 1em;
+}
+
+.data-current-year .mc p:nth-last-of-type(1) {
+	margin-bottom: 1em;
+}
+
 h2.title {
 	grid-template-columns: 7.5em 1em;
 	z-index: 999;
@@ -172,16 +181,17 @@ h2.title svg {
 }
 
 .mc a:hover + div img {
-	left: 0;
-	top: 0;
+	left: -25%;
+    top: -25%;
 	width: 6em;
 	transition: 200ms;
 }
 
 .mc a:hover + div {
-	width: 6em;
-	height: 6em;
-	transform: translateX(-1em);
+	/* width: 6em;
+	height: 6em; */
+	scale: 1.5;
+	/* transform: translateX(-1em); */
 	transition: 200ms;
 }
 
