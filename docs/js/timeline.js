@@ -15,3 +15,22 @@ function initTimeline(data) {
 		navList.appendChild(listItem);
 	});
 }
+
+function initScrollAnimationSize() {
+	const lastSection = document.querySelector('.data-current-year:last-of-type');
+	setSectionHeight(lastSection);
+
+	const resizeObserver = new ResizeObserver((entries) => {
+		entries.forEach((entry) => {
+			setSectionHeight(lastSection);
+		});
+	});
+
+	resizeObserver.observe(lastSection);
+}
+
+function setSectionHeight(section) {
+	const height = section.offsetHeight;
+	const root = document.documentElement;
+	root.style.setProperty('--section-height', `${height}px`);
+}

@@ -25,6 +25,7 @@ async function initApp() {
 		initChart(data);
 		initSections(data, await countries);
 		initFireworks();
+		initScrollAnimationSize();
 		await splash;
 	} catch (e) {
 		setErrorState(true);
