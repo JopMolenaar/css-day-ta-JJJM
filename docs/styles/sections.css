@@ -167,6 +167,7 @@ h2.title svg {
 	top: -50%;
 }
 
+.mc p:hover + div img,
 .mc a:hover + div img {
 	left: 0;
 	top: 0;
@@ -174,6 +175,7 @@ h2.title svg {
 	transition: 200ms;
 }
 
+.mc p:hover + div,
 .mc a:hover + div {
 	width: 6em;
 	height: 6em;
