@@ -61,7 +61,7 @@ h2.title svg g rect:hover {
 	top: calc(100vh - var(--box-height));
 	top: calc(100svh - var(--box-height));
 	display: grid;
-	grid-template-columns: 30vw 1fr 30vw;
+	grid-template-columns: 30% 1fr 30%;
 }
 iframe {
 	max-width: 13em;
@@ -86,6 +86,11 @@ iframe {
 .data-current-year > section > section:nth-child(1) {
 	z-index: 99;
 }
+.data-current-year > section {
+	max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .bg-color {
 	--theme-color: #ff0000;
@@ -103,6 +108,7 @@ iframe {
 	display: grid;
 	grid-template-columns: 6em 6em;
 	gap: 0.4em;
+	height: fit-content;
 }
 
 .data-current-year .mc > div > div {
@@ -130,6 +136,15 @@ iframe {
 	order: -1;
 	height: fit-content;
 }
+
+.data-current-year .mc a:nth-last-of-type(1) {
+	margin-bottom: 1em;
+}
+
+.data-current-year .mc p:nth-last-of-type(1) {
+	margin-bottom: 1em;
+}
+
 h2.title {
 	grid-template-columns: 7.5em 1em;
 	z-index: 999;
@@ -169,17 +184,18 @@ h2.title svg {
 
 .mc p:hover + div img,
 .mc a:hover + div img {
-	left: 0;
-	top: 0;
+	left: -25%;
+    top: -25%;
 	width: 6em;
 	transition: 200ms;
 }
 
 .mc p:hover + div,
 .mc a:hover + div {
-	width: 6em;
-	height: 6em;
-	transform: translateX(-1em);
+	/* width: 6em;
+	height: 6em; */
+	scale: 1.5;
+	/* transform: translateX(-1em); */
 	transition: 200ms;
 }
 
@@ -225,6 +241,9 @@ iframe {
 	}
 }
 @media screen and (max-width: 1024px) {
+
+	
+
 	.data-current-year > section {
 		display: flex;
 		flex-direction: column;
@@ -306,5 +325,12 @@ iframe {
 	}
 	h2.title {
 		grid-template-columns: 60vw 1em;
+	}
+}
+
+@media screen and (max-width: 1024px) and (min-height: 800px) {
+	body main {
+		height: 60svh;
+		margin-top: 40svh;
 	}
 }

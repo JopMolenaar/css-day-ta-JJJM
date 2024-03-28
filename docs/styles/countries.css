@@ -47,6 +47,7 @@ svg path {
 	height: fit-content;
 	align-self: center;
 	color: black;
+	font-size: 2vh;
 }
 .svg-section div div:nth-child(1) q:not([aria-hidden="true"]) {
 	grid-column: 3/4;
@@ -95,7 +96,7 @@ svg path {
 	}
 
 	100% {
-	transform: translate(-268%);
+	transform: translate(-275%);
 	}
 }
 @media (prefers-reduced-motion: reduce) {
