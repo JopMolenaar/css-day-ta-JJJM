@@ -15,9 +15,8 @@ function cloneInfoSections(year, info, data, countries) {
 	const sections = firstClone.querySelectorAll(
 		'.data-current-year > section > section'
 	);
-	sections.forEach((section) => {
-		section.style.background = info.color.hex;
-	});
+
+	firstClone.querySelector('section').style.backgroundColor = info.color.hex;
 
 	firstClone.querySelector('section').id = year;
 

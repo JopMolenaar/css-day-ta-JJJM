@@ -44,12 +44,14 @@ h2.title svg g rect:hover {
 }
 
 .info {
-	height: 100%;
 	width: 100%;
+	display: grid;
+	grid-auto-rows: 1fr;
 }
 
 .data-current-year {
 	scroll-snap-align: start;
+	background-color: #25b175;
 }
 
 .data-current-year > section {
@@ -80,9 +82,6 @@ iframe {
 }
 .data-current-year > section > section:nth-child(1) {
 	z-index: 99;
-}
-.data-current-year > section {
-	background-color: #25b175;
 }
 
 .bg-color {
