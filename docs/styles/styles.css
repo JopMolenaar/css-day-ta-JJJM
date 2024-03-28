@@ -24,6 +24,8 @@ main {
 header {
 	overflow-x: auto;
 	overflow-y: hidden;
+	display: flex;
+    align-items: center;
 }
 
 /* The hide class */
