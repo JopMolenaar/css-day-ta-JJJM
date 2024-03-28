@@ -28,6 +28,9 @@ function initChart(data) {
 			},
 			plugins: [htmlLegendPlugin],
 			options: {
+				animation: !window.matchMedia(
+					'(prefers-reduced-motion: reduce)'
+				),
 				aspectRatio: 4,
 				plugins: {
 					legend: { display: false },
