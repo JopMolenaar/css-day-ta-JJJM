@@ -80,7 +80,7 @@ function cloneInfoSections(year, info, data, countries) {
 	const videoId = getMostWatchedVideo(info);
 	const iframe = firstClone.querySelector('iframe');
 	iframe.src = `https://www.youtube-nocookie.com/embed/${
-		videoId || 'dkBeBxs48os'
+		videoId || 'zab_4dk8f9c'
 	}?privacy_mode=1`;
 
 	if (!videoId) {
