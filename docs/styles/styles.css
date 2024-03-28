@@ -31,8 +31,6 @@ main {
 header {
 	overflow-x: auto;
 	overflow-y: hidden;
-	display: flex;
-    align-items: center;
 }
 
 /* The hide class */
@@ -52,7 +50,6 @@ h1 {
 
 /* Timeline styling */
 .timeline {
-	display: block;
 	width: 100%;
 	height: calc(100vh - var(--box-height));
 	height: calc(100svh - var(--box-height));
@@ -61,6 +58,8 @@ h1 {
 	left: 0;
 	z-index: 9;
 	background: white;
+	display: flex;
+    align-items: center;
 }
 
 .timeline_container {

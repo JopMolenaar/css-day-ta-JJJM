@@ -335,4 +335,8 @@ iframe {
 		height: 60svh;
 		margin-top: 40svh;
 	}
+	:root {
+		--box-height: 60vh;
+		--box-height: 60svh;
+	}
 }
