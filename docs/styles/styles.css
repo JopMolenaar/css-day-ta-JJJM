@@ -18,9 +18,14 @@ main {
 	scroll-timeline: --section-1 y;
 	margin-top: calc(100vh - var(--box-height));
 	margin-top: calc(100svh - var(--box-height));
-	scroll-behavior: smooth;
 	position: relative;
 	z-index: 99;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+	main {
+		scroll-behavior: smooth;
+	}
 }
 
 header {
@@ -42,7 +47,6 @@ header {
 h1 {
 	position: absolute;
 }
-
 
 /* Timeline styling */
 .timeline {
@@ -571,8 +575,10 @@ h1 {
 	pointer-events: none;
 }
 
-.fireworks.show {
-	display: block;
+@media screen and (prefers-reduced-motion: no-preference) {
+	.fireworks.show {
+		display: block;
+	}
 }
 
 .firework {
