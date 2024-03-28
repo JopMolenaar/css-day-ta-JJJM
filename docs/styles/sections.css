@@ -241,6 +241,9 @@ iframe {
 	}
 }
 @media screen and (max-width: 1024px) {
+
+	
+
 	.data-current-year > section {
 		display: flex;
 		flex-direction: column;
@@ -322,5 +325,12 @@ iframe {
 	}
 	h2.title {
 		grid-template-columns: 60vw 1em;
+	}
+}
+
+@media screen and (max-width: 1024px) and (min-height: 800px) {
+	body main {
+		height: 60svh;
+		margin-top: 40svh;
 	}
 }
