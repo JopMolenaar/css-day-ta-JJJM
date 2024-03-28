@@ -112,6 +112,11 @@ h1 {
 	color: black;
 }
 
+a.timeline_link:hover,
+a.timeline_link:focus-visible {
+	text-decoration: none;
+}
+
 .timeline_link span {
 	display: block;
 	transform: rotate(30deg);
@@ -277,7 +282,6 @@ h1 {
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
-
 	.loader-wrapper {
 		opacity: 0;
 		transition: opacity 1s, transform 1s;

@@ -57,6 +57,8 @@ function setLoadingState(enable = false) {
 function setErrorState(enable = false) {
 	document.body.classList.toggle('error', enable);
 	const main = document.querySelector('main');
+	const h1 = main.querySelector('h1');
+	h1.classList.toggle('visually-hidden', !enable);
 	if (enable) {
 		const info = main.querySelector('section.info');
 
