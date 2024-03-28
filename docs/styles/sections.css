@@ -88,8 +88,8 @@ iframe {
 }
 .data-current-year > section {
 	max-width: 1500px;
-    margin-left: auto;
-    margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .bg-color {
@@ -185,7 +185,7 @@ h2.title svg {
 .mc p:hover + div img,
 .mc a:hover + div img {
 	left: -25%;
-    top: -25%;
+	top: -25%;
 	width: 6em;
 	transition: 200ms;
 }
@@ -221,6 +221,10 @@ p.color {
 	margin-bottom: 0.3rem;
 }
 
+.vid-section a:focus-visible {
+	outline-offset: 2px;
+}
+
 .video {
 	width: 100%;
 	height: auto;
@@ -235,15 +239,13 @@ iframe {
 	max-width: calc((40svh - 22px) * 16 / 9);
 	border-radius: 0.4rem;
 }
+
 @media screen and (max-width: 1150px) {
 	.data-current-year > section > section {
 		padding: 1em;
 	}
 }
 @media screen and (max-width: 1024px) {
-
-	
-
 	.data-current-year > section {
 		display: flex;
 		flex-direction: column;
