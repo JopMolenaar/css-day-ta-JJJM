@@ -27,6 +27,13 @@ async function initApp() {
 		initFireworks();
 		initScrollAnimationSize();
 		await splash;
+		if (window.location.hash) {
+			const year = window.location.hash.substring(1);
+			const section = document.getElementById(year);
+			if (section) {
+				section.scrollIntoView();
+			}
+		}
 	} catch (e) {
 		setErrorState(true);
 		console.error(e);
