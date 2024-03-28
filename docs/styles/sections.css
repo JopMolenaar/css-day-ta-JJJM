@@ -108,6 +108,7 @@ iframe {
 	display: grid;
 	grid-template-columns: 6em 6em;
 	gap: 0.4em;
+	height: fit-content;
 }
 
 .data-current-year .mc > div > div {
