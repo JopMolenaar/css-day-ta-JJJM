@@ -157,6 +157,14 @@ h1 {
 			animation-range: 0% calc(100% - (var(--section-height) - 50vh));
 			animation-range: 0% calc(100% - (var(--section-height) - 50svh));
 		}
+
+		@media screen and (max-width: 1024px) and (min-height: 800px) {
+			.timeline_graph,
+			.timeline_nav {
+				animation-range: 0% calc(100% - (var(--section-height) - 60vh));
+				animation-range: 0% calc(100% - (var(--section-height) - 60svh));
+			}
+		}
 	}
 }
 
@@ -193,6 +201,13 @@ h1 {
 				animation-fill-mode: both;
 				animation-range: 0% calc(100% - (var(--section-height) - 50vh));
 				animation-range: 0% calc(100% - (var(--section-height) - 50svh));
+			}
+
+			@media screen and (max-width: 1024px) and (min-height: 800px) {
+				.timeline_graph-cover {
+					animation-range: 0% calc(100% - (var(--section-height) - 60vh));
+					animation-range: 0% calc(100% - (var(--section-height) - 60svh));
+				}
 			}
 		}
 	}
