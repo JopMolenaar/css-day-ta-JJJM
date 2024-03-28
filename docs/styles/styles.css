@@ -12,13 +12,20 @@ body {
 
 main {
 	scroll-snap-type: y mandatory;
-	height: 50vh;
+	height: 500vh;
+	height: 50svh;
 	overflow: auto;
 	scroll-timeline: --section-1 y;
 	margin-top: calc(100vh - var(--box-height));
-	scroll-behavior: smooth;
+	margin-top: calc(100svh - var(--box-height));
 	position: relative;
 	z-index: 99;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+	main {
+		scroll-behavior: smooth;
+	}
 }
 
 header {
@@ -43,12 +50,12 @@ h1 {
 	position: absolute;
 }
 
-
 /* Timeline styling */
 .timeline {
 	display: block;
 	width: 100%;
 	height: calc(100vh - var(--box-height));
+	height: calc(100svh - var(--box-height));
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -59,6 +66,7 @@ h1 {
 .timeline_container {
 	position: relative;
 	width: min(90%, calc(4 * (100vh - var(--box-height) - 8em)));
+	width: min(90%, calc(4 * (100svh - var(--box-height) - 8em)));
 	margin: 3em auto 1em auto;
 }
 
@@ -106,6 +114,11 @@ h1 {
 	color: black;
 }
 
+a.timeline_link:hover,
+a.timeline_link:focus-visible {
+	text-decoration: none;
+}
+
 .timeline_link span {
 	display: block;
 	transform: rotate(30deg);
@@ -137,6 +150,7 @@ h1 {
 			right: 0;
 			top: 0;
 			height: 50vh;
+			height: 50svh;
 		}
 
 		.timeline_graph,
@@ -147,6 +161,16 @@ h1 {
 			animation-timing-function: linear;
 			animation-timeline: --section-1;
 			animation-fill-mode: both;
+			animation-range: 0% calc(100% - (var(--section-height) - 50vh));
+			animation-range: 0% calc(100% - (var(--section-height) - 50svh));
+		}
+
+		@media screen and (max-width: 1024px) and (min-height: 800px) {
+			.timeline_graph,
+			.timeline_nav {
+				animation-range: 0% calc(100% - (var(--section-height) - 60vh));
+				animation-range: 0% calc(100% - (var(--section-height) - 60svh));
+			}
 		}
 	}
 }
@@ -157,7 +181,7 @@ h1 {
 	}
 
 	100% {
-		transform: translateX(calc(-1 * var(--chart-width) + 45vw - 8px));
+		transform: translateX(calc(-1 * var(--chart-width) + 45vw));
 	}
 }
 
@@ -182,6 +206,15 @@ h1 {
 				transform-origin: right;
 				animation-timeline: --section-1;
 				animation-fill-mode: both;
+				animation-range: 0% calc(100% - (var(--section-height) - 50vh));
+				animation-range: 0% calc(100% - (var(--section-height) - 50svh));
+			}
+
+			@media screen and (max-width: 1024px) and (min-height: 800px) {
+				.timeline_graph-cover {
+					animation-range: 0% calc(100% - (var(--section-height) - 60vh));
+					animation-range: 0% calc(100% - (var(--section-height) - 60svh));
+				}
 			}
 		}
 	}
@@ -208,7 +241,8 @@ h1 {
 
 .loader-wrapper {
 	display: none;
-	height: 100dvh;
+	height: 100vh;
+	height: 100svh;
 	width: 100%;
 	place-items: center;
 	background-color: white;
@@ -216,10 +250,6 @@ h1 {
 	top: 0;
 	left: 0;
 	z-index: 999;
-	opacity: 0;
-	transition: opacity 1s, transform 1s;
-	transform: scale(1.2);
-	animation: displayNone 1s linear;
 }
 
 @keyframes displayNone {
@@ -238,7 +268,8 @@ h1 {
 
 .loading .loader-wrapper {
 	animation: none;
-	height: 100dvh;
+	height: 100vh;
+	height: 100svh;
 	width: 100%;
 	display: grid;
 	place-items: center;
@@ -247,13 +278,9 @@ h1 {
 	top: 0;
 	left: 0;
 	z-index: 999;
-	opacity: 1;
-	transform: scale(1);
-	transition: none;
 }
 
 .loader {
-	animation: 1s 4s scale infinite alternate;
 	background-color: white;
 	width: 36em;
 	max-width: 80vw;
@@ -271,179 +298,198 @@ h1 {
 	}
 }
 
-.loader rect {
-	opacity: 0;
-	animation-fill-mode: forwards;
-}
-
-.to-right {
-	animation-name: moveToRight, opacity;
-	animation-duration: 1s;
-}
-
-@keyframes moveToRight {
-	0% {
-		transform: translateX(-100vw);
-	}
-
-	100% {
-		transform: translateX(0);
-	}
-}
-
-.to-left {
-	animation-name: moveToLeft, opacity;
-	animation-duration: 1s;
-}
-
-@keyframes moveToLeft {
-	0% {
-		transform: translateX(100vw);
-	}
-
-	100% {
-		transform: translateX(0);
-	}
-}
-
-.to-bottom {
-	animation-name: moveToBottom, opacity;
-	animation-duration: 1s;
-}
-
-@keyframes moveToBottom {
-	0% {
-		transform: translateY(-100vw);
-	}
-
-	100% {
-		transform: translateY(0);
-	}
-}
-
-.to-top {
-	animation-name: moveToTop, opacity;
-	animation-duration: 1s;
-}
-
-@keyframes moveToTop {
-	0% {
-		transform: translateY(100vw);
-	}
-
-	100% {
-		transform: translateY(0);
-	}
-}
-
-@keyframes opacity {
-	0% {
+@media screen and (prefers-reduced-motion: no-preference) {
+	.loader-wrapper {
 		opacity: 0;
+		transition: opacity 1s, transform 1s;
+		transform: scale(1.2);
+		animation: displayNone 1s linear;
 	}
 
-	100% {
+	.loading .loader-wrapper {
 		opacity: 1;
+		transform: scale(1);
+		transition: none;
 	}
-}
 
-.loader :nth-child(1) :nth-child(1) {
-	animation-delay: 0.5s;
-}
+	.loader {
+		animation: 1s 4s scale infinite alternate;
+	}
 
-.loader :nth-child(1) :nth-child(2) {
-	animation-delay: 0.7s;
-}
+	.loader rect {
+		opacity: 0;
+		animation-fill-mode: forwards;
+	}
 
-.loader :nth-child(1) :nth-child(3) {
-	animation-delay: 0.6s;
-}
+	.to-right {
+		animation-name: moveToRight, opacity;
+		animation-duration: 1s;
+	}
 
-.loader :nth-child(2) :nth-child(1) {
-	animation-delay: 0s;
-}
+	@keyframes moveToRight {
+		0% {
+			transform: translateX(-100vw);
+		}
 
-.loader :nth-child(2) :nth-child(2) {
-	animation-delay: 0.1s;
-}
+		100% {
+			transform: translateX(0);
+		}
+	}
 
-.loader :nth-child(2) :nth-child(3) {
-	animation-delay: 0.2s;
-}
+	.to-left {
+		animation-name: moveToLeft, opacity;
+		animation-duration: 1s;
+	}
 
-.loader :nth-child(2) :nth-child(4) {
-	animation-delay: 0.3s;
-}
+	@keyframes moveToLeft {
+		0% {
+			transform: translateX(100vw);
+		}
 
-.loader :nth-child(2) :nth-child(5) {
-	animation-delay: 0.4s;
-}
+		100% {
+			transform: translateX(0);
+		}
+	}
 
-.loader :nth-child(3) :nth-child(1) {
-	animation-delay: 0.9s;
-}
+	.to-bottom {
+		animation-name: moveToBottom, opacity;
+		animation-duration: 1s;
+	}
 
-.loader :nth-child(3) :nth-child(2) {
-	animation-delay: 1s;
-}
+	@keyframes moveToBottom {
+		0% {
+			transform: translateY(-100vw);
+		}
 
-.loader :nth-child(3) :nth-child(3) {
-	animation-delay: 1.1s;
-}
+		100% {
+			transform: translateY(0);
+		}
+	}
 
-.loader :nth-child(3) :nth-child(4) {
-	animation-delay: 1.2s;
-}
+	.to-top {
+		animation-name: moveToTop, opacity;
+		animation-duration: 1s;
+	}
 
-.loader :nth-child(3) :nth-child(5) {
-	animation-delay: 0.8s;
-}
+	@keyframes moveToTop {
+		0% {
+			transform: translateY(100vw);
+		}
 
-.loader :nth-child(4) :nth-child(1) {
-	animation-delay: 1.4s;
-}
+		100% {
+			transform: translateY(0);
+		}
+	}
 
-.loader :nth-child(4) :nth-child(2) {
-	animation-delay: 1.3s;
-}
+	@keyframes opacity {
+		0% {
+			opacity: 0;
+		}
 
-.loader :nth-child(4) :nth-child(3) {
-	animation-delay: 1.5s;
-}
+		100% {
+			opacity: 1;
+		}
+	}
 
-.loader :nth-child(4) :nth-child(4) {
-	animation-delay: 1.6s;
-}
+	.loader :nth-child(1) :nth-child(1) {
+		animation-delay: 0.5s;
+	}
 
-.loader :nth-child(5) :nth-child(1) {
-	animation-delay: 1.7s;
-}
+	.loader :nth-child(1) :nth-child(2) {
+		animation-delay: 0.7s;
+	}
 
-.loader :nth-child(5) :nth-child(2) {
-	animation-delay: 2s;
-}
+	.loader :nth-child(1) :nth-child(3) {
+		animation-delay: 0.6s;
+	}
 
-.loader :nth-child(5) :nth-child(3) {
-	animation-delay: 1.9s;
-}
+	.loader :nth-child(2) :nth-child(1) {
+		animation-delay: 0s;
+	}
 
-.loader :nth-child(5) :nth-child(4) {
-	animation-delay: 1.8s;
-}
+	.loader :nth-child(2) :nth-child(2) {
+		animation-delay: 0.1s;
+	}
 
-.loader :nth-child(6) :nth-child(1) {
-	animation-delay: 2.1s;
-}
+	.loader :nth-child(2) :nth-child(3) {
+		animation-delay: 0.2s;
+	}
 
-.loader :nth-child(6) :nth-child(2) {
-	animation-delay: 2.4s;
-}
+	.loader :nth-child(2) :nth-child(4) {
+		animation-delay: 0.3s;
+	}
 
-.loader :nth-child(6) :nth-child(3) {
-	animation-delay: 2.2s;
-}
+	.loader :nth-child(2) :nth-child(5) {
+		animation-delay: 0.4s;
+	}
 
-.loader :nth-child(6) :nth-child(4) {
-	animation-delay: 2.3s;
+	.loader :nth-child(3) :nth-child(1) {
+		animation-delay: 0.9s;
+	}
+
+	.loader :nth-child(3) :nth-child(2) {
+		animation-delay: 1s;
+	}
+
+	.loader :nth-child(3) :nth-child(3) {
+		animation-delay: 1.1s;
+	}
+
+	.loader :nth-child(3) :nth-child(4) {
+		animation-delay: 1.2s;
+	}
+
+	.loader :nth-child(3) :nth-child(5) {
+		animation-delay: 0.8s;
+	}
+
+	.loader :nth-child(4) :nth-child(1) {
+		animation-delay: 1.4s;
+	}
+
+	.loader :nth-child(4) :nth-child(2) {
+		animation-delay: 1.3s;
+	}
+
+	.loader :nth-child(4) :nth-child(3) {
+		animation-delay: 1.5s;
+	}
+
+	.loader :nth-child(4) :nth-child(4) {
+		animation-delay: 1.6s;
+	}
+
+	.loader :nth-child(5) :nth-child(1) {
+		animation-delay: 1.7s;
+	}
+
+	.loader :nth-child(5) :nth-child(2) {
+		animation-delay: 2s;
+	}
+
+	.loader :nth-child(5) :nth-child(3) {
+		animation-delay: 1.9s;
+	}
+
+	.loader :nth-child(5) :nth-child(4) {
+		animation-delay: 1.8s;
+	}
+
+	.loader :nth-child(6) :nth-child(1) {
+		animation-delay: 2.1s;
+	}
+
+	.loader :nth-child(6) :nth-child(2) {
+		animation-delay: 2.4s;
+	}
+
+	.loader :nth-child(6) :nth-child(3) {
+		animation-delay: 2.2s;
+	}
+
+	.loader :nth-child(6) :nth-child(4) {
+		animation-delay: 2.3s;
+	}
 }
 
 /* Fireworks */
@@ -554,8 +600,10 @@ h1 {
 	pointer-events: none;
 }
 
-.fireworks.show {
-	display: block;
+@media screen and (prefers-reduced-motion: no-preference) {
+	.fireworks.show {
+		display: block;
+	}
 }
 
 .firework {
@@ -582,10 +630,13 @@ h1 {
 
 	50% {
 		transform: translateY(calc(-30vh - 2em * var(--index))) rotate(0);
+		transform: translateY(calc(-30svh - 2em * var(--index))) rotate(0);
 	}
 
 	100% {
 		transform: translateY(calc(-30vh - 2em * var(--index)))
+			rotate(calc(20deg * var(--index)));
+		transform: translateY(calc(-30svh - 2em * var(--index)))
 			rotate(calc(20deg * var(--index)));
 	}
 }

@@ -25,7 +25,15 @@ async function initApp() {
 		initChart(data);
 		initSections(data, await countries);
 		initFireworks();
+		initScrollAnimationSize();
 		await splash;
+		if (window.location.hash) {
+			const year = window.location.hash.substring(1);
+			const section = document.getElementById(year);
+			if (section) {
+				section.scrollIntoView();
+			}
+		}
 	} catch (e) {
 		setErrorState(true);
 		console.error(e);
@@ -49,6 +57,8 @@ function setLoadingState(enable = false) {
 function setErrorState(enable = false) {
 	document.body.classList.toggle('error', enable);
 	const main = document.querySelector('main');
+	const h1 = main.querySelector('h1');
+	h1.classList.toggle('visually-hidden', !enable);
 	if (enable) {
 		const info = main.querySelector('section.info');
 

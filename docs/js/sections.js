@@ -15,9 +15,8 @@ function cloneInfoSections(year, info, data, countries) {
 	const sections = firstClone.querySelectorAll(
 		'.data-current-year > section > section'
 	);
-	sections.forEach((section) => {
-		section.style.background = info.color.hex;
-	});
+
+	firstClone.querySelector('section').style.backgroundColor = info.color.hex;
 
 	firstClone.querySelector('section').id = year;
 
@@ -57,21 +56,16 @@ function cloneInfoSections(year, info, data, countries) {
 
 	const div = document.createElement('div');
 
-
-
 	data[year].mc.forEach((singleMc, index) => {
 		const img = document.createElement('img');
 		img.src = singleMc.avatar || 'images/dummy-portrait.jpg'; // Use singleMc.avatar if available, otherwise use a default image
 		img.alt = '';
 
-		// Create either a link or a paragraph based on the presence of singleMc.link
-		const name = singleMc.link
-			? document.createElement('a')
-			: document.createElement('p');
-		if (singleMc.link) {
-			name.href = singleMc.link;
-			name.target = '_blank';
-		}
+		const name = document.createElement('a');
+		name.href =
+			singleMc.link ||
+			'https://www.youtube.com/embed/E4WlUXrJgy4?autoplay=1&controls=0&rel=0&loop=1&disablekb=1';
+		name.target = '_blank';
 
 		const divImg = document.createElement('div');
 		name.textContent = singleMc.name + ' | MC';
@@ -85,7 +79,21 @@ function cloneInfoSections(year, info, data, countries) {
 
 	const videoId = getMostWatchedVideo(info);
 	const iframe = firstClone.querySelector('iframe');
-	iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
+	iframe.src = `https://www.youtube-nocookie.com/embed/${
+		videoId || 'zab_4dk8f9c'
+	}?privacy_mode=1`;
+
+	if (!videoId) {
+		const vidSection = firstClone.querySelector('.vid-section');
+		iframe.style['pointer-events'] = 'none';
+		vidSection.removeChild(iframe);
+		const link = document.createElement('a');
+		link.href =
+			'https://www.youtube.com/embed/E4WlUXrJgy4?autoplay=1&controls=0&rel=0&loop=1&disablekb=1';
+		link.target = '_blank';
+		link.appendChild(iframe);
+		vidSection.appendChild(link);
+	}
 
 	infoSection.appendChild(firstClone); // append template to section
 
@@ -111,6 +119,6 @@ function getMostWatchedVideo(data) {
 		.filter((video) => !!video)
 		.sort((a, b) => b.views - a.views);
 
-	if (videos.length === 0) return 'dPmZqsQNzGA?privacy_mode=1&start=14';
-	return videos[0]['youtube-id'] + '?privacy_mode=1';
+	if (videos.length === 0) return null;
+	return videos[0]['youtube-id'];
 }

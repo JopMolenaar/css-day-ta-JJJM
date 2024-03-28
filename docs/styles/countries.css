@@ -33,6 +33,7 @@ svg path {
 .svg-section div div:nth-child(1){
     grid-area: 1/1;
 	height: 36vh;
+	height: 36svh;
     place-self: center;
     max-width: 25em;
     background-color: #c9c9c9;
