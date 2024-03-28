@@ -14,13 +14,17 @@ svg path {
 
 .svg-section {
     display: flex;
-    /* justify-content: center; */
 }
+.svg-section > div:nth-of-type(2){
+	overflow: hidden;
+	border-radius: 50%;
+	background-color: #c9c9c9;
+}
+
 .svg-section div {
     position: relative;
     place-self: center;
     max-width: 25em;
-    border-radius: 50%;
 }
 .svg-section div:nth-child(1) {
     display: grid;
@@ -30,14 +34,28 @@ svg path {
 	height: 36vh;
     place-self: center;
     max-width: 25em;
-    border-radius: 50%;
-    overflow-x: scroll;
-	overflow-y: hidden;
     background-color: #c9c9c9;
     aspect-ratio: 1;
+	grid-template-columns: 100% 1fr 100%;
+	animation: turnTheGlobe 15s infinite linear;
 }
-.svg-mask {
-    position: absolute !important;
+.svg-section div div:nth-child(1) q{
+	width: 100%;
+	height: fit-content;
+	align-self: center;
+	color: black;
+}
+.svg-section div div:nth-child(1) q:not([aria-hidden="true"]) {
+	grid-column: 3/4;
+	transform: translate(190%);
+}
+.svg-section div div:nth-child(1) q[aria-hidden="true"] {
+	grid-row: 1/2;
+	text-align: center;
+}
+
+.svg-section div.svg-mask {
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -54,7 +72,8 @@ svg path {
     height: 100%;
     background-color: #c9c9c9;
     border-radius: .5rem;
-    aspect-ratio: 18/13;
+    aspect-ratio: 23/13;
+	grid-column: 2/3;
 }
 
 .svg-section svg path {
@@ -62,6 +81,18 @@ svg path {
     stroke: rgb(0, 0, 0);
     stroke-width: 1px;
 }
+
+
+@keyframes turnTheGlobe {
+	0%{
+	transform: translate(0%);
+	}
+
+	100% {
+	transform: translate(-268%);
+	}
+}
+
 
 .button-wrapper {
 	display: flex;
