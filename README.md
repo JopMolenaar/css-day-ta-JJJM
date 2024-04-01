@@ -1,17 +1,22 @@
 # CSS day-ta Hackathon
 
+## Contributors 
+
+- [Joppe Koops]()
+- [Jurien Waijenberg]()
+- [Manoah Tervoort]()
+- [Jop Molenaar](jopmolenaar.com)
+
 ## Description
 
-...
-
-<!-- [Link to process (Dutch) ](https://github.com/JopMolenaar/CSS-cockpit-control/blob/main/process.md) -->
-<!-- update when the blog is online -->
+"We created a website featuring data from the past 10 years of CSS Day to commemorate its 10th anniversary. This project was developed during a 3.5-day hackathon where we competed against other groups. The judges were Peter Paul Koch and Krijn Hoetmer. Ultimately, our team won the hackathon, earning a free ticket to CSS Day along with another group."
 
 ## Table of contents
 
+- Contributors 
+- Description
 - Installation
 - Use of features
-<!-- - Whishlist -->
 - License
 
 ## Installation
@@ -27,26 +32,6 @@
 
 ## Use of features
 
-<!-- - You can change the color of the ufo to a random color.
-- You can adjust the speed of the UFO.
-- Turn on turbo mode to go faster then light.
-- Move the joystick to turn the UFO in space.
-- Turn on the lights of the ufo.
-- Hover over the dashboard to look in to space from different angles without changing the direction of the ufo. -->
-
-<!-- ## Whishlist
-
-- [x] Animatie ufo border
-- [x] Speed control panel werkend krijgen die de omgeving beinvloed (snelheid aanpast)
-- [x] de joystick de omgeving laten beinvloeden
-- [x] Joystick maken die terug bounched (4 buttons met pijltjes eromheen en in het midden een joystick)
-- [x] sterren hemel als je stilstaat
-- [x] Kleine details op buttons en input elementen in de cockpit + radars toevoegen
-- [x] Op hover het perspectief laten veranderen zodat het lijkt dat je in de ufo zit
-- [ ] Volledig responsive design (op een te klein scherm een alien die door de ruimte zweeft of scherm laten draaien)
-- [ ] met een button het thema van de omgeving laten veranderen
-- [ ] Als has of animation preference reduce aanstaat => maak dan een ufo op een planeet ofzo iets
-- [ ] alienhand als cursor -->
 
 ## License
 
