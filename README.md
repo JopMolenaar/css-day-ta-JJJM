@@ -16,10 +16,10 @@ We created a website featuring data from the past 10 years of CSS Day for its 10
 
 <!-- 
 - [Jurien Waijenberg]()
-- [Manoah Tervoort]() -->
+- [Manoah Tervoort](https://manoah.nl.eu.org/) -->
 - [Joppe Koops](https://joppekoops.nl/)
 - Jurien Waijenberg
-- Manoah Tervoort
+- [Manoah Tervoort](https://manoah.nl.eu.org/)
 - [Jop Molenaar](https://jopmolenaar.com/)
 
 ## Installation
