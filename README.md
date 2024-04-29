@@ -15,8 +15,7 @@ We created a website featuring data from the past 10 years of CSS Day for its 10
 ## Contributors 
 
 <!-- 
-- [Jurien Waijenberg]()
-- [Manoah Tervoort](https://manoah.nl.eu.org/) -->
+- [Jurien Waijenberg]()-->
 - [Joppe Koops](https://joppekoops.nl/)
 - Jurien Waijenberg
 - [Manoah Tervoort](https://manoah.nl.eu.org/)
