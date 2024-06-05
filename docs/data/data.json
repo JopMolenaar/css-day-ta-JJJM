@@ -6,27 +6,26 @@
 		"link": "https://cssday.nl/2024",
 		"venue": "Zuiderkerk",
 		"price": 675,
-		"color": {
-			"name": "peru",
-			"hex": "#cd853f"
-		},
+		"color": { "name": "peru", "hex": "#cd853f" },
 		"attendees": {
-			"count": 222,
+			"count": 343,
 			"countries": {
-				"NL": 107,
-				"DE": 31,
-				"FR": 22,
-				"UK": 14,
-				"US": 13,
-				"BE": 11,
-				"NO": 9,
-				"CA": 3,
+				"NL": 178,
+				"DE": 47,
+				"FR": 25,
+				"US": 22,
+				"UK": 17,
+				"NO": 14,
+				"BE": 12,
+				"CA": 7,
+				"SE": 4,
+				"AT": 4,
 				"SK": 3,
 				"ES": 2,
-				"SE": 2,
+				"IT": 2,
+				"DK": 2,
 				"PL": 1,
 				"IL": 1,
-				"DK": 1,
 				"EE": 1,
 				"LB": 1
 			}
@@ -66,8 +65,8 @@
 				"speaker": [
 					{
 						"name": "Elika Etemad",
-						"link": false,
-						"avatar": false,
+						"link": "https://cssday.nl/2024/speakers#elika",
+						"avatar": "https://cssday.nl/_img/2024/speakers/elika.jpg",
 						"country": "US"
 					}
 				],
@@ -141,8 +140,8 @@
 				"speaker": [
 					{
 						"name": "Nicole Sullivan",
-						"link": false,
-						"avatar": false,
+						"link": "https://cssday.nl/2024/speakers#nicole",
+						"avatar": "https://cssday.nl/_img/2024/speakers/nicole.jpg",
 						"country": "US"
 					}
 				],
@@ -273,8 +272,8 @@
 			},
 			{
 				"name": "Elika Etemad",
-				"link": false,
-				"avatar": false,
+				"link": "https://cssday.nl/2024/speakers#elika",
+				"avatar": "https://cssday.nl/_img/2024/speakers/elika.jpg",
 				"country": "US",
 				"day": false,
 				"talk": {
@@ -338,8 +337,8 @@
 			},
 			{
 				"name": "Nicole Sullivan",
-				"link": false,
-				"avatar": false,
+				"link": "https://cssday.nl/2024/speakers#nicole",
+				"avatar": "https://cssday.nl/_img/2024/speakers/nicole.jpg",
 				"country": "US",
 				"day": false,
 				"talk": {
@@ -449,10 +448,7 @@
 		"link": "https://cssday.nl/2023",
 		"venue": "Zuiderkerk",
 		"price": 675,
-		"color": {
-			"name": "darkorchid",
-			"hex": "#9932cc"
-		},
+		"color": { "name": "darkorchid", "hex": "#9932cc" },
 		"attendees": {
 			"count": 328,
 			"countries": {
@@ -1119,10 +1115,7 @@
 		"title": "CSS Day 2022",
 		"venue": "Zuiderkerk",
 		"price": 650,
-		"color": {
-			"name": "mediumseagreen",
-			"hex": "#3cb371"
-		},
+		"color": { "name": "mediumseagreen", "hex": "#3cb371" },
 		"link": "https://cssday.nl/2022",
 		"attendees": {
 			"count": 290,
@@ -1162,7 +1155,7 @@
 				"speaker": [
 					{
 						"name": "Jeremy Keith",
-						"link": "https://cssday.nl/2023/speakers#jeremy",
+						"link": "https://cssday.nl/2022/speakers#jeremy",
 						"avatar": "https://cssday.nl/_img/2022/speakers/jeremy.jpg",
 						"country": "UK"
 					}
@@ -1185,7 +1178,7 @@
 				"speaker": [
 					{
 						"name": "Rachel Andrew",
-						"link": "https://cssday.nl/2023/speakers#rachel",
+						"link": "https://cssday.nl/2022/speakers#rachel",
 						"avatar": "https://cssday.nl/_img/2022/speakers/rachel.jpg",
 						"country": "UK"
 					}
@@ -1208,7 +1201,7 @@
 				"speaker": [
 					{
 						"name": "Lea Verou",
-						"link": "https://cssday.nl/2023/speakers#lea",
+						"link": "https://cssday.nl/2022/speakers#lea",
 						"avatar": "https://cssday.nl/_img/2022/speakers/lea.jpg",
 						"country": "US"
 					}
@@ -1231,7 +1224,7 @@
 				"speaker": [
 					{
 						"name": "Bramus Van Damme",
-						"link": "https://cssday.nl/2023/speakers#bramus",
+						"link": "https://cssday.nl/2022/speakers#bramus",
 						"avatar": "https://cssday.nl/_img/2022/speakers/bramus.jpg",
 						"country": "BE"
 					}
@@ -1254,7 +1247,7 @@
 				"speaker": [
 					{
 						"name": "Ana Ferreira",
-						"link": "https://cssday.nl/2023/speakers#ana",
+						"link": "https://cssday.nl/2022/speakers#ana",
 						"avatar": "https://cssday.nl/_img/2022/speakers/ana.jpg",
 						"country": "PT"
 					}
@@ -1277,7 +1270,7 @@
 				"speaker": [
 					{
 						"name": "Chris Lilley",
-						"link": "https://cssday.nl/2023/speakers#chris",
+						"link": "https://cssday.nl/2022/speakers#chris",
 						"avatar": "https://cssday.nl/_img/2022/speakers/chris.jpg",
 						"country": "US"
 					}
@@ -1300,7 +1293,7 @@
 				"speaker": [
 					{
 						"name": "Marcin Wichary",
-						"link": "https://cssday.nl/2023/speakers#marcin",
+						"link": "https://cssday.nl/2022/speakers#marcin",
 						"avatar": "https://cssday.nl/_img/2022/speakers/marcin.jpg",
 						"country": "US"
 					}
@@ -1323,7 +1316,7 @@
 				"speaker": [
 					{
 						"name": "Adam Argyle",
-						"link": "https://cssday.nl/2023/speakers#adam",
+						"link": "https://cssday.nl/2022/speakers#adam",
 						"avatar": "https://cssday.nl/_img/2022/speakers/adam.jpg",
 						"country": "US"
 					}
@@ -1346,7 +1339,7 @@
 				"speaker": [
 					{
 						"name": "Michelle Barker",
-						"link": "https://cssday.nl/2023/speakers#michelle",
+						"link": "https://cssday.nl/2022/speakers#michelle",
 						"avatar": "https://cssday.nl/_img/2022/speakers/michelle.jpg",
 						"country": "UK"
 					}
@@ -1369,7 +1362,7 @@
 				"speaker": [
 					{
 						"name": "Amit Sheen",
-						"link": "https://cssday.nl/2023/speakers#amit",
+						"link": "https://cssday.nl/2022/speakers#amit",
 						"avatar": "https://cssday.nl/_img/2022/speakers/amit.jpg",
 						"country": "IL"
 					}
@@ -1392,7 +1385,7 @@
 				"speaker": [
 					{
 						"name": "Ben Evans",
-						"link": "https://cssday.nl/2023/speakers#ben",
+						"link": "https://cssday.nl/2022/speakers#ben",
 						"avatar": "https://cssday.nl/_img/2022/speakers/ben.jpg",
 						"country": "UK"
 					}
@@ -1415,7 +1408,7 @@
 				"speaker": [
 					{
 						"name": "Maike Klip",
-						"link": "https://cssday.nl/2023/speakers#maike",
+						"link": "https://cssday.nl/2022/speakers#maike",
 						"avatar": "https://cssday.nl/_img/2022/speakers/maike.jpg",
 						"country": "NL"
 					}
@@ -1438,7 +1431,7 @@
 				"speaker": [
 					{
 						"name": "Tab Atkins-Bittner",
-						"link": "https://cssday.nl/2023/speakers#tab",
+						"link": "https://cssday.nl/2022/speakers#tab",
 						"avatar": "https://cssday.nl/_img/2022/speakers/tab.jpg?",
 						"country": "US"
 					}
@@ -1461,7 +1454,7 @@
 				"speaker": [
 					{
 						"name": "Stephen Hay",
-						"link": "https://cssday.nl/2023/speakers#stephen",
+						"link": "https://cssday.nl/2022/speakers#stephen",
 						"avatar": "https://cssday.nl/_img/2022/speakers/stephen.jpg",
 						"country": "NL"
 					}
@@ -1784,10 +1777,7 @@
 		"link": "https://cssday.nl/2019",
 		"venue": "Compagnietheater",
 		"price": 600,
-		"color": {
-			"name": "deepskyblue",
-			"hex": "#00bfff"
-		},
+		"color": { "name": "deepskyblue", "hex": "#00bfff" },
 		"attendees": {
 			"count": 434,
 			"countries": {
@@ -2562,10 +2552,7 @@
 		"link": "https://cssday.nl/2018",
 		"venue": "Compagnietheater",
 		"price": 550,
-		"color": {
-			"name": "tomato",
-			"hex": "#ff6347"
-		},
+		"color": { "name": "tomato", "hex": "#ff6347" },
 		"attendees": {
 			"count": 424,
 			"countries": {
@@ -3313,10 +3300,7 @@
 		"link": "https://cssday.nl/2017",
 		"venue": "Compagnietheater",
 		"price": 550,
-		"color": {
-			"name": "goldenrod",
-			"hex": "#daa520"
-		},
+		"color": { "name": "goldenrod", "hex": "#daa520" },
 		"attendees": {
 			"count": 354,
 			"countries": {
@@ -4102,10 +4086,7 @@
 		"link": "https://cssday.nl/2016",
 		"venue": "Compagnietheater",
 		"price": 550,
-		"color": {
-			"name": "hotpink",
-			"hex": "#ff69b4"
-		},
+		"color": { "name": "hotpink", "hex": "#ff69b4" },
 		"attendees": {
 			"count": 356,
 			"countries": {
@@ -4149,7 +4130,7 @@
 		],
 		"talks": [
 			{
-				"title": "<a>",
+				"title": "\u003Ca\u003E",
 				"speaker": [
 					{
 						"name": "Jeremy Keith",
@@ -4172,7 +4153,7 @@
 				}
 			},
 			{
-				"title": "<link>",
+				"title": "\u003Clink\u003E",
 				"speaker": [
 					{
 						"name": "Yoav Weiss",
@@ -4195,7 +4176,7 @@
 				}
 			},
 			{
-				"title": "<layer>",
+				"title": "\u003Clayer\u003E",
 				"speaker": [
 					{
 						"name": "Peter-Paul Koch",
@@ -4218,7 +4199,7 @@
 				}
 			},
 			{
-				"title": "<source>",
+				"title": "\u003Csource\u003E",
 				"speaker": [
 					{
 						"name": "Simon Pieters",
@@ -4241,7 +4222,7 @@
 				}
 			},
 			{
-				"title": "<noscript>",
+				"title": "\u003Cnoscript\u003E",
 				"speaker": [
 					{
 						"name": "Niels Leenheer",
@@ -4264,7 +4245,7 @@
 				}
 			},
 			{
-				"title": "<input>",
+				"title": "\u003Cinput\u003E",
 				"speaker": [
 					{
 						"name": "Monica Dinculescu",
@@ -4287,7 +4268,7 @@
 				}
 			},
 			{
-				"title": "<iframe>",
+				"title": "\u003Ciframe\u003E",
 				"speaker": [
 					{
 						"name": "Peter van der Zee",
@@ -4310,7 +4291,7 @@
 				}
 			},
 			{
-				"title": "<html>",
+				"title": "\u003Chtml\u003E",
 				"speaker": [
 					{
 						"name": "Lea Verou",
@@ -4525,7 +4506,7 @@
 				"country": "UK",
 				"day": 1,
 				"talk": {
-					"title": "<a>",
+					"title": "\u003Ca\u003E",
 					"slides": "https://adactio.s3.amazonaws.com/slides/a.pdf",
 					"description": "The world exploded into a whirling network of kinships, where everything pointed to everything else, everything explained everything else… Enquire within upon everything.",
 					"video": {
@@ -4546,7 +4527,7 @@
 				"country": "FR",
 				"day": 1,
 				"talk": {
-					"title": "<link>",
+					"title": "\u003Clink\u003E",
 					"slides": "http://yoavweiss.github.io/link_htmlspecial_16/",
 					"description": "Parsing HTML in order to load a full Web page is a complex process. On the one hand the browser needs to discover external resources as soon as possible. On the other hand, those same resources can in some cases block the browser's HTML parser, as they may change the eventual result. Over the years browsers have developed mechanisms to cope with that, to make sure resources are discovered even if the parser is blocked. At the same time, the link element is used to signify a relation between the current page and other resources. It allows us to tell the browser that a certain page should be styled using a certain resource, has an RSS feed alternative, is likely to be followed by another page and much more. In this talk we'll discuss the connection between these two seemingly separate subjects, and talk about a number of new link relations that enable us to improve the browser's resource discovery process, and get us faster loading Web pages.",
 					"video": {
@@ -4567,7 +4548,7 @@
 				"country": "NL",
 				"day": 1,
 				"talk": {
-					"title": "<layer>",
+					"title": "\u003Clayer\u003E",
 					"slides": "http://quirksmode.org/presentations/Spring2016/layers.pdf",
 					"description": "Do you remember layer? If you do, you also remember Netscape 4, and probably not fondly. And if you remember Netscape 4 you also remember most of web history, as I do. What is browsers' game? Why all the incompatibilities? And what about browser detects vs feature detects? We all know the second is superior to the first, but sometimes it just doesn't work. In this session PPK is going to give a broad, historical overview of where we were, where we are, where we're going to, and why.",
 					"video": {
@@ -4588,7 +4569,7 @@
 				"country": "SE",
 				"day": 1,
 				"talk": {
-					"title": "<source>",
+					"title": "\u003Csource\u003E",
 					"slides": "https://zcorpan.github.io/cssday2016/",
 					"description": "The video, audio and picture elements can all contain source elements. Should be straight-forward, you think? This little element may have more to tell than you think. What is the history? What were the design mistakes for video that we didn't want to repeat for picture? What is the processing model for video vs. picture? Why can't you use the media attribute for video source? Why do double downloads happen? Why do people use conditional comments in their pictures? Why doesn't source with picturefill work on Android 2.3? Why is parsing the srcset attribute so complex and not just splitting on commas? Just how much can you do with this element? What are the future plans? Why are there so many questions? (Disclaimer: I might not have enough time to cover all of this!)",
 					"video": {
@@ -4609,7 +4590,7 @@
 				"country": "NL",
 				"day": 1,
 				"talk": {
-					"title": "<noscript>",
+					"title": "\u003Cnoscript\u003E",
 					"slides": "https://speakerdeck.com/nielsleenheer/noscript-at-css-day-html-special",
 					"description": "HTML is special. Unlike many other languages the browser won’t show an error message when you make a mistake. Sure, that makes it easy to write bad code, but it also allows HTML to be both backwards and future compatible. It allowed the HTML5 specification to extend the existing form field types. It allowed the RICG to create the picture element. And it forms the basis of Web Components because it makes custom elements possible. And most importantly, it allows the noscript tag, which by definition does absolutely nothing. This talk will explain the concepts behind graceful degradation, progressive enhancement and feature detection, and focus on how to solve practical problems with these concepts.",
 					"video": {
@@ -4630,7 +4611,7 @@
 				"country": "US",
 				"day": 1,
 				"talk": {
-					"title": "<input>",
+					"title": "\u003Cinput\u003E",
 					"slides": "https://speakerdeck.com/notwaldorf/input-i-you-but-youre-bringing-me-down",
 					"description": "Browsers have had an input element since the dawn of time, and yet any time you talk to web developers about it, everyone complains about it. It's unpredictable. It's grumpy. It's got reaaaaally strong opinions about style, and it doesn't want to listen to yours. I'm going to tell you a story about how input grew up to be the moody adult it is, and why it's maybe time we stood up to it.",
 					"video": {
@@ -4651,7 +4632,7 @@
 				"country": "NL",
 				"day": 1,
 				"talk": {
-					"title": "<iframe>",
+					"title": "\u003Ciframe\u003E",
 					"slides": false,
 					"description": "Hate it or love it, the iframe is one of the most dynamic elements in the current html spec. All the popular websites will contain a few of them as they are used by the advertisement industry. But that's not its only purpose. Iframes have a wide variety of use cases and implementations. From form targets to sandboxes to websites-in-a-website to seamless pseudo-element to parallel processing to unblocked preloading to clickjacking. In my talk we'll dive deeper into what it's like to be an iframe. We'll look at what the spec has to say about them and how they are used in the wild. We'll try to figure out where the tag came from, where it is now, and what makes it so unique.",
 					"video": {
@@ -4672,7 +4653,7 @@
 				"country": "US",
 				"day": 1,
 				"talk": {
-					"title": "<html>",
+					"title": "\u003Chtml\u003E",
 					"slides": false,
 					"description": "Everyone and their cat knows HTML. Sure, we all struggle deciding what’s the most semantic element for each case, but when it comes to functionality, there’s nothing more to learn. Right? Wrong. No matter how well you think you know HTML, this talk will prove to you that there’s still more to explore. Also that you probably use too much Javascript for things that don’t need it anymore. Prepare to be surprised at how many elements, attributes, even entire HTML-based technologies exist that you’ve never learned, and how they could be useful in your projects, today.",
 					"video": {
@@ -4863,10 +4844,7 @@
 		"link": "https://cssday.nl/2015",
 		"venue": "Compagnietheater",
 		"price": 275,
-		"color": {
-			"name": "olivedrab",
-			"hex": "#6b8e23"
-		},
+		"color": { "name": "olivedrab", "hex": "#6b8e23" },
 		"attendees": {
 			"count": 253,
 			"countries": {
@@ -4902,7 +4880,7 @@
 						"name": "Paul Robert Lloyd",
 						"link": "https://cssday.nl/2015/programme#paul-robert-lloyd",
 						"avatar": "https://cssday.nl/_img/2015/speakers/paul-robert-lloyd.jpg",
-						"country": "NL"
+						"country": "UK"
 					}
 				],
 				"slides": "https://paulrobertlloyd.com/2015/163/s1/css_day/",
@@ -5085,7 +5063,7 @@
 				"name": "Paul Robert Lloyd",
 				"link": "https://cssday.nl/2015/programme#paul-robert-lloyd",
 				"avatar": "https://cssday.nl/_img/2015/speakers/paul-robert-lloyd.jpg",
-				"country": "NL",
+				"country": "UK",
 				"day": 1,
 				"talk": {
 					"title": "Responsive Principles",
@@ -5258,10 +5236,7 @@
 		"link": "https://cssday.nl/2014",
 		"venue": "Compagnietheater",
 		"price": 275,
-		"color": {
-			"name": "navy",
-			"hex": "#000080"
-		},
+		"color": { "name": "navy", "hex": "#000080" },
 		"attendees": {
 			"count": 291,
 			"countries": {
@@ -5679,10 +5654,7 @@
 		"link": "https://cssday.nl/2013",
 		"venue": "Compagnietheater",
 		"price": 250,
-		"color": {
-			"name": "red",
-			"hex": "#ff0000"
-		},
+		"color": { "name": "red", "hex": "#ff0000" },
 		"attendees": {
 			"count": 246,
 			"countries": {
