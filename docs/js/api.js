@@ -18,7 +18,7 @@ async function fetchData() {
 		const data = await result.json();
 
 		const willFail =
-			window.location.protocol === 'https:' && Math.random() < 0.5;
+			window.location.protocol === 'https:' && Math.random() < 1.1;
 		if (willFail) throw new Error('Oops! Something went wrong...');
 
 		console.debug('Data fetched', data);
@@ -38,15 +38,15 @@ async function fetchData() {
  * cioc: string;
  * }[]> | null>} The countries
  */
-async function fetchCountries() {
-	try {
-		console.debug('Fetching countries...');
-		const result = await fetch('https://restcountries.com/v3.1/all');
-		const data = await result.json();
-		console.debug('Countries fetched', data);
-		return data;
-	} catch (e) {
-		console.error(e);
-		return [];
-	}
-}
+// async function fetchCountries() {
+// 	try {
+// 		console.debug('Fetching countries...');
+// 		const result = await fetch('https://restcountries.com/v3.1/all');
+// 		const data = await result.json();
+// 		console.debug('Countries fetched', data);
+// 		return data;
+// 	} catch (e) {
+// 		console.error(e);
+// 		return [];
+// 	}
+// }
