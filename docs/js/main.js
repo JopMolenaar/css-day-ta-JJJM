@@ -16,8 +16,14 @@ async function initApp() {
 
 	try {
 		const countries = [];
-		const data = await fetchData();
-		if (!data) throw new Error('No data');
+		let data = await fetchData('https://cssday.nl/data.json');
+
+		if (!data) {
+			data = await fetchData('../data/data.json');
+			if (!data) {
+				throw new Error('No data (even from local files)');
+			}
+		}
 
 		await DOMContentLoaded;
 
