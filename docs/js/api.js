@@ -14,8 +14,7 @@
 async function fetchData() {
 	try {
 		console.debug('Fetching data...');
-		// const result = await fetch('https://cssday.nl/data.json');
-		const result = await fetch('../data/data.json');
+		const result = await fetch('https://cssday.nl/data.json');
 		const data = await result.json();
 
 		const willFail =
