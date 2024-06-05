@@ -128,27 +128,10 @@ function getChartData(data) {
  */
 function setChartFallback(ctx, data) {
 	ctx.innerHTML = '';
+	ctx.textContent =
+		'The chart shows the number of attendees, the price, and the views of the talks over the years.';
 	data.labels.forEach((label, i) => {
-		const container = document.createElement('div');
-		const labelElement = document.createElement('p');
-		labelElement.textContent = label;
-		container.appendChild(labelElement);
-
-		const list = document.createElement('ul');
-		const attendees = document.createElement('li');
-		attendees.textContent = `Attendees: ${data.nrOfAttendees[i]}`;
-		list.appendChild(attendees);
-
-		const prices = document.createElement('li');
-		prices.textContent = `Price: ${data.prices[i]}`;
-		list.appendChild(prices);
-
-		const views = document.createElement('li');
-		views.textContent = `Views: ${data.views[i]}`;
-		list.appendChild(views);
-
-		container.appendChild(list);
-		ctx.appendChild(container);
+		ctx.textContent += ` In ${label}, there were ${data.nrOfAttendees[i]} attendees, the price was ${data.prices[i]} euro and there were ${data.views[i]} views.`;
 	});
 }
 
