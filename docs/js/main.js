@@ -15,7 +15,7 @@ async function initApp() {
 	const splash = new Promise((resolve) => setTimeout(resolve, 3600));
 
 	try {
-		const countries = fetchCountries();
+		const countries = [];
 		const data = await fetchData();
 		if (!data) throw new Error('No data');
 
