@@ -18,7 +18,7 @@ async function fetchData() {
 		const data = await result.json();
 
 		const willFail =
-			window.location.protocol === 'https:' && Math.random() < 1.1;
+			window.location.protocol === 'https:' && Math.random() < 1;
 		if (willFail) throw new Error('Oops! Something went wrong...');
 
 		console.debug('Data fetched', data);
