@@ -11,15 +11,15 @@
  * talks: {video: {'youtube-id': string; views: number} | false}[]
  * }> | null>} The data
  */
-async function fetchData() {
+async function fetchData(url) {
 	try {
 		console.debug('Fetching data...');
-		const result = await fetch('https://cssday.nl/data.json');
+		const result = await fetch(url);
 		const data = await result.json();
 
-		const willFail =
-			window.location.protocol === 'https:' && Math.random() < 1;
-		if (willFail) throw new Error('Oops! Something went wrong...');
+		// const willFail =
+		// 	window.location.protocol === 'https:' && Math.random() < 1;
+		// if (willFail) throw new Error('Oops! Something went wrong...');
 
 		console.debug('Data fetched', data);
 		return data;
