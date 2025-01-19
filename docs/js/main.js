@@ -19,7 +19,7 @@ async function initApp() {
 		let data = await fetchData('https://cssday.nl/data.json');
 
 		if (!data) {
-			data = await fetchData('/data/data.json');
+			data = await fetchData('data/data.json');
 			if (!data) {
 				throw new Error('No data (even from local files)');
 			}
