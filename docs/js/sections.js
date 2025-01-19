@@ -58,7 +58,12 @@ function cloneInfoSections(year, info, data, countries) {
 
 	data[year].mc.forEach((singleMc, index) => {
 		const img = document.createElement('img');
-		img.src = 'images/dummy-portrait.jpg'; // Use singleMc.avatar if available, otherwise use a default image // Commented out: singleMc.avatar because of the expired data
+		if (singleMc.avatar) {
+			singleMc.avatar = singleMc.avatar.replace('https://cssday.nl/', '');
+			img.src = singleMc.avatar;
+		} else {
+			img.src = 'images/dummy-portrait.jpg';
+		}
 		img.alt = '';
 
 		const name = document.createElement('a');
