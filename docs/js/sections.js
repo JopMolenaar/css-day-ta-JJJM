@@ -58,7 +58,7 @@ function cloneInfoSections(year, info, data, countries) {
 
 	data[year].mc.forEach((singleMc, index) => {
 		const img = document.createElement('img');
-		img.src = singleMc.avatar || 'images/dummy-portrait.jpg'; // Use singleMc.avatar if available, otherwise use a default image
+		img.src = 'images/dummy-portrait.jpg'; // Use singleMc.avatar if available, otherwise use a default image // Commented out: singleMc.avatar because of the expired data
 		img.alt = '';
 
 		const name = document.createElement('a');
