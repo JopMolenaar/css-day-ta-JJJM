@@ -59,7 +59,10 @@ function cloneInfoSections(year, info, data, countries) {
 	data[year].mc.forEach((singleMc, index) => {
 		const img = document.createElement('img');
 		if (singleMc.avatar) {
-			singleMc.avatar = singleMc.avatar.replace('https://cssday.nl/', '');
+			singleMc.avatar = singleMc.avatar.replace(
+				'https://cssday.nl/',
+				'docs/'
+			);
 			img.src = singleMc.avatar;
 		} else {
 			img.src = 'images/dummy-portrait.jpg';
